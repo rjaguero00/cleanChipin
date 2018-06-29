@@ -86,10 +86,16 @@ class UserSignUp extends React.Component {
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" input />
                             </div>
-                            <button onClick={this.submitUserSignUp}>Submit</button>
+                            <button
+                                className="btn btn-success"
+                                onClick={this.submitUserSignUp}>Submit
+                            </button>
                         </form>
                     </div>
-                    <button onClick={this.closeModal}>close</button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={this.closeModal}>Close
+                    </button>
 
 
                 </Modal>
