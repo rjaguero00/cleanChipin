@@ -66,11 +66,12 @@ class CreateEventsModal extends React.Component {
                     contentLabel="Example Modal"
                 >
 
-                    <h2 ref={subtitle => this.subtitle = subtitle}>Post an Event!</h2>
+                <h2 ref={subtitle => this.subtitle = subtitle}>Post an Event!</h2>
 
-                    <Form />
+                <Form
+                    onRequestClose={this.closeModal} />
 
-                    <button onClick={this.closeModal}>close</button>
+                <button onClick={this.closeModal}>close</button>
 
 
                 </Modal>
