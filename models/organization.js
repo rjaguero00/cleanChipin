@@ -15,11 +15,11 @@ module.exports = function (sequelize, DataTypes) {
             }
         }
     });
-    Organization.associate = function (models) {
-        Organization.hasMany(models.Activity, {
-            onDelete: "cascade"
-        });
-        Organization.hasOne(models.User_Event_Bridge);
-    };
+    // Organization.associate = function (models) {
+    //     Organization.hasMany(models.Activity, {
+    //         onDelete: "cascade"
+    //     });
+    //     Organization.hasOne(models.User_Event_Bridge);
+    // };
     return Organization;
 }
