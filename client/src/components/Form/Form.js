@@ -27,7 +27,7 @@ class Form extends Component {
                 contact: this.state.contact,
                 address: this.state.address
             })
-                .then(res => console.log(res))
+                .then(this.props.onRequestClose)
                 .catch(err => console.log(err));
         }
     };
