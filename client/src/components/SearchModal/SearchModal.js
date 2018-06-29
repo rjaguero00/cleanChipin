@@ -74,8 +74,7 @@ class SearchModal extends React.Component {
             <div>
                 <button
                     className="btn btn-primary"
-                    onClick={this.openModal}>
-                        Map
+                    onClick={this.openModal}>Map
                 </button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
@@ -99,8 +98,7 @@ class SearchModal extends React.Component {
                     />
                     <button
                         className="btn btn-danger"
-                        onClick={this.closeModal}>
-                            Close
+                        onClick={this.closeModal}>Close
                     </button>
 
 

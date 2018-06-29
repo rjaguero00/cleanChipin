@@ -88,15 +88,13 @@ class LoginModal extends React.Component {
                             </div>
                             <button 
                                 className="btn btn-success"
-                                onClick={this.submitLogin}>
-                                    Submit
+                                onClick={this.submitLogin}>Submit
                             </button>
                         </form>
                     </div>
                     <button
                         className="btn btn-danger"
-                        onClick={this.closeModal}>
-                            Close
+                        onClick={this.closeModal}>Close
                     </button>
 
 

@@ -81,8 +81,7 @@ class CreateEventsModal extends React.Component {
 
                         <button
                             className="btn btn-danger"
-                            onClick={this.closeModal}>
-                            Close
+                            onClick={this.closeModal}>Close
                         </button>
                 </Modal>
             </div>

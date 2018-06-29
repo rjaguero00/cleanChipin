@@ -88,15 +88,13 @@ class OrgSignUp extends React.Component {
                             </div>
                             <button
                                 className="btn btn-success"
-                                onClick={this.submitOrgSignUp}>
-                                    Submit
+                                onClick={this.submitOrgSignUp}>Submit
                             </button>
                         </form>
                     </div>
                     <button 
                         className="btn btn-danger"
-                        onClick={this.closeModal}>
-                            Close
+                        onClick={this.closeModal}>Close
                     </button>
                 </Modal>
             </div>
