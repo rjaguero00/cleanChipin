@@ -29,11 +29,11 @@ module.exports = function (sequelize, DataTypes) {
 
     });
 
-    User.associate = function (models) {
-        User.hasMany(models.activity, {
-            onDelete: "cascade"
-        });
-    //     User.hasOne(models.User_Event_Bridge);
-    };
+    // User.associate = function (models) {
+    //     User.hasMany(models.activity, {
+    //         onDelete: "cascade"
+    //     });
+    // //     User.hasOne(models.User_Event_Bridge);
+    // };
     return User;
 }
