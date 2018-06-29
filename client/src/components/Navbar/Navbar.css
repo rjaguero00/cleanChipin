@@ -1,0 +1,9 @@
+nav.navbar.navbar-default {
+  margin-bottom: 0;
+}
+.navbar-nav{
+  text-align: center;
+}
+.bg-light {
+    background-color: lightgrey!important;
+}
