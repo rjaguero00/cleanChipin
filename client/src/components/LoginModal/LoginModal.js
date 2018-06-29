@@ -11,7 +11,7 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '600px',
-        height: '400px'
+        height: '400px',
     },
     overlay: {
         position: 'absolute',
@@ -86,10 +86,18 @@ class LoginModal extends React.Component {
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" input />
                             </div>
-                            <button onClick={this.submitLogin}>Submit</button>
+                            <button 
+                                className="btn btn-success"
+                                onClick={this.submitLogin}>
+                                    Submit
+                            </button>
                         </form>
                     </div>
-                    <button onClick={this.closeModal}>close</button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={this.closeModal}>
+                            Close
+                    </button>
 
 
                 </Modal>
