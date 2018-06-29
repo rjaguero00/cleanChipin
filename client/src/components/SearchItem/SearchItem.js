@@ -33,7 +33,7 @@ class SearchItem extends Component {
                     body={this.props.body}
                     contact={this.props.contact}
                     location={this.props.location} 
-                    hours={this.props.hours}>{this.state.modalIsOpen}</SearchModal>                
+                    hours={this.props.hours}></SearchModal>                
                 </div>
             </div>
         )
