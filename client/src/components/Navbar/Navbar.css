@@ -1,9 +1,9 @@
 nav.navbar.navbar-default {
-  margin-bottom: 0;
+  margin-bottom: 10;
 }
 .navbar-nav{
   text-align: center;
 }
 .bg-light {
-    background-color: lightgrey!important;
+    background-color: #2176AE!important;
 }
