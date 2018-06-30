@@ -35,6 +35,15 @@ module.exports = {
             console.log("Item has beend deleted");
             res.redirect("/dashbooard")
         })
+    },
+    // SAVES VOLUNTEER ACTIVITY IN USER'S SAVED LIST TABLE
+    saveActivity: function (req, res) {
+
+    },
+    // SAVES VOLUNTEER ACTIVITY IN THE USER'S ATTENDING LIST TABLE
+    saveAttending: function (req, res) {
+
     }
+
 }
 
