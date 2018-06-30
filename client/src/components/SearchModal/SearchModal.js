@@ -48,7 +48,7 @@ class SearchModal extends React.Component {
         return (
             <div>
                 <button
-                    className="btn btn-primary"
+                    className="mapbutton"
                     onClick={this.openModal}>Map
                 </button>
                 <Modal

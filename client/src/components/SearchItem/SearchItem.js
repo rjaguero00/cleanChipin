@@ -18,6 +18,7 @@ class SearchItem extends Component {
 
     // Save/Favorite volunteer activity
     saveActivity = (event) => {
+        event.preventDefault();
         const activityData = {
             title: this.props.title,
             body: this.props.body,
@@ -29,6 +30,20 @@ class SearchItem extends Component {
         // Call axios api with activity data to store in database
         API.saveActivity(activityData);
         
+    }
+
+    // Save a volunteer activity as one the user is attending
+    saveAttending = (event) => {
+        event.preventDefault();
+        const attendingData = {
+            title: this.props.title,
+            body: this.props.body,
+            contact: this.props.contact,
+            location: this.props.location,
+            hours: this.props.hours
+        }
+        console.log(attendingData);
+        API.saveAttending(attendingData);
     }
 
 
@@ -58,6 +73,7 @@ class SearchItem extends Component {
                     <p className="card-text">Contact: {this.props.contact}</p>
                     <p className="card-text">Location: {this.props.location}</p>
                     <p className="card-text">Hours: {this.props.hours}</p>
+                    <button onClick={this.saveAttending} className="btn btn-primary">Attend</button>
                     <button onClick={this.saveActivity} className="btn btn-primary">Save</button>
                     <SearchModal 
                     title={this.props.title}
