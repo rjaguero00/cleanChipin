@@ -50,14 +50,14 @@ module.exports = function (sequelize, DataTypes) {
     Activity.associate = function (models) {
         Activity.belongsTo(models.User, {
 
-        // });
-        // Activity.hasMany(models.User, {
-        //     foreignKey: {
-        //         allowNull: false
-        //     }
 
-         });
-        Activity.belongsTo(models.User_Event_Bridge,);
+            // Activity.hasMany(models.User, {
+            //     foreignKey: {
+            //         allowNull: false
+            //     }
+
+        });
+        Activity.belongsTo(models.User_Event_Bridge);
     };
 
     return Activity;
