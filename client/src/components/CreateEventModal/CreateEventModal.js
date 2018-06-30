@@ -13,6 +13,14 @@ const customStyles = {
         transform: 'translate(-50%, -50%)',
         width: '800px',
         height: '500px'
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: 'rgba(0,0,0,0.5)'
     }
 };
 
@@ -66,14 +74,15 @@ class CreateEventsModal extends React.Component {
                     contentLabel="Example Modal"
                 >
 
-                <h2 ref={subtitle => this.subtitle = subtitle}>Post an Event!</h2>
+                    <h2 ref={subtitle => this.subtitle = subtitle}>Post an Event!</h2>
 
-                <Form
-                    onRequestClose={this.closeModal} />
+                    <Form
+                        onRequestClose={this.closeModal} />
 
-                <button onClick={this.closeModal}>close</button>
-
-
+                        <button
+                            className="btn btn-danger"
+                            onClick={this.closeModal}>Close
+                        </button>
                 </Modal>
             </div>
         );

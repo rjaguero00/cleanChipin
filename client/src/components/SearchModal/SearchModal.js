@@ -72,7 +72,10 @@ class SearchModal extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.openModal}>Map</button>
+                <button
+                    className="btn btn-primary"
+                    onClick={this.openModal}>Map
+                </button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
@@ -93,7 +96,10 @@ class SearchModal extends React.Component {
                         lng={this.state.lng}
                         center={this.state.location}
                     />
-                    <button onClick={this.closeModal}>close</button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={this.closeModal}>Close
+                    </button>
 
 
                 </Modal>
