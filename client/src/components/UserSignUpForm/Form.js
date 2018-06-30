@@ -15,12 +15,13 @@ class Form extends Component {
     };
     handleFormSubmit = event => {
         event.preventDefault();
+        console.log("save button pushed");
         if (this.state.email && this.state.password) {
             API.postUser({
                 email: this.state.email,
                 password: this.state.password
-            })
-                .then(this.props.onRequestClose)
+            }).then(res => (this.state.email))
+                // .then(this.props.onRequestClose)
                 .catch(err => console.log(err));
         }
     };

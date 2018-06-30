@@ -9,6 +9,8 @@ var bcrypt = require('bcrypt-nodejs');
 
 //Post to login
 router.post('/register', function (req, res) {
+    console.log("req at routes was:");
+    console.log(req.body.email);
     if (!req.body.email || !req.body.password) {
         res.json({ success: false, msg: 'Please pass email, full name and password.' });
     } else {
@@ -18,26 +20,28 @@ router.post('/register', function (req, res) {
                 email: req.body.email
             }
         }).then(function () {
-            if (user) {
-                return res.json({ success: true, msg: 'Email already exist.' });
-            }
+            // if (User) {
+            //     return res.json({ success: true, msg: 'Email already exist.' });
+            // }
 
-            var newUser = new User({
+            var newUser = {
                 // firstName: req.body.firstName,
                 // lastName: req.body.lastName,
                 password: req.body.password,
                 email: req.body.email,
                 //imageString: req.body.image
-            });
+            };
 
-            // save the user
+            // // save the user
             db.User.create(newUser)
                 .then(function (user) {
                     if (!user) {
+                        console.log("user created")
                         return res.json({ success: true, msg: 'Successful created new user.' });
                     }
                 })
                 .catch(function (err) {
+                    console.log("error: user was not posted to db")
                     return res.json({ success: false, msg: 'Something went wrong' });
                 })
         })
