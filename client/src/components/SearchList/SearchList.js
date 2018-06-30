@@ -12,7 +12,7 @@ const SearchList = ({ children }) =>
                         title={activity.title} 
                         body={activity.body} 
                         contact={activity.contact} 
-                        location={activity.location} 
+                        location={activity.address} 
                         hours={activity.hours} />
                     )
                 }) :
