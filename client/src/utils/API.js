@@ -40,7 +40,14 @@ export default {
   },
   //Post Events router
   postEvent: function (activityData, err) {
+<<<<<<< HEAD
+    console.log("I got to the utils/api part!")
+    console.log("activity data sent: ");
+    console.log(activityData);
+    if (err) {
+=======
     if (err){
+>>>>>>> 49924f5a93f56d40c0c0f805a1e55cbdb8af4ef9
       console.log(err);
     }
     return axios.post("/api/activitiesRoutes", activityData);
@@ -50,7 +57,7 @@ export default {
     return axios.post("/api/organization");
   },
   //Post User
-  postUser: function () {
-    return axios.post("/api/user");
+  postUser: function (email, password) {
+    return axios.post("/api/auth/register");
   }
 };
