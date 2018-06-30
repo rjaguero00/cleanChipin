@@ -79,31 +79,7 @@ class UserSignUp extends React.Component {
                     <Form
                         onRequestClose={this.closeModal} />
 
-<<<<<<< HEAD
                     <button onClick={this.closeModal}>close</button>
-=======
-                    <div>
-                        <form>
-                            <div className="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" input />
-                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" input />
-                            </div>
-                            <button
-                                className="btn btn-success"
-                                onClick={this.submitUserSignUp}>Submit
-                            </button>
-                        </form>
-                    </div>
-                    <button
-                        className="btn btn-danger"
-                        onClick={this.closeModal}>Close
-                    </button>
->>>>>>> 49924f5a93f56d40c0c0f805a1e55cbdb8af4ef9
 
 
                 </Modal>
