@@ -1,5 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
+import CreateEventsModal from "../CreateEventModal";
 
 const Sidebar = () => (
     <nav id="sidebar">
@@ -24,6 +25,7 @@ const Sidebar = () => (
                     </li>
                 </ul>
             </li> */}
+            <CreateEventsModal />
             <li>
                 <a href="">Post Events</a>
                 <a href="">Saved Events</a>

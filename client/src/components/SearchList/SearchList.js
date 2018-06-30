@@ -2,7 +2,8 @@ import React from 'react';
 import SearchItem from '../SearchItem'
 
 const SearchList = ({ children }) =>
-    <div id="searchList" className="card">
+    <div id="searchList" className="search-List">
+        <h5 className="header">Results</h5>
         <div className="card-body">
             {children[0] ?
                 children.slice(0,20).map(activity => {

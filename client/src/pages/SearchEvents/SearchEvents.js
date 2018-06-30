@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import SButton from '../../components/SButton/SButton';
 import Sidebar from '../../components/Sidebar';
 import Wrapper from '../../components/Wrapper';
-import SearchModal from '../../components/SearchModal';
 import SearchList from '../../components/SearchList';
 import API from '../../utils/API.js';
 import "./SearchEvents.css"
@@ -48,20 +46,19 @@ class SearchEvents extends Component {
         return (
             <Wrapper>
                 <Sidebar />
-                <div>
+                {/* <div>
                     <SButton />
-                </div>
+                </div> */}
 
                 <div className="mx-auto">
-                    <h5 className="header">Results</h5>
                     <SearchList>{this.state.results}</SearchList>
-                    <SearchModal         
+                    {/* <SearchModal         
                         title={this.state.title}
                         body={this.state.body}
                         contact={this.state.contact}
                         location={this.state.location}
                         hours={this.state.hours}>
-                    </SearchModal>  
+                    </SearchModal>   */}
                 </div>
 
 
