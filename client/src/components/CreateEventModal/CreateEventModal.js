@@ -13,6 +13,14 @@ const customStyles = {
         transform: 'translate(-50%, -50%)',
         width: '800px',
         height: '500px'
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: 'rgba(0,0,0,0.5)'
     }
 };
 
@@ -70,10 +78,17 @@ class CreateEventsModal extends React.Component {
 
                     <Form
                         onRequestClose={this.closeModal} />
+<<<<<<< HEAD
 
                     <button onClick={this.closeModal}>close</button>
 
+=======
+>>>>>>> 49924f5a93f56d40c0c0f805a1e55cbdb8af4ef9
 
+                        <button
+                            className="btn btn-danger"
+                            onClick={this.closeModal}>Close
+                        </button>
                 </Modal>
             </div>
         );

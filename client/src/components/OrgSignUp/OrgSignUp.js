@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import API from "../../utils/API.js";
 
@@ -12,7 +11,15 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '600px',
-        height: '400px'
+        height: '400px',
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: 'rgba(0,0,0,0.5)'
     }
 };
 
@@ -79,12 +86,16 @@ class OrgSignUp extends React.Component {
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" input />
                             </div>
-                            <button onClick={this.submitOrgSignUp}>Submit</button>
+                            <button
+                                className="btn btn-success"
+                                onClick={this.submitOrgSignUp}>Submit
+                            </button>
                         </form>
                     </div>
-                    <button onClick={this.closeModal}>close</button>
-
-
+                    <button 
+                        className="btn btn-danger"
+                        onClick={this.closeModal}>Close
+                    </button>
                 </Modal>
             </div>
         );

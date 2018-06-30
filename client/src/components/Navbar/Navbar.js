@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import OrgSignUp from "../OrgSignUp";
+import UserSignUp from "../UserSignUp";
+import LoginModal from "../LoginModal";
 import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-light">
         <Link className="navbar-brand" to="/">
             Chipin
         </Link>
@@ -13,6 +16,9 @@ const Navbar = props => (
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul className="navbar-nav">
+                <OrgSignUp />
+                <LoginModal />
+                <UserSignUp />
                 <li
                     className={
                         window.location.pathname === "/" ||
