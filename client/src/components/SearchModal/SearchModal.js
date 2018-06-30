@@ -47,7 +47,10 @@ class SearchModal extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.openModal}>Map</button>
+                <button
+                    className="btn btn-primary"
+                    onClick={this.openModal}>Map
+                </button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
@@ -67,7 +70,10 @@ class SearchModal extends React.Component {
                         lat={this.props.lat}
                         lng={this.props.lng}
                     />
-                    <button onClick={this.closeModal}>close</button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={this.closeModal}>Close
+                    </button>
 
 
                 </Modal>
