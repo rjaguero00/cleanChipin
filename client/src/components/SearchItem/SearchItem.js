@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import API from '../../utils/API.js';
+import Geocode from "react-geocode";
 import SearchModal from '../SearchModal/SearchModal.js';
 
-class SearchItem extends Component {
+// set Google Maps Geocoding API 
+Geocode.setApiKey("AIzaSyCqQDw0OBij-vioCfgLN0eTDS12Q_sYbJw");
 
+// Enable or disable logs. Its optional.
+Geocode.enableDebug();
+
+class SearchItem extends Component {
+    //Map lattitude and longitude State
+    state = {
+        lat: "",
+        lng: ""
+    };
+
+    // Save/Favorite volunteer activity
     saveActivity = (event) => {
         const activityData = {
             title: this.props.title,
@@ -13,9 +26,27 @@ class SearchItem extends Component {
             hours: this.props.hours
         }
         console.log(activityData);
+        // Call axios api with activity data to store in database
         API.saveActivity(activityData);
+        
     }
 
+
+    componentDidMount(){
+        // Convert address from database into latitude and longitude with react-geocode package in order for google maps api to use
+        Geocode.fromAddress(this.props.location).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                // set the Map State with lat and lng results 
+                this.setState({ lat: lat })
+                this.setState({ lng: lng })
+            },
+            error => {
+                console.error(error);
+            }
+        );
+    
+    }
 
     render() {
         return (
@@ -33,7 +64,9 @@ class SearchItem extends Component {
                     body={this.props.body}
                     contact={this.props.contact}
                     location={this.props.location} 
-                    hours={this.props.hours}></SearchModal>                
+                    hours={this.props.hours}
+                    lat={this.state.lat}
+                    lng={this.state.lng}></SearchModal>                
                 </div>
             </div>
         )
