@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import API from "../../utils/API.js";
+import Form from "../UserSignUpForm";
 
 const customStyles = {
     content: {
@@ -64,7 +65,7 @@ class UserSignUp extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.openModal}>User Sign Up</button>
+                <button onClick={this.openModal}>Sign ups</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
@@ -73,8 +74,14 @@ class UserSignUp extends React.Component {
                     contentLabel="Example Modal"
                 >
 
-                    <h2 ref={subtitle => this.subtitle = subtitle}>Please Join</h2>
+                    <h2 ref={subtitle => this.subtitle = subtitle}>Sign up for Chipin!</h2>
 
+                    <Form
+                        onRequestClose={this.closeModal} />
+
+<<<<<<< HEAD
+                    <button onClick={this.closeModal}>close</button>
+=======
                     <div>
                         <form>
                             <div className="form-group">
@@ -96,6 +103,7 @@ class UserSignUp extends React.Component {
                         className="btn btn-danger"
                         onClick={this.closeModal}>Close
                     </button>
+>>>>>>> 49924f5a93f56d40c0c0f805a1e55cbdb8af4ef9
 
 
                 </Modal>
