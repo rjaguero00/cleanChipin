@@ -78,16 +78,10 @@ class CreateEventsModal extends React.Component {
 
                     <Form
                         onRequestClose={this.closeModal} />
-<<<<<<< HEAD
 
-                    <button onClick={this.closeModal}>close</button>
-
-=======
->>>>>>> 49924f5a93f56d40c0c0f805a1e55cbdb8af4ef9
-
-                        <button
-                            className="btn btn-danger"
-                            onClick={this.closeModal}>Close
+                    <button
+                        className="btn btn-danger"
+                        onClick={this.closeModal}>Close
                         </button>
                 </Modal>
             </div>
