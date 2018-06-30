@@ -26,7 +26,7 @@ export default {
     console.log("I got to the utils/api part!")
     console.log("activity data sent: ");
     console.log(activityData);
-    if (err){
+    if (err) {
       console.log(err);
     }
     return axios.post("/api/activitiesRoutes", activityData);
@@ -36,7 +36,7 @@ export default {
     return axios.post("/api/organization");
   },
   //Post User
-  postUser: function () {
-    return axios.post("/api/user");
+  postUser: function (email, password) {
+    return axios.post("/api/auth/register");
   }
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import API from "../../utils/API.js";
+import Form from "../UserSignUpForm";
 
 const customStyles = {
     content: {
@@ -57,7 +58,7 @@ class UserSignUp extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.openModal}>User Sign Up</button>
+                <button onClick={this.openModal}>Sign ups</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
@@ -66,22 +67,11 @@ class UserSignUp extends React.Component {
                     contentLabel="Example Modal"
                 >
 
-                    <h2 ref={subtitle => this.subtitle = subtitle}>Please Join</h2>
+                    <h2 ref={subtitle => this.subtitle = subtitle}>Sign up for Chipin!</h2>
 
-                    <div>
-                        <form>
-                            <div className="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" input />
-                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" input />
-                            </div>
-                            <button onClick={this.submitUserSignUp}>Submit</button>
-                        </form>
-                    </div>
+                    <Form
+                        onRequestClose={this.closeModal} />
+
                     <button onClick={this.closeModal}>close</button>
 
 

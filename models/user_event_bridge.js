@@ -10,8 +10,9 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     User_Event_Bridge.associate = function (models) {
-        User_Event_Bridge.hasMany(models.activity),
-            User_Event_Bridge.hasMany(models.User)
+        // User_Event_Bridge.hasMany(models.Activity),
+        User_Event_Bridge.hasMany(models.User)
+        User_Event_Bridge.hasOne(models.Activity)
     };
     return User_Event_Bridge;
 }

@@ -52,12 +52,13 @@ module.exports = function (sequelize, DataTypes) {
 
 
         });
-        Activity.hasMany(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-        Activity.hasOne(models.User_Event_Bridge);
+        // Activity.hasMany(models.User, {
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+
+        // });
+        // Activity.belongsTo(models.User_Event_Bridge,);
     };
     return Activity;
 };
