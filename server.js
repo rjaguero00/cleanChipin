@@ -21,10 +21,8 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ 'extended': 'false' }));
 // parse application/json
 app.use(bodyParser.json());
-// app.use(routes);
-// app.use('/auth', auth);
-app.use('/api', apiRoutes);
 app.use(routes);
+
 
 //static directory
 app.use(express.static(path.join(__dirname, 'build')));
