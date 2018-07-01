@@ -51,6 +51,10 @@ export default {
   },
   //Post User
   postUser: function (userData, err) {
-    return axios.post("/api/auth/register", userData);
+    if (err) {
+      console.log(err);
+    }
+    console.log("arrived at utils api")
+    return axios.post("/auth/register", userData);
   }
 };
