@@ -24,7 +24,7 @@ module.exports = {
         }).then(function (data) {
             console.log("I posted the activity to the Activity table!");
             res.json(data);
-            
+
         })
     },
     // DELETES VOLUNTEER ACTIVITY FROM DATABASE - USED BY VOLUNTEER ACTIVITY CREATORS
@@ -33,7 +33,7 @@ module.exports = {
             where: { id: req.body.id }
         }).then(function (data) {
             console.log("Item has beend deleted");
-            res.redirect("/dashbooard")
+            res.redirect("/dashboard")
         })
     },
     // SAVES VOLUNTEER ACTIVITY IN USER'S SAVED LIST TABLE

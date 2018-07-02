@@ -7,8 +7,10 @@ var jwt = require('jsonwebtoken');
 var router = express.Router();
 var bcrypt = require('bcrypt-nodejs');
 
+
 //Post to login
 router.post('/register', function (req, res) {
+    // console.log(req);
     if (!req.body.email || !req.body.password) {
         res.json({ success: false, msg: 'Please pass email, full name and password.' });
     } else {
@@ -18,17 +20,17 @@ router.post('/register', function (req, res) {
                 email: req.body.email
             }
         }).then(function () {
-            if (user) {
-                return res.json({ success: true, msg: 'Email already exist.' });
-            }
+            // if (user) {
+            //     return res.json({ success: true, msg: 'Email already exist.' });
+            // }
 
-            var newUser = new User({
+            var newUser = {
                 // firstName: req.body.firstName,
                 // lastName: req.body.lastName,
                 password: req.body.password,
                 email: req.body.email,
                 //imageString: req.body.image
-            });
+            };
 
             // save the user
             db.User.create(newUser)
