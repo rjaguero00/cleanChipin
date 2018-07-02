@@ -54,6 +54,7 @@ export default {
     if (err) {
       console.log(err);
     }
+    console.log("arrived at utils api")
     return axios.post("/auth/register", userData);
   }
 };

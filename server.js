@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({ 'extended': 'false' }));
 app.use(bodyParser.json());
 app.use(routes);
 
-app.use('/api', apiRoutes);
 
 //static directory
 app.use(express.static(path.join(__dirname, 'build')));

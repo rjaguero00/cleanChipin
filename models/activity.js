@@ -51,7 +51,6 @@ module.exports = function (sequelize, DataTypes) {
         Activity.belongsTo(models.User, {
 
 
-
             // Activity.hasMany(models.User, {
             //     foreignKey: {
             //         allowNull: false
@@ -60,5 +59,6 @@ module.exports = function (sequelize, DataTypes) {
         });
         Activity.belongsTo(models.User_Event_Bridge);
     };
+
     return Activity;
 };
