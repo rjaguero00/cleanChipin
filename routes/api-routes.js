@@ -3,35 +3,36 @@ var router = express.Router();
 var db = require('../models');
 var passport = require('passport');
 require('../config/passport')(passport);
+var jwt = require('jsonwebtoken');
 
 
-router.get('/', passport.authenticate('jwt', { session: false }), function (req, res, next) {
+router.post('/logincheck', passport.authenticate('jwt', { session: false }), function (req, res, next) {
     var token = getToken(req.headers);
     if (token) {
         db.User.findAll({})
             .then(function (user) {
-                res.json(user)
-            });
-        // .catch(function (error) {
-
-        // })
-    }
+                return res.json({success: true, user: { id: req.user.dataValues.id } });
+            })
+            .catch(function (err) {
+                return res.json({success: false, msg: "Not Authorized!"});
+            })
+        }
 });
 
-router.post('/', passport.authenticate('jwt', { session: false }), function (req, res, next) {
-    var token = getToken(req.headers);
-    if (token) {
-        // TODO: Validate req.body.
-        const newUser = req.body;
-        db.User.create(req.body)
-            .then(function (result) {
-                console.log(result);
-            });
-        // .catch(function (error) {
+// router.post('/', passport.authenticate('jwt', { session: false }), function (req, res, next) {
+//     var token = getToken(req.headers);
+//     if (token) {
+//         // TODO: Validate req.body.
+//         const newUser = req.body;
+//         db.User.create(req.body)
+//             .then(function (result) {
+//                 console.log(result);
+//             });
+//         // .catch(function (error) {
 
-        // })
-    }
-});
+//         // })
+//     }
+// });
 
 getToken = function (headers) {
     if (headers && headers.authorization) {

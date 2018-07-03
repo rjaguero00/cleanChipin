@@ -52,9 +52,9 @@ module.exports = function (sequelize, DataTypes) {
 
 
             // Activity.hasMany(models.User, {
-            //     foreignKey: {
-            //         allowNull: false
-            //     }
+                foreignKey: {
+                    allowNull: false
+                }
 
         });
         Activity.belongsTo(models.User_Event_Bridge);
