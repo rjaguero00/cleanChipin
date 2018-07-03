@@ -34,9 +34,17 @@ export default {
   // saveActivity: function (activityData) {
   //   return axios.post("/api/activities", activityData);
   // },
-  //Login route
-  getUserLogin: function () {
-    return axios.get("/api/users");
+  // Login route
+  getUserLogin: function (loginData) {
+    return axios.post("/auth/userlogin", loginData);
+  },
+  
+  // Get active/logged-in user
+  activeUser: function () {
+    // console.log(localStorage.getItem('jwtToken'));
+    // store jwt token in axios default headers for request
+    axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+    return axios.post("/jwt/logincheck");
   },
   //Post Events router
   postEvent: function (activityData, err) {
