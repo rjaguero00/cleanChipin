@@ -11,7 +11,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '600px',
+        width: '350px',
         height: '400px',
     },
     overlay: {
@@ -79,7 +79,9 @@ class LoginModal extends React.Component {
                     <Form
                         onRequestClose={this.closeModal} />
 
-                    <button onClick={this.closeModal}>close</button>
+                    <button
+                        className="btn btn-danger"
+                        onClick={this.closeModal}>Close</button>
 
 
                 </Modal>

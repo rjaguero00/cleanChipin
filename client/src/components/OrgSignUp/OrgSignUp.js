@@ -10,7 +10,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '600px',
+        width: '350',
         height: '400px',
     },
     overlay: {
