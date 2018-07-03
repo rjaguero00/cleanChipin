@@ -1,9 +1,13 @@
-nav.navbar.navbar-default {
-  margin-bottom: 10;
-}
 .navbar-nav{
   text-align: center;
 }
 .bg-light {
     background-color: #2176AE!important;
+    padding: 0px;
+}
+#logo {
+  height: 75px;
+  width: 80px;
+  margin: 5px 0px 0px 10px;
+  padding: 0px
 }

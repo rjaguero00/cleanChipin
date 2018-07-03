@@ -11,7 +11,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '800px',
+        width: '350px',
         height: '500px'
     },
     overlay: {
@@ -50,17 +50,17 @@ class CreateEventsModal extends React.Component {
     closeModal() {
         this.setState({ modalIsOpen: false });
     }
-    submitEvent = event => {
-        event.preventDefault();
-        API.postEvent(this.state.search)
-            .then(res => {
-                if (res.data.status === "error") {
-                    throw new Error(res.data.message);
-                }
-                this.setState({ results: res.data.message, error: " " });
-            })
-            .catch(err => this.setState({ error: err.message }));
-    }
+    // submitEvent = event => {
+    //     event.preventDefault();
+    //     API.postEvent(this.state.search)
+    //         .then(res => {
+    //             if (res.data.status === "error") {
+    //                 throw new Error(res.data.message);
+    //             }
+    //             this.setState({ results: res.data.message, error: " " });
+    //         })
+    //         .catch(err => this.setState({ error: err.message }));}
+    
 
     render() {
         return (
