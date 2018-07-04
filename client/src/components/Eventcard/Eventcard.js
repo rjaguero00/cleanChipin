@@ -5,10 +5,11 @@ const Eventcard = () => (
 
     <div className="card">
         <div className="card-body">
-            <h5 className="card-title">Event title</h5>
-            <p className="card-text">Description: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p className="card-title">Location: 1234 Wildcat Drive</p>
-            <p className="card-title">Contact: 123-456-7890</p>
+            <h5 className="card-title"><strong>Event Title: </strong><span id="title"></span></h5>
+            <hr/>
+            <p className="card-text"><strong>Description: </strong><span id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </span></p>
+            <p className="card-title"><strong>Location: </strong><span id="location"></span></p>
+            <p className="card-title"><strong>Contact: </strong><span id="contact"></span></p>
             <a href="#" className="btn btn-primary">Not Attending</a>
         </div>
     </div>
