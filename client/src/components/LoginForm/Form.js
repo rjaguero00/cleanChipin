@@ -15,12 +15,15 @@ class Form extends Component {
     };
     handleFormSubmit = event => {
         event.preventDefault();
+        console.log(this.state.email);
+        console.log(this.state.password);
         if (this.state.email && this.state.password) {
-            API.postUser({
+            API.getUserLogin({
                 email: this.state.email,
                 password: this.state.password
             })
-                .then(this.props.onRequestClose)
+                .then(res => localStorage.setItem('jwtToken', res.data.token))
+                // .then(this.props.onRequestClose)
                 .catch(err => console.log(err));
         }
     };

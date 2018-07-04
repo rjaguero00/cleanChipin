@@ -7,8 +7,15 @@ var jwt = require('jsonwebtoken');
 var router = express.Router();
 var bcrypt = require('bcrypt-nodejs');
 
-//Post to login
+// Compare passwords for match
+var comparePassword = function (candidatePassword, password) {
+    return bcrypt.compareSync(candidatePassword, password)
+}
+
+
+//Post to sign up
 router.post('/register', function (req, res) {
+    // console.log(req);
     if (!req.body.email || !req.body.password) {
         res.json({ success: false, msg: 'Please pass email, full name and password.' });
     } else {
@@ -17,7 +24,7 @@ router.post('/register', function (req, res) {
             where: {
                 email: req.body.email
             }
-        // If one exists, return email already exists
+            // If one exists, return email already exists
         }).then(function (user) {
             if (user) {
                 return res.json({ success: false, msg: 'Email already exist.' });
@@ -41,25 +48,51 @@ router.post('/register', function (req, res) {
     }
 });
 
-router.post('/login', function (req, res) {
-    User.findOne({
+// Post to sign in
+router.post('/userlogin', function (req, res) {
+    db.User.findOne({
         where: {
             email: req.body.email
         }
-    }).then(function (err, user) {
-        if (err) throw err;
-
+    }).then(function (user, ) {
         if (!user) {
-            return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
+            res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
         } else {
-            // check if password matches
             const doPasswordsMatch = user.comparePassword(req.body.password, user.password);
             if (!doPasswordsMatch) {
-                return res.status(401).send({ success: false, msg: 'Authentication failed. Wrong Passwprd.' });
+
+                res.status(401).send({ success: false, msg: 'Authentication failed. Wrong Passwprd.' });
+            } else {
+                var token = jwt.sign(user.toJSON(), settings.secret);
+                return res.json({ success: true, token: "jwt " + token });
             }
 
         }
-    });
+    })
+        // Else if err, return error
+        .catch(function (err) {
+            console.log(err);
+            return res.json({ success: false, msg: 'Something went wrong' });
+        })
 });
+
+// Get Active / Logged-in user with jwt
+// router.post('/logincheck', passport.authenticate('jwt', { session: false }), function (req, res) {
+//     console.log("arrived at jwt route");
+//     var token = getToken(req.headers);
+//     if (token) {
+//         console.log(req.user)
+//         res.status(200).send({
+//             success: true,
+//             user: {
+//                 id: req.user.dataValues.id,
+//             }
+//         })
+//     }
+//     else {
+//         return res.status(403).send({ success: false, msg: 'Unauthorized.' });
+//     }
+
+// });
 
 module.exports = router;
