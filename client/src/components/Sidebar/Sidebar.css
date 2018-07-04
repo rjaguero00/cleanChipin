@@ -42,6 +42,7 @@ ul {
     display: block;
     color: white;
 }
+#sidebar .active,
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
