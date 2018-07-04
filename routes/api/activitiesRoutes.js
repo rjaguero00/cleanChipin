@@ -8,6 +8,7 @@ router.route("/")
     .post(activitiesController.saveActivity)
     .post(activitiesController.saveAttending);
 
+
  // Matches with "/api/activitiesRoutes/:id" 
 router.route("/:id")
     .delete(activitiesController.remove)

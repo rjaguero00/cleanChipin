@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import OrgSignUp from "../OrgSignUp";
 import UserSignUp from "../UserSignUp";
 import LoginModal from "../LoginModal";
+import Logo from './Logo.png';
 import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-light">
         <Link className="navbar-brand" to="/">
-            Chipin
+            <img id="logo" src={Logo} alt="logo"/>
         </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

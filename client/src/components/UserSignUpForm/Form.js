@@ -23,7 +23,6 @@ class Form extends Component {
                 password: this.state.password
             })
                 .then(res => this.checkEmail(res))
-                // .then(this.props.onRequestClose)
                 .catch(err => console.log(err));
         }
     };
@@ -41,8 +40,8 @@ class Form extends Component {
                 title,
                 document.getElementById('errormsg')
         );
+        }
     }
-}
     
     render() {
         return (
