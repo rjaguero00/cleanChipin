@@ -8,7 +8,7 @@ const Sidebar = props => (
     <nav id="sidebar">
 
         <ul className="list-unstyled components">
-            <p>Organization/User Name</p> <img src="https://www.alaskapacific.edu/wp-content/uploads/2015/11/placeholder_profile_photo-200x200.png" className="rounded mx-auto d-block" alt="..." />
+            <p><span id="user-name"></span></p> <img src="https://www.alaskapacific.edu/wp-content/uploads/2015/11/placeholder_profile_photo-200x200.png" className="rounded mx-auto d-block" alt="..." />
 
             <CreateEventsModal />
             <li>
@@ -21,7 +21,7 @@ const Sidebar = props => (
         </ul>
 
         <ul>
-            Hours: 0 || Points: 0
+            Hours: <span id="hours"></span> || Points: <span id="points"></span>
         </ul>
     </nav>
 );
