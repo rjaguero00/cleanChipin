@@ -15,6 +15,7 @@ var comparePassword = function (candidatePassword, password) {
 
 //Post to sign up
 router.post('/register', function (req, res) {
+    // console.log(req);
     if (!req.body.email || !req.body.password) {
         res.json({ success: false, msg: 'Please pass email, full name and password.' });
     } else {
@@ -23,7 +24,7 @@ router.post('/register', function (req, res) {
             where: {
                 email: req.body.email
             }
-        // If one exists, return email already exists
+            // If one exists, return email already exists
         }).then(function (user) {
             if (user) {
                 return res.json({ success: false, msg: 'Email already exist.' });
@@ -53,21 +54,21 @@ router.post('/userlogin', function (req, res) {
         where: {
             email: req.body.email
         }
-    }).then(function (user,) {
+    }).then(function (user, ) {
         if (!user) {
             res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
         } else {
             const doPasswordsMatch = user.comparePassword(req.body.password, user.password);
             if (!doPasswordsMatch) {
-               
+
                 res.status(401).send({ success: false, msg: 'Authentication failed. Wrong Passwprd.' });
-            }else{
-                 var token = jwt.sign(user.toJSON(), settings.secret);
+            } else {
+                var token = jwt.sign(user.toJSON(), settings.secret);
                 return res.json({ success: true, token: "jwt " + token });
             }
 
-        } 
-        })
+        }
+    })
         // Else if err, return error
         .catch(function (err) {
             console.log(err);

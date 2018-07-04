@@ -3,8 +3,13 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 350px
+    height: 350px; 
 }
-#jumbo-heading, #jumbo-text {
+#jumbo-heading, #jumbo-text {  
     color: white;
+    font-weight: bold;
+    filter: brightness(100%);
+}
+#jumbo-image {
+   filter: brightness(85%);
 }
