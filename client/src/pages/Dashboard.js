@@ -3,6 +3,8 @@ import Sidebar from "../components/Sidebar"
 import Wrapper from "../components/Wrapper"
 import Eventcard from '../components/Eventcard/Eventcard';
 import SButton from '../components/SButton/SButton';
+import Savedcard from '../components/Savedcard/Savedcard';
+
 
 class Dashboard extends Component {
     state = {
@@ -21,7 +23,7 @@ class Dashboard extends Component {
 
     }
 
-    //Remove an activity that a user is no longer insteaded in
+    //Remove an activity that a user is no longer interested in
     removeSavedActivity = () => {
 
     }
@@ -57,7 +59,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <Eventcard />
+                        <Savedcard />
                     </div>
                 </Wrapper>
             );

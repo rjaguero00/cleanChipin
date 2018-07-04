@@ -1,0 +1,15 @@
+.card {
+    margin-top: 60px;
+    margin-right: 30px;
+    border: none;
+}
+
+.btn {
+    float: right;
+}
+
+.card-body {
+    border: 1px solid #2176AE;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
