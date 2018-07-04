@@ -12,7 +12,8 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '350px',
-        height: '500px'
+        height: '500px',
+        marginTop: '35px'
     },
     overlay: {
         position: 'absolute',
