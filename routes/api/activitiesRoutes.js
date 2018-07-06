@@ -9,7 +9,7 @@ router.route("/")
     .post(activitiesController.saveAttending);
 
 
- // Matches with "/api/activitiesRoutes/:id" 
+// Matches with "/api/activitiesRoutes/:id" 
 router.route("/:id")
     .delete(activitiesController.remove)
 

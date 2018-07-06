@@ -38,7 +38,7 @@ export default {
   getUserLogin: function (loginData) {
     return axios.post("/auth/userlogin", loginData);
   },
-  
+
   // Get active/logged-in user
   activeUser: function () {
     // console.log(localStorage.getItem('jwtToken'));

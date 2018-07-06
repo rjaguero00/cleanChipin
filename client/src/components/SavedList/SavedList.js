@@ -1,15 +1,15 @@
 import React from 'react';
-import SearchItem from '../SearchItem'
+import Savedcard from '../Savedcard';
 
 
-const SearchList = ({ children }) =>
-    <div id="searchList" className="search-List">
+const SavedList = ({ children }) =>
+    <div id="savedList" className="saved-List">
         <h5 className="header text-center">Results</h5>
         <div className="card-body">
             {children[0] ?
                 children.slice(0, 20).map(activity => {
                     return (
-                        <SearchItem
+                        <Savedcard
                             key={activity._id}
                             title={activity.title}
                             body={activity.body}
@@ -23,4 +23,4 @@ const SearchList = ({ children }) =>
         </div>
     </div>;
 
-export default SearchList;
+export default SavedList;
