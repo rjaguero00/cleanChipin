@@ -30,14 +30,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
-        latitude: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        longitude: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
         hours: {
             type: DataTypes.INTEGER,
             allowNull: true
@@ -52,9 +44,9 @@ module.exports = function (sequelize, DataTypes) {
 
 
             // Activity.hasMany(models.User, {
-                foreignKey: {
-                    allowNull: false
-                }
+            foreignKey: {
+                allowNull: false
+            }
 
         });
         Activity.belongsTo(models.User_Event_Bridge);
