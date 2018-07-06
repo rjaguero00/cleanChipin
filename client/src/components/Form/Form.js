@@ -9,11 +9,12 @@ class Form extends Component {
         title: "",
         contact: "",
         body: "",
-        address: ""
+        address: "",
+        hours: 4,
+        points: 4
     };
 
     componentDidMount() {
-        console.log(this.state);
         API.activeUser()
         .then(res => {
             if (res.data.success) {
@@ -42,7 +43,9 @@ class Form extends Component {
                 title: this.state.title,
                 body: this.state.body,
                 contact: this.state.contact,
-                address: this.state.address
+                address: this.state.address,
+                hours: this.state.hours,
+                points: this.state.points
             })
                 .then(this.props.onRequestClose)
                 .catch(err => console.log(err));

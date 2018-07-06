@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Sidebar from '../../components/Sidebar';
-import Wrapper from '../../components/Wrapper';
+import { Col, Row, Container } from "../../components/Grid";
 import SearchList from '../../components/SearchList';
 import API from '../../utils/API.js';
 import "./SearchEvents.css"
@@ -10,6 +9,7 @@ import "./SearchEvents.css"
 class SearchEvents extends Component {
     state = {
         results: [],
+        id: "",
         title: "",
         body:"",
         contact:"",
@@ -23,7 +23,7 @@ class SearchEvents extends Component {
     loadActivities = () => {
         API.getActivities()
             .then(res => {
-                this.setState({ results: res.data, title: "", body:"", contact:"", location:"" })
+                this.setState({ results: res.data, id:"", title:"", body:"", contact:"", location:"" })
             })
             .catch(err => console.log(err));
     };
@@ -44,26 +44,25 @@ class SearchEvents extends Component {
 
     render() {
         return (
-            <Wrapper>
-                <Sidebar />
-                {/* <div>
-                    <SButton />
-                </div> */}
-
-                <div className="mx-auto">
-                    <SearchList>{this.state.results}</SearchList>
-                    {/* <SearchModal         
-                        title={this.state.title}
-                        body={this.state.body}
-                        contact={this.state.contact}
-                        location={this.state.location}
-                        hours={this.state.hours}>
-                    </SearchModal>   */}
-                </div>
-
+            <Container>
+                <Row>
+                    <Col size="md-12 sm-12">
+                        <div className="mx-auto resultsList">
+                            <SearchList>{this.state.results}</SearchList>
+                            {/* <SearchModal         
+                                title={this.state.title}
+                                body={this.state.body}
+                                contact={this.state.contact}
+                                location={this.state.location}
+                                hours={this.state.hours}>
+                            </SearchModal>   */}
+                        </div>
+                    </Col>
+                </Row>
 
 
-            </Wrapper>
+
+            </Container>
         );
     };
 
