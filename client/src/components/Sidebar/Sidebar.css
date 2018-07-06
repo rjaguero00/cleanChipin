@@ -7,6 +7,7 @@ ul {
 }
 
 #sidebar {
+    margin-bottom: -25px;
     min-width: 250px;
     max-width: 250px;
     height: 100vh;
@@ -42,6 +43,7 @@ ul {
     display: block;
     color: white;
 }
+#sidebar .active,
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;

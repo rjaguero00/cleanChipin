@@ -46,7 +46,7 @@ module.exports = {
             where: { id: req.body.id }
         }).then(function (data) {
             console.log("Item has beend deleted");
-            res.redirect("/dashbooard")
+            res.redirect("/dashboard")
         })
     },
     // SAVES VOLUNTEER ACTIVITY IN USER'S SAVED LIST TABLE
