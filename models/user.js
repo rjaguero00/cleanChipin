@@ -45,10 +45,11 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     User.associate = function (models) {
-        User.hasMany(models.Activity, {
-            onDelete: "cascade"
-        });
-        User.belongsTo(models.User_Event_Bridge);
+    //     User.hasMany(models.Activity, {
+    //         onDelete: "cascade"
+    //     });
+    //     User.belongsTo(models.User_Event_Bridge);
+    User.belongsToMany(models.Activity, { through: models.User_Event_Bridge });
     };
     User.prototype.comparePassword = function (textpassword, hashpassword) {
         return bcrypt.compareSync(textpassword, hashpassword);

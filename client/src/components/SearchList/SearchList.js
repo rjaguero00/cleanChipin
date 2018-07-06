@@ -2,7 +2,7 @@ import React from 'react';
 import SearchItem from '../SearchItem'
 
 const SearchList = ({ children }) =>
-    <div id="searchList" className="search-List">
+    <div id="searchList" className="searchList">
         <h5 className="header">Results</h5>
         <div className="card-body">
             {children[0] ?
@@ -10,6 +10,7 @@ const SearchList = ({ children }) =>
                     return (
                         <SearchItem 
                         key={activity._id} 
+                        id={activity.id}
                         title={activity.title} 
                         body={activity.body} 
                         contact={activity.contact} 

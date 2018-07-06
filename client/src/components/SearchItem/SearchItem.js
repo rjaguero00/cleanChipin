@@ -12,6 +12,7 @@ Geocode.enableDebug();
 class SearchItem extends Component {
     //Map lattitude and longitude State
     state = {
+        userID: "",
         lat: "",
         lng: ""
     };
@@ -35,15 +36,11 @@ class SearchItem extends Component {
     // Save a volunteer activity as one the user is attending
     saveAttending = (event) => {
         event.preventDefault();
-        const attendingData = {
-            title: this.props.title,
-            body: this.props.body,
-            contact: this.props.contact,
-            location: this.props.location,
-            hours: this.props.hours
-        }
-        console.log(attendingData);
-        API.saveAttending(attendingData);
+        API.saveAttending({
+            id: this.props.id,
+            UserId: this.state.userID
+            // hours: this.props.hours
+        })
     }
 
 
@@ -60,12 +57,24 @@ class SearchItem extends Component {
                 console.error(error);
             }
         );
+        // Get userID of logged-in user and set as state
+        API.activeUser()
+            .then(res => {
+                if (res.data.success) {
+                    let userid = res.data.user.id
+                    console.log(userid);
+                    this.setState({ userID: userid });
+                    console.log(this.state);
+                };
+            })
+            .catch(err => console.log(err));
+    
     
     }
 
     render() {
         return (
-            <div className="card result-item">
+            <div className="card resultItem">
                 <div className="card-body">
                     <h5 className="card-title ">
                        <a href="">{this.props.title}</a></h5>
@@ -76,6 +85,7 @@ class SearchItem extends Component {
                     <button onClick={this.saveAttending} className="btn btn-primary">Attend</button>
                     <button onClick={this.saveActivity} className="btn btn-primary">Save</button>
                     <SearchModal 
+                    id={this.props.id}
                     title={this.props.title}
                     body={this.props.body}
                     contact={this.props.contact}

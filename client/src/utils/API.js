@@ -53,7 +53,14 @@ export default {
     }
     return axios.post("/api/activitiesRoutes", activityData);
   },
-  //Post Organization
+  // saveActivity: function (activityData){
+  //   return axios.get("/api/activitiesRoutes/saveActivity", activityData);
+  // },
+  saveAttending: function (attendingData){
+    console.log("attending data is: " + JSON.stringify(attendingData));
+    return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
+  },
+  // Post Organization
   postOrg: function () {
     return axios.post("/api/organization");
   },
