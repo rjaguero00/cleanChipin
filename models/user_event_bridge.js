@@ -1,16 +1,14 @@
 module.exports = function (sequelize, DataTypes) {
     var User_Event_Bridge = sequelize.define("User_Event_Bridge", {
-        hours: {
-            type: DataTypes.INTEGER,
-        },
-        points: {
-            type: DataTypes.INTEGER,
-        },
-        saved: {
+        creator: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         },
-        validated: {
+        volunteer: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        },
+        saved: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         },
@@ -18,24 +16,39 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         },
-        denied: {
+        hours: {
+            type: DataTypes.INTEGER
+        },
+        points: {
+            type: DataTypes.INTEGER
+        },
+        validated: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         },
-        activityID: {
-            type: DataTypes.STRING,
-        },
-        userID: {
-            type: DataTypes.STRING
+        denied: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
-
-
     });
 
     User_Event_Bridge.associate = function (models) {
         // User_Event_Bridge.hasMany(models.Activity),
         // User_Event_Bridge.hasMany(models.User)
-        User_Event_Bridge.hasOne(models.Activity)
+
+        //Testing removing hasOne and replace with belongsTo
+        // User_Event_Bridge.hasOne(models.Activity)
+
+
+        // User_Event_Bridge.belongsTo(models.Activity,{
+
+
+        //     // Activity.hasMany(models.User, {
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+
+        // });
     };
     return User_Event_Bridge;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row } from "../components/Grid";
 import Jumbotron from '../components/Jumbotron';
+import Navbar from "../components/Navbar";
 
 
 const Home = () => (

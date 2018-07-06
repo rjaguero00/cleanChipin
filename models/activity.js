@@ -40,16 +40,20 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     Activity.associate = function (models) {
-        Activity.belongsTo(models.User, {
+        //     Activity.belongsTo(models.User, {
 
 
-            // Activity.hasMany(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
+        //         // Activity.hasMany(models.User, {
+        //             foreignKey: {
+        //                 allowNull: false
+        //             }
 
-        });
-        Activity.belongsTo(models.User_Event_Bridge);
+        //     });
+
+        //Test Erase
+        // Activity.belongsTo(models.User_Event_Bridge);
+        // Activity.belongsToMany(models.User, { through: models.User_Event_Bridge });
+        // Activity.hasMany(models.User);
     };
 
     return Activity;

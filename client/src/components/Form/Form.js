@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import API from "../../utils/API";
 import { Input, TextArea, FormBtn } from "./Formitems";
 
@@ -10,21 +9,20 @@ class Form extends Component {
         contact: "",
         body: "",
         address: "",
-        points: "",
+        hours: 4,
+        points: 4
     };
 
     componentDidMount() {
-        console.log(this.state);
         API.activeUser()
             .then(res => {
                 if (res.data.success) {
                     let userid = res.data.user.id
-                    console.log(userid);
                     this.setState({ userID: userid });
-                    console.log(this.state);
                 };
             })
             .catch(err => console.log(err));
+
     }
 
 
@@ -44,6 +42,7 @@ class Form extends Component {
                 body: this.state.body,
                 contact: this.state.contact,
                 address: this.state.address,
+                hours: this.state.hours,
                 points: this.state.points
             })
                 .then(this.props.onRequestClose)
