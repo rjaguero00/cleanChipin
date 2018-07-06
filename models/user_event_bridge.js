@@ -36,7 +36,6 @@ module.exports = function (sequelize, DataTypes) {
         // User_Event_Bridge.hasMany(models.Activity),
         // User_Event_Bridge.hasMany(models.User)
 
-
         //Testing removing hasOne and replace with belongsTo
         // User_Event_Bridge.hasOne(models.Activity)
         

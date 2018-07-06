@@ -53,7 +53,7 @@ module.exports = function (sequelize, DataTypes) {
         //Test Erase
         // Activity.belongsTo(models.User_Event_Bridge);
     // Activity.belongsToMany(models.User, { through: models.User_Event_Bridge });
-    Activity.hasMany(models.User);
+    // Activity.hasMany(models.User);
     };
 
     return Activity;

@@ -4,15 +4,19 @@ import Wrapper from "../components/Wrapper"
 import Eventcard from '../components/Eventcard/Eventcard';
 import SButton from '../components/SButton/SButton';
 import Savedcard from '../components/Savedcard/Savedcard';
+import HostEvents from "../components/HostEvents";
+import API from "../utils/API.js";
 
 
 class Dashboard extends Component {
     state = {
         currentPage: "/Dashboard",
     };
+
     componentDidMount() {
         this.setState({ currentPage: this.props.location.pathname });
     }
+    
     handlePageChange = page => {
         this.setState({ currentPage: page });
     };
@@ -63,7 +67,20 @@ class Dashboard extends Component {
                     </div>
                 </Wrapper>
             );
-        }
+        } else if (this.state.currentPage === "/Dashboard/Host") {
+            return (
+                <Wrapper>
+                    <Sidebar
+                        currentPage={this.state.currentPage}
+                    />
+                    <div>
+                        <SButton />
+                    </div>
+                    <HostEvents />
+                </Wrapper>
+            );
+        
+        } 
     }
 
 
