@@ -45,15 +45,13 @@ ul {
 }
 #sidebar .active,
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #281942;
 }
-
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -70,7 +68,6 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
 }
 
 ul.CTAs {
@@ -94,7 +91,11 @@ a.article, a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
-
+.modalButton{
+    
+    margin-top: 10px;
+    padding: 0px;
+}
 
 @media (max-width: 768px) {
     #sidebar {
