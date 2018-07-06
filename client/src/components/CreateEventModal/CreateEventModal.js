@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import API from "../../utils/API.js";
 import Form from "../Form";
+import "./CreateEventModal.css";
 
 const customStyles = {
     content: {
@@ -66,7 +67,7 @@ class CreateEventsModal extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.openModal}>CreateEventsModal</button>
+                <button className="modalBtn" onClick={this.openModal}>Create Event</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}

@@ -78,6 +78,30 @@ module.exports = {
             });
 
     },
+    hostActivities: function (req, res) {;
+        var id = req.params.id;
+        model.Activity.findAll({
+            where: {
+                UserId: id,
+            }
+        }).then(function(data){
+            res.json(data);
+        })
+    },
+    deleteHostActivity: function (req, res) {
+        console.log("im at the controller: " + req.params);
+        var id = req.params.id;
+        model.Activity.destroy({
+            where: { 
+                id: id,
+             }
+        }).then(function (data) {
+            console.log("Item has beend deleted");
+            res.json(data);
+        })
+
+
+    }
 
 }
 

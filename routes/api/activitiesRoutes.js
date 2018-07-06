@@ -13,6 +13,13 @@ router.route("/saveActivity")
 router.route("/saveAttending")
     .post(activitiesController.saveAttending)
 
+// Matches with "/api/activitiesRoutes/hostActivities/:id"
+router.route("/hostActivities/:id")
+    .get(activitiesController.hostActivities)
+
+// Matches with "/api/activitiesRoutes/:id/::userID"
+router.route("/deleteHostActivity/:id")
+    .delete(activitiesController.deleteHostActivity)
 
  // Matches with "/api/activitiesRoutes/:id" 
 router.route("/:id")

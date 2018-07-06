@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import API from "../../utils/API";
 import { Input, TextArea, FormBtn } from "./Formitems";
 
@@ -19,12 +18,11 @@ class Form extends Component {
         .then(res => {
             if (res.data.success) {
                     let userid = res.data.user.id
-                    console.log(userid);
                     this.setState({ userID: userid });
-                    console.log(this.state);
                 };
             })
             .catch(err => console.log(err));
+            
     }
     
 

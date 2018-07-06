@@ -49,6 +49,7 @@ module.exports = function (sequelize, DataTypes) {
     //         onDelete: "cascade"
     //     });
     //     User.belongsTo(models.User_Event_Bridge);
+    User.hasMany(models.Activity);
     User.belongsToMany(models.Activity, { through: models.User_Event_Bridge });
     };
     User.prototype.comparePassword = function (textpassword, hashpassword) {
