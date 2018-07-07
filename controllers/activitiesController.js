@@ -45,7 +45,7 @@ module.exports = {
         model.Activity.destroy({
             where: { id: req.body.id }
         }).then(function (data) {
-            console.log("Item has beend deleted");
+            console.log("Item has been deleted");
             res.redirect("/dashboard")
         })
     },
@@ -90,18 +90,21 @@ module.exports = {
                 id: id
             }
         }).then(function (data) {
-            model.User_Event_Bridge.create({
-                ActivityId: data.id,
-                UserId: UserID,
-                hours: data.hours,
-                points: data.points,
-                volunteer: true,
-                attending: true,
-                saved: false
-            }).then(function (data) {
-                console.log("I added a user attending entry ")
-            }).catch(function (err) {
-                console.log(err);
+            console.log(data)
+                model.User_Event_Bridge.create({
+                    ActivityId: data.id,
+                    UserId: UserID,
+                    hours: data.hours,
+                    points: data.points,
+                    volunteer: true,
+                    attending: true,
+                    saved: false,
+                    validated: true
+                    }).then(function (data) {
+                        console.log("I added a user attending entry ")
+                    }).catch(function(err){
+                        console.log(err);
+                    });
             });
         });
 
@@ -118,29 +121,39 @@ module.exports = {
         })
     },
     deleteHostActivity: function (req, res) {
-        console.log("im at the controller: " + req.params);
         var id = req.params.id;
         model.Activity.destroy({
             where: {
                 id: id,
             }
         }).then(function (data) {
-            console.log("Item has beend deleted");
             res.json(data);
         })
 
 
     },
     updateAllHours: function (req, res) {
-        console.log("I'm updating at the controllers");
         var id = req.params.id;
         model.User_Event_Bridge.upateAll(
-            { validated: true },
-            { where: { ActivityId: id } }
-        ).then(function (data) {
-            console.log("Hours have been validated");
+            {validated: true},
+            {where: {ActivityId: id}}
+        ).then(function(data){
             res.json(data);
         })
+    },
+    getHoursPoints: function(req, res) {
+        var userid = req.params.userID;
+        model.User_Event_Bridge.sum('hours', {where: 
+            {validated: true, UserId: userid}} )
+        .then(sum => res.json(sum))
+    },
+    getPoints: function (req, res) {
+        var userid = req.params.userID;
+        model.User_Event_Bridge.sum('points', {
+            where:
+                { validated: true, UserId: userid }
+        })
+            .then(sum => res.json(sum))
     }
 
 }

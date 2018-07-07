@@ -65,6 +65,12 @@ export default {
   postOrg: function () {
     return axios.post("/api/organization");
   },
+  getHoursPoints: function(userID) {
+    return axios.get("/api/activitiesRoutes/getHoursPoints/" + userID);
+  }, 
+  getPoints: function (userID) {
+    return axios.get("/api/activitiesRoutes/getPoints/" + userID);
+  },
   //Post User
   postUser: function (userData, err) {
     if (err) {
@@ -73,4 +79,5 @@ export default {
     console.log("arrived at utils api")
     return axios.post("/auth/register", userData);
   }
+
 };

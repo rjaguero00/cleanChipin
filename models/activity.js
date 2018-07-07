@@ -41,8 +41,7 @@ module.exports = function (sequelize, DataTypes) {
     });
     Activity.associate = function (models) {
 
-    Activity.belongsToMany(models.User, { through: models.User_Event_Bridge, unique: false });
-    
+        Activity.belongsToMany(models.User, { through: models.User_Event_Bridge, unique: false });
 
 
     };
