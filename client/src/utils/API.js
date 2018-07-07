@@ -6,13 +6,13 @@ export default {
     return axios.get("/api/activitiesRoutes");
   },
 
- // For saving(favoriting) activiy
-  // saveActivity: function (activityData){
-  //   return axios.get("/api/activitiesRoutes/saveActivity", activityData);
-  // },
- 
+  // For saving(favoriting) activiy
+  saveActivity: function (activityData) {
+    return axios.get("/api/activitiesRoutes/saveActivity", activityData);
+  },
+
   // For saving(marking as attending) an activity
-  saveAttending: function (attendingData){
+  saveAttending: function (attendingData) {
     console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
@@ -25,15 +25,15 @@ export default {
     return axios.delete("/api/activitiesRoutes/" + id);
   },
   // get list of host activities for user
-  getHostActivities: function(id){
+  getHostActivities: function (id) {
     return axios.get("/api/activitiesRoutes/hostActivities/" + id);
   },
 
   // Delete host activity from admin dashboard
-  deleteHostActivity: function(id) {
+  deleteHostActivity: function (id) {
     return axios.delete("/api/activitiesRoutes/deleteHostActivity/" + id);
   },
-  updateAllHours: function(id) {
+  updateAllHours: function (id) {
     return axios.put("/api/activitiesRoutes/updateAllHours/" + id);
   },
   // Login route

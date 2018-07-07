@@ -51,7 +51,30 @@ module.exports = {
     },
     // SAVES VOLUNTEER ACTIVITY IN USER'S SAVED LIST TABLE
     saveActivity: function (req, res) {
+        console.log(req.body);
         var id = req.body.id;
+        var UserID = req.body.UserId
+        model.Activity.findOne({
+            where: {
+                id: id
+            }
+        }).then(function (data) {
+            console.log(data);
+            model.User_Event_Bridge.create({
+                ActivityId: data.id,
+                UserId: id,
+                hours: data.hours,
+                points: data.points,
+                volunteer: true,
+                attending: false,
+                saved: true
+
+            }).then(function (data) {
+                console.log("I added a user attending entry ")
+            }).catch(function (err) {
+                console.log(err);
+            });
+        });
 
     },
 
