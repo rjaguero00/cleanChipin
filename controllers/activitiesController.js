@@ -62,7 +62,7 @@ module.exports = {
             console.log(data);
             model.User_Event_Bridge.create({
                 ActivityId: data.id,
-                UserId: id,
+                UserId: UserID,
                 hours: data.hours,
                 points: data.points,
                 volunteer: true,

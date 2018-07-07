@@ -60,7 +60,6 @@ class Dashboard extends Component {
     loadAttendingActivities = () => {
         API.findAttendingActivities(this.state.userID)
             .then(res => {
-
                 console.log(res.data);
                 let results = [];
                 res.data.forEach(activity => {

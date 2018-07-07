@@ -24,7 +24,11 @@ class SearchItem extends Component {
         API.saveActivity({
             id: this.props.id,
             UserId: this.state.userID
+<<<<<<< HEAD
         });
+=======
+        })
+>>>>>>> 679e3ad82142774be051d6c129850e81d08bd302
 
     }
 
