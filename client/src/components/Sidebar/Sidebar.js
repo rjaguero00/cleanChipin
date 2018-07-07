@@ -5,6 +5,7 @@ import "./Sidebar.css";
 import CreateEventsModal from "../CreateEventModal";
 
 const Sidebar = props => (
+
     <nav id="sidebar">
 
         <ul className="list-unstyled components">
@@ -36,7 +37,7 @@ const Sidebar = props => (
         </ul>
 
         <ul>
-            Hours: <span id="hours"></span> || Points: <span id="points"></span>
+            Hours: <span id="hours">{props.hours}</span> || Points: <span id="points">{props.points}</span>
         </ul>
     </nav>
 );
