@@ -7,7 +7,7 @@ router.route("/")
     .post(activitiesController.postEvent)
 // Matches with "/api/activitiesRoutes/saveActivity"
 router.route("/saveActivity")
-    .get(activitiesController.saveActivity)
+    .post(activitiesController.saveActivity)
 
 router.route('/activity/:id')
     .get(activitiesController.findActivity)
