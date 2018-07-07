@@ -74,6 +74,7 @@ module.exports = {
                 attending: true,
                 saved: false
             }).then(function (data) {
+                console.log(data);
                 console.log("I added a user attending entry ")
             });
         });

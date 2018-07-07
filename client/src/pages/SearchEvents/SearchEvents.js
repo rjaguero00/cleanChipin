@@ -11,9 +11,9 @@ class SearchEvents extends Component {
         results: [],
         id: "",
         title: "",
-        body:"",
-        contact:"",
-        location:""
+        body: "",
+        contact: "",
+        location: ""
     };
 
     componentDidMount() {
@@ -22,8 +22,7 @@ class SearchEvents extends Component {
 
     loadActivities = () => {
         API.getActivities()
-            .then(res => console.log(res.data)
-                // this.setState({ results: res.data, id:"", title:"", body:"", contact:"", location:"" })
+            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "" })
             )
             .catch(err => console.log(err));
     };

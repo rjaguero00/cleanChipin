@@ -29,6 +29,12 @@ module.exports = function (sequelize, DataTypes) {
         denied: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        activityID: {
+            type: DataTypes.STRING
+        },
+        userID: {
+            type: DataTypes.STRING
         }
     });
 

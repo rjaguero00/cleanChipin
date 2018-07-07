@@ -10,7 +10,7 @@ class Form extends Component {
         body: "",
         address: "",
         hours: 4,
-        points: 4
+        points: ""
     };
 
     componentDidMount() {
