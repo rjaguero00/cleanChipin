@@ -74,8 +74,20 @@ module.exports = {
                 attending: true,
                 saved: false
             }).then(function (data) {
-                console.log(data);
-                console.log("I added a user attending entry ")
+                console.log(data)
+                model.User_Event_Bridge.create({
+                    ActivityId: data.id,
+                    UserId: id,
+                    hours: data.hours,
+                    points: data.points,
+                    volunteer: true,
+                    attending: true,
+                    saved: false
+                }).then(function (data) {
+                    console.log("I added a user attending entry ")
+                }).catch(function (err) {
+                    console.log(err);
+                });
             });
         });
 
@@ -104,6 +116,17 @@ module.exports = {
         })
 
 
+    },
+    updateAllHours: function (req, res) {
+        console.log("I'm updating at the controllers");
+        var id = req.params.id;
+        model.User_Event_Bridge.upate(
+            { validated: true },
+            { where: req.params.id }
+        ).then(function (data) {
+            console.log("Hours have been validated");
+            res.json(data);
+        })
     }
 
 }

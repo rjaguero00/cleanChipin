@@ -32,6 +32,9 @@ export default {
   deleteHostActivity: function(id) {
     return axios.delete("/api/activitiesRoutes/deleteHostActivity/" + id);
   },
+  updateAllHours: function(id) {
+    return axios.put("/api/activitiesRoutes/updateAllHours/" + id);
+  },
   // Login route
   getUserLogin: function (loginData) {
     return axios.post("/auth/userlogin", loginData);
