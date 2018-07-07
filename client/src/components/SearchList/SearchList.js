@@ -9,14 +9,14 @@ const SearchList = ({ children }) =>
             {children[0] ?
                 children.slice(0, 20).map(activity => {
                     return (
-                        <SearchItem 
-                        key={activity._id} 
-                        id={activity.id}
-                        title={activity.title} 
-                        body={activity.body} 
-                        contact={activity.contact} 
-                        location={activity.address} 
-                        hours={activity.hours} />
+                        <SearchItem
+                            key={activity._id}
+                            id={activity.id}
+                            title={activity.title}
+                            body={activity.body}
+                            contact={activity.contact}
+                            location={activity.address}
+                            hours={activity.hours} />
                     )
                 }) :
                 <h5>No Results</h5>

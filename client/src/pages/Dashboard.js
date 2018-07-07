@@ -24,7 +24,6 @@ class Dashboard extends Component {
         this.setState({ currentPage: this.props.location.pathname });
         // this.Attending();
     }
-    
     handlePageChange = page => {
         this.setState({ currentPage: page });
     };
@@ -85,8 +84,8 @@ class Dashboard extends Component {
                     <HostEvents />
                 </Wrapper>
             );
-        
-        } 
+
+        }
     }
 
 

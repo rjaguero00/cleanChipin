@@ -23,7 +23,7 @@ class Form extends Component {
                 password: this.state.password
             })
                 .then(res => localStorage.setItem('jwtToken', res.data.token))
-                // .then(this.props.onRequestClose)
+                .then(this.props.onRequestClose)
                 .catch(err => console.log(err));
         }
     };
