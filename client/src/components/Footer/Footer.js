@@ -1,9 +1,10 @@
 import React from "react";
+import Logo from './Logo.png';
 import "./Footer.css";
 
 const Footer = () => (
     <footer className="footer">
-        <span>Chipin 2018</span>
+        <img id="logo" src={Logo} alt="logo"/>
     </footer>
 );
 

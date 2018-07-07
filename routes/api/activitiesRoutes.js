@@ -17,11 +17,16 @@ router.route("/saveAttending")
 router.route("/hostActivities/:id")
     .get(activitiesController.hostActivities)
 
-// Matches with "/api/activitiesRoutes/:id/::userID"
+// Matches with "/api/activitiesRoutes/:id/:userID"
 router.route("/deleteHostActivity/:id")
     .delete(activitiesController.deleteHostActivity)
 
-// Matches with "/api/activitiesRoutes/:id" 
+// Matches with "/api/activitiesRoutes/updateAllHours/:id"
+router.route("/updateAllHours/:id")
+    .put(activitiesController.updateAllHours)
+
+ // Matches with "/api/activitiesRoutes/:id" 
+
 router.route("/:id")
     .delete(activitiesController.remove)
 

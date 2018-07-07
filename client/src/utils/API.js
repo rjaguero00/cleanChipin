@@ -13,6 +13,7 @@ export default {
  
   // For saving(marking as attending) an activity
   saveAttending: function (attendingData){
+    console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
   // Gets the activity with the given id
@@ -31,6 +32,9 @@ export default {
   // Delete host activity from admin dashboard
   deleteHostActivity: function(id) {
     return axios.delete("/api/activitiesRoutes/deleteHostActivity/" + id);
+  },
+  updateAllHours: function(id) {
+    return axios.put("/api/activitiesRoutes/updateAllHours/" + id);
   },
   // Login route
   getUserLogin: function (loginData) {
