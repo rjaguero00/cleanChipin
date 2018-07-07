@@ -51,7 +51,30 @@ module.exports = {
     },
     // SAVES VOLUNTEER ACTIVITY IN USER'S SAVED LIST TABLE
     saveActivity: function (req, res) {
+        console.log(req.body);
         var id = req.body.id;
+        var UserID = req.body.UserId
+        model.Activity.findOne({
+            where: {
+                id: id
+            }
+        }).then(function (data) {
+            console.log(data);
+            model.User_Event_Bridge.create({
+                ActivityId: data.id,
+                UserId: id,
+                hours: data.hours,
+                points: data.points,
+                volunteer: true,
+                attending: false,
+                saved: true
+
+            }).then(function (data) {
+                console.log("I added a user attending entry ")
+            }).catch(function (err) {
+                console.log(err);
+            });
+        });
 
     },
     //Finds all attending Activities by a user
@@ -91,23 +114,21 @@ module.exports = {
             }
         }).then(function (data) {
             console.log(data)
-                model.User_Event_Bridge.create({
-                    ActivityId: data.id,
-                    UserId: UserID,
-                    hours: data.hours,
-                    points: data.points,
-                    volunteer: true,
-                    attending: true,
-                    saved: false,
-                    validated: true
-                    }).then(function (data) {
-                        console.log("I added a user attending entry ")
-                    }).catch(function(err){
-                        console.log(err);
-                    });
+            model.User_Event_Bridge.create({
+                ActivityId: data.id,
+                UserId: UserID,
+                hours: data.hours,
+                points: data.points,
+                volunteer: true,
+                attending: true,
+                saved: false,
+                validated: true
+            }).then(function (data) {
+                console.log("I added a user attending entry ")
+            }).catch(function (err) {
+                console.log(err);
             });
         });
-
     },
     hostActivities: function (req, res) {
         ;
@@ -134,18 +155,20 @@ module.exports = {
     },
     updateAllHours: function (req, res) {
         var id = req.params.id;
-        model.User_Event_Bridge.upateAll(
-            {validated: true},
-            {where: {ActivityId: id}}
-        ).then(function(data){
+        model.User_Event_Bridge.updateAll(
+            { validated: true },
+            { where: { ActivityId: id } }
+        ).then(function (data) {
             res.json(data);
         })
     },
-    getHoursPoints: function(req, res) {
+    getHoursPoints: function (req, res) {
         var userid = req.params.userID;
-        model.User_Event_Bridge.sum('hours', {where: 
-            {validated: true, UserId: userid}} )
-        .then(sum => res.json(sum))
+        model.User_Event_Bridge.sum('hours', {
+            where:
+                { validated: true, UserId: userid }
+        })
+            .then(sum => res.json(sum))
     },
     getPoints: function (req, res) {
         var userid = req.params.userID;
