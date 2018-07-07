@@ -35,8 +35,8 @@ const Sidebar = props => (
             </li>
         </ul>
 
-        <ul>
-            Hours: <span id="hours"></span> || Points: <span id="points"></span>
+        <ul id="user-info">
+            Hours: || Points: 
         </ul>
     </nav>
 );
