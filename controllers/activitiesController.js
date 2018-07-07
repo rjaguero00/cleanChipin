@@ -91,20 +91,19 @@ module.exports = {
             }
         }).then(function (data) {
             console.log(data)
-                model.User_Event_Bridge.create({
-                    ActivityId: data.id,
-                    UserId: UserID,
-                    hours: data.hours,
-                    points: data.points,
-                    volunteer: true,
-                    attending: true,
-                    saved: false,
-                    validated: true
-                    }).then(function (data) {
-                        console.log("I added a user attending entry ")
-                    }).catch(function(err){
-                        console.log(err);
-                    });
+            model.User_Event_Bridge.create({
+                ActivityId: data.id,
+                UserId: UserID,
+                hours: data.hours,
+                points: data.points,
+                volunteer: true,
+                attending: true,
+                saved: false,
+                validated: true
+            }).then(function (data) {
+                console.log("I added a user attending entry ")
+            }).catch(function (err) {
+                console.log(err);
             });
         });
 
@@ -135,17 +134,19 @@ module.exports = {
     updateAllHours: function (req, res) {
         var id = req.params.id;
         model.User_Event_Bridge.upateAll(
-            {validated: true},
-            {where: {ActivityId: id}}
-        ).then(function(data){
+            { validated: true },
+            { where: { ActivityId: id } }
+        ).then(function (data) {
             res.json(data);
         })
     },
-    getHoursPoints: function(req, res) {
+    getHoursPoints: function (req, res) {
         var userid = req.params.userID;
-        model.User_Event_Bridge.sum('hours', {where: 
-            {validated: true, UserId: userid}} )
-        .then(sum => res.json(sum))
+        model.User_Event_Bridge.sum('hours', {
+            where:
+                { validated: true, UserId: userid }
+        })
+            .then(sum => res.json(sum))
     },
     getPoints: function (req, res) {
         var userid = req.params.userID;

@@ -5,7 +5,7 @@ import EventList from '../components/EventList';
 import SavedList from '../components/SavedList';
 // import Eventcard from '../components/Eventcard/Eventcard';
 import SButton from '../components/SButton/SButton';
-import Savedcard from '../components/Savedcard/Savedcard';
+// import Savedcard from '../components/Savedcard/Savedcard';
 import HostEvents from "../components/HostEvents";
 import API from "../utils/API.js";
 
@@ -13,6 +13,11 @@ import API from "../utils/API.js";
 class Dashboard extends Component {
     state = {
         currentPage: "/Dashboard",
+        results: [],
+        title: "",
+        body: "",
+        contact: "",
+        location: "",
         userID: "",
         hours: "",
         points: ""
@@ -20,21 +25,22 @@ class Dashboard extends Component {
 
     componentDidMount() {
         // this.setState({ currentPage: this.props.location.pathname });
-            API.activeUser()
-                .then(res => {
-                    if (res.data.success) {
-                        let userid = res.data.user.id
-                        this.setState({ userID: userid });
-                        this.getHoursPoints(userid);
-                        this.getPoints(userid);
-                        this.setState({ currentPage: this.props.location.pathname });
-                    };
-                })
-                .catch(err => console.log(err));
+        API.activeUser()
+            .then(res => {
+                if (res.data.success) {
+                    let userid = res.data.user.id
+                    this.setState({ userID: userid });
+                    this.getHoursPoints(userid);
+                    this.getPoints(userid);
+                    this.setState({ currentPage: this.props.location.pathname });
+                    this.loadAttendingActivities();
+                };
+            })
+            .catch(err => console.log(err));
     };
     getHoursPoints = (userID) => {
         API.getHoursPoints(userID)
-            .then(res => this.setState({ hours: res.data}))
+            .then(res => this.setState({ hours: res.data }))
             .catch(err => console.log(err))
     };
     getPoints = (userID) => {
@@ -87,9 +93,9 @@ class Dashboard extends Component {
         if (this.state.currentPage === "/Dashboard") {
             return (
                 <Wrapper>
-                    <Sidebar 
-                    hours={this.state.hours}
-                    points={this.state.points}/>
+                    <Sidebar
+                        hours={this.state.hours}
+                        points={this.state.points} />
                     <div>
                         <SButton />
                     </div>
