@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = () => (
     <footer className="footer">
-        <img id="logo" src={Logo} alt="logo"/>
+        <img id="footer-logo" src={Logo} alt="logo"/>
     </footer>
 );
 
