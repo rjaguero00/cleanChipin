@@ -46,7 +46,7 @@ module.exports = function (sequelize, DataTypes) {
 
     User.associate = function (models) {
 
-    User.hasMany(models.Activity);
+        User.hasMany(models.Activity);
         User.belongsToMany(models.Activity, { through: models.User_Event_Bridge, unique: false });
     };
     User.prototype.comparePassword = function (textpassword, hashpassword) {

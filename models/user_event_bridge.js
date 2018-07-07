@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
         attending: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
-        },        
+        },
         hours: {
             type: DataTypes.INTEGER
         },
@@ -38,8 +38,8 @@ module.exports = function (sequelize, DataTypes) {
 
         //Testing removing hasOne and replace with belongsTo
         // User_Event_Bridge.hasOne(models.Activity)
-        
-        
+
+
         // User_Event_Bridge.belongsTo(models.Activity,{
 
 

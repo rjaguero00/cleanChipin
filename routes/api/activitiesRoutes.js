@@ -26,6 +26,7 @@ router.route("/updateAllHours/:id")
     .put(activitiesController.updateAllHours)
 
  // Matches with "/api/activitiesRoutes/:id" 
+
 router.route("/:id")
     .delete(activitiesController.remove)
 

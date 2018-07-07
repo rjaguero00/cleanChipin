@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Sidebar from "../components/Sidebar"
 import Wrapper from "../components/Wrapper"
-import Eventcard from '../components/Eventcard/Eventcard';
+import EventList from '../components/EventList';
+import SavedList from '../components/SavedList';
+// import Eventcard from '../components/Eventcard/Eventcard';
 import SButton from '../components/SButton/SButton';
 import Savedcard from '../components/Savedcard/Savedcard';
 import HostEvents from "../components/HostEvents";
@@ -42,26 +44,24 @@ class Dashboard extends Component {
             .then(res => this.setState({ points: res.data }))
             .catch(err => console.log(err))
     };
-    
+
     handlePageChange = page => {
         this.setState({ currentPage: page });
     };
 
+    // loadAttendingActivities = () => {
+    //     API.Attending()
+    //         .then(res => {
+    //             this.setState({ results: res.data, title: "", body: "", contact: "", location: "" })
+    //         })
+    //         .catch(err => console.log(err));
+    // };
 
-    //Remove an activity that a user no longer wishes to attend
-    notAttending = () => {
 
-    }
+    handlePageChange = page => {
+        this.setState({ currentPage: page });
+    };
 
-    //Remove an activity that a user is no longer interested in
-    removeSavedActivity = () => {
-
-    }
-
-    //Mark saved activity to attending
-    atteningActivity = () => {
-
-    }
 
 
 
@@ -76,7 +76,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <Eventcard />
+                        <EventList>{this.state.results}</EventList>
                     </div>
                 </Wrapper>
             );
@@ -93,7 +93,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <Savedcard />
+                        <SavedList>{this.state.results}</SavedList>
                     </div>
                 </Wrapper>
             );
@@ -111,8 +111,8 @@ class Dashboard extends Component {
                     <HostEvents />
                 </Wrapper>
             );
-        
-        } 
+
+        }
     }
 
 
