@@ -7,7 +7,7 @@ router.route("/")
     .post(activitiesController.postEvent)
 // Matches with "/api/activitiesRoutes/saveActivity"
 router.route("/saveActivity")
-    .get(activitiesController.saveActivity)
+    .post(activitiesController.saveActivity)
 
 router.route('/activity/:id')
     .get(activitiesController.findActivity)
@@ -35,7 +35,7 @@ router.route("/:id")
 router.route("/getHoursPoints/:userID")
     .get(activitiesController.getHoursPoints)
 
-    // Matches with "/api/activitiesRoutes/getPoints/:userid"
+// Matches with "/api/activitiesRoutes/getPoints/:userid"
 router.route("/getPoints/:userID")
     .get(activitiesController.getPoints)
 

@@ -8,7 +8,7 @@ export default {
 
   // For saving(favoriting) activiy
   saveActivity: function (activityData) {
-    return axios.get("/api/activitiesRoutes/saveActivity", activityData);
+    return axios.post("/api/activitiesRoutes/saveActivity", activityData);
   },
 
   // For saving(marking as attending) an activity
