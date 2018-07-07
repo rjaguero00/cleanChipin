@@ -7,16 +7,9 @@ export default {
   },
 
   // For saving(favoriting) activiy
-<<<<<<< HEAD
-  saveActivity: function (activityData) {
-    return axios.get("/api/activitiesRoutes/saveActivity", activityData);
+  saveActivity: function (activityData){
+    return axios.post("/api/activitiesRoutes/saveActivity", activityData);
   },
-=======
-  // saveActivity: function (activityData){
-  //   return axios.get("/api/activitiesRoutes/saveActivity", activityData);
-  // },
->>>>>>> 379cf7e831c9d1e409f8a4deb2f4e5b5ec151029
-
   // For saving(marking as attending) an activity
   saveAttending: function (attendingData) {
     console.log(attendingData);
