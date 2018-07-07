@@ -30,5 +30,13 @@ router.route("/updateAllHours/:id")
 router.route("/:id")
     .delete(activitiesController.remove)
 
+// Matches with "/api/activitiesRoutes/getHoursPoints/:userid"
+router.route("/getHoursPoints/:userID")
+    .get(activitiesController.getHoursPoints)
+
+    // Matches with "/api/activitiesRoutes/getPoints/:userid"
+router.route("/getPoints/:userID")
+    .get(activitiesController.getPoints)
+
 
 module.exports = router; 
