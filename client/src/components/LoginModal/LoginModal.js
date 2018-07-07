@@ -5,14 +5,22 @@ import Form from "../LoginForm";
 
 const customStyles = {
     content: {
+        position: 'absolute',
         top: '50%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
+        background: 'rgb(255, 255, 255)',
+        overflow: 'auto',
+        borderRadius: '15px',
+        outline: 'none',
+        padding: '20px',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '350px',
         height: '400px',
+        backgroundColor: '#281942',
+        border: 'none'
     },
     overlay: {
         position: 'absolute',
