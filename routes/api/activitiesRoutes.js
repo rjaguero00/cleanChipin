@@ -9,6 +9,8 @@ router.route("/")
 router.route("/saveActivity")
     .get(activitiesController.saveActivity)
 
+router.route('/activity/:id')
+    .get(activitiesController.findActivity)
 // Matches with "/api/activitiesRoutes/saveAttending"
 router.route("/saveAttending")
     .post(activitiesController.saveAttending)
@@ -25,8 +27,7 @@ router.route("/deleteHostActivity/:id")
 router.route("/updateAllHours/:id")
     .put(activitiesController.updateAllHours)
 
- // Matches with "/api/activitiesRoutes/:id" 
-
+// Matches with "/api/activitiesRoutes/:id" 
 router.route("/:id")
     .delete(activitiesController.remove)
 
@@ -37,6 +38,10 @@ router.route("/getHoursPoints/:userID")
     // Matches with "/api/activitiesRoutes/getPoints/:userid"
 router.route("/getPoints/:userID")
     .get(activitiesController.getPoints)
+
+router.route("/findAttendingActivities/:id")
+    .get(activitiesController.findAttendingActivities)
+
 
 
 module.exports = router; 

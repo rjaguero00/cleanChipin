@@ -68,7 +68,7 @@ class SearchItem extends Component {
                 };
             })
             .catch(err => console.log(err));
-    
+
     }
 
     render() {
@@ -84,15 +84,15 @@ class SearchItem extends Component {
                     <button onClick={this.saveAttending} className="btn btn-primary">Attend</button>
                     <button onClick={this.saveActivity} className="btn btn-primary">Save</button>
 
-                    <SearchModal 
-                    id={this.props.id}
-                    title={this.props.title}
-                    body={this.props.body}
-                    contact={this.props.contact}
-                    location={this.props.location} 
-                    hours={this.props.hours}
-                    lat={this.state.lat}
-                    lng={this.state.lng}></SearchModal>                
+                    <SearchModal
+                        id={this.props.id}
+                        title={this.props.title}
+                        body={this.props.body}
+                        contact={this.props.contact}
+                        location={this.props.location}
+                        hours={this.props.hours}
+                        lat={this.state.lat}
+                        lng={this.state.lng}></SearchModal>
 
                 </div>
             </div>

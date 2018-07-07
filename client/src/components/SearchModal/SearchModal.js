@@ -11,7 +11,16 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '350px',
-        height: '400px'
+        height: '400px',
+        padding: '5px'
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: 'rgba(0,0,0,0.5)'
     }
 };
 
@@ -49,6 +58,7 @@ class SearchModal extends React.Component {
             <div>
                 <button
                     className="mapbutton"
+                    className="btn-primary"
                     onClick={this.openModal}>Map
                 </button>
                 <Modal
