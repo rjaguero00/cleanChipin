@@ -13,6 +13,7 @@ export default {
  
   // For saving(marking as attending) an activity
   saveAttending: function (attendingData){
+    console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
   // Gets the activity with the given id
