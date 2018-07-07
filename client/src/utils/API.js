@@ -13,6 +13,7 @@ export default {
  
   // For saving(marking as attending) an activity
   saveAttending: function (attendingData){
+    console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
   // Gets the activity with the given id
@@ -39,7 +40,7 @@ export default {
   getUserLogin: function (loginData) {
     return axios.post("/auth/userlogin", loginData);
   },
-  
+
   // Get active/logged-in user
   activeUser: function () {
     // console.log(localStorage.getItem('jwtToken'));

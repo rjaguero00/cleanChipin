@@ -57,16 +57,17 @@ module.exports = {
     // SAVES VOLUNTEER ACTIVITY IN THE USER'S ATTENDING LIST TABLE
     saveAttending: function (req, res) {
         // FINDS ONE ACTIVITY MATHCING THE REQ ID
+        console.log(req.body);
         var id = req.body.id;
+        var UserID = req.body.UserId
         model.Activity.findOne({
                 where: {
                     id: id
                 }
             }).then(function (data) {
-                console.log(data)
                 model.User_Event_Bridge.create({
                     ActivityId: data.id,
-                    UserId: id,
+                    UserId: UserID,
                     hours: data.hours,
                     points: data.points,
                     volunteer: true,
@@ -107,9 +108,9 @@ module.exports = {
     updateAllHours: function (req, res) {
         console.log("I'm updating at the controllers");
         var id = req.params.id;
-        model.User_Event_Bridge.upate(
+        model.User_Event_Bridge.upateAll(
             {validated: true},
-            {where: req.params.id}
+            {where: {ActivityId: id}}
         ).then(function(data){
             console.log("Hours have been validated");
             res.json(data);
