@@ -19,7 +19,7 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
-        // this.setState({ currentPage: this.props.location.pathname });
+        this.setState({ currentPage: this.props.location.pathname });
             API.activeUser()
                 .then(res => {
                     if (res.data.success) {
@@ -27,7 +27,6 @@ class Dashboard extends Component {
                         this.setState({ userID: userid });
                         this.getHoursPoints(userid);
                         this.getPoints(userid);
-                        this.setState({ currentPage: this.props.location.pathname });
                     };
                 })
                 .catch(err => console.log(err));
@@ -47,15 +46,33 @@ class Dashboard extends Component {
 
     handlePageChange = page => {
         this.setState({ currentPage: page });
+
     };
 
-    // loadAttendingActivities = () => {
-    //     API.Attending()
-    //         .then(res => {
-    //             this.setState({ results: res.data, title: "", body: "", contact: "", location: "" })
-    //         })
-    //         .catch(err => console.log(err));
-    // };
+
+    loadAttendingActivities = () => {
+        API.findAttendingActivities(this.state.userID)
+            .then(res => {
+
+                console.log(res.data);
+                let results = [];
+                res.data.forEach(activity => {
+                    API.getActivity(activity.ActivityId)
+                        .then(event => {
+                            results.push(event.data);
+                            this.setState({
+                                results: results,
+                                title: "",
+                                body: "",
+                                contact: "",
+                                location: ""
+                            })
+                        })
+                });
+                // this.setState({ results: res.data, title: "", body: "", contact: "", location: "" })
+            })
+            .catch(err => console.log(err));
+    };
 
 
     handlePageChange = page => {
@@ -76,7 +93,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <EventList>{this.state.results}</EventList>
+                        <EventList results={this.state.results}></EventList>
                     </div>
                 </Wrapper>
             );

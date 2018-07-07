@@ -4,14 +4,22 @@ import API from "../../utils/API.js";
 
 const customStyles = {
     content: {
+        position: 'absolute',
         top: '50%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
+        background: 'rgb(255, 255, 255)',
+        overflow: 'auto',
+        borderRadius: '15px',
+        outline: 'none',
+        padding: '20px',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '350',
+        width: '350px',
         height: '400px',
+        backgroundColor: '#281942',
+        border: 'none'
     },
     overlay: {
         position: 'absolute',
@@ -43,7 +51,7 @@ class OrgSignUp extends React.Component {
 
     afterOpenModal() {
         // references are now sync'd and can be accessed.
-        this.subtitle.style.color = '#f00';
+        this.subtitle.style.color = 'white';
     }
 
     closeModal() {
@@ -78,12 +86,12 @@ class OrgSignUp extends React.Component {
                     <div>
                         <form>
                             <div className="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
+                                <label for="exampleInputEmail1" style={{color: 'white'}}>Email address</label>
                                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" input />
-                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                <small id="emailHelp" className="form-text text-muted" style={{color: 'white'}}>We'll never share your email with anyone else.</small>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
+                                <label for="exampleInputPassword1" style={{color: 'white'}}>Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" input />
                             </div>
                             <button

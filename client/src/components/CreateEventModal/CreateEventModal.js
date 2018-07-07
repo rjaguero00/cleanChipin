@@ -6,15 +6,23 @@ import "./CreateEventModal.css";
 
 const customStyles = {
     content: {
+        position: 'absolute',
         top: '50%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
+        background: 'rgb(255, 255, 255)',
+        overflow: 'auto',
+        borderRadius: '15px',
+        outline: 'none',
+        padding: '20px',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '350px',
         height: '500px',
-        marginTop: '35px'
+        backgroundColor: '#281942',
+        border: 'none',
+        marginTop: '8px'
     },
     overlay: {
         position: 'absolute',
@@ -46,7 +54,7 @@ class CreateEventsModal extends React.Component {
 
     afterOpenModal() {
         // references are now sync'd and can be accessed.
-        this.subtitle.style.color = '#f00';
+        this.subtitle.style.color = 'white';
     }
 
     closeModal() {
@@ -67,7 +75,7 @@ class CreateEventsModal extends React.Component {
     render() {
         return (
             <div>
-                <button className="modalBtn" onClick={this.openModal}>Create Event</button>
+                <button className="modalBtn" className="btn-primary" onClick={this.openModal}>Create Event</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}

@@ -7,18 +7,29 @@ export default {
   },
 
   // For saving(favoriting) activiy
+<<<<<<< HEAD
   saveActivity: function (activityData) {
     return axios.get("/api/activitiesRoutes/saveActivity", activityData);
   },
+=======
+  // saveActivity: function (activityData){
+  //   return axios.get("/api/activitiesRoutes/saveActivity", activityData);
+  // },
+>>>>>>> 379cf7e831c9d1e409f8a4deb2f4e5b5ec151029
 
   // For saving(marking as attending) an activity
   saveAttending: function (attendingData) {
     console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
+  // Gets all attending Activities
+  findAttendingActivities: function (id) {
+    console.log(id);
+    return axios.get("/api/activitiesRoutes/findAttendingActivities/" + id);
+  },
   // Gets the activity with the given id
   getActivity: function (id) {
-    return axios.get("/api/activitiesRoutes/" + id);
+    return axios.get("/api/activitiesRoutes/activity/" + id);
   },
   // Deletes the activity with the given id
   deleteActivity: function (id) {

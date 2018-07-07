@@ -9,7 +9,7 @@
 }
 
 .card-body {
-    border: 1px solid #2176AE;
+    border: none;
     border-radius: 15px;
     margin-bottom: 10px;
 }

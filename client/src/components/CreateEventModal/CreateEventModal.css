@@ -1,4 +1,20 @@
 .modalBtn{
-    width: 80%;
+    
     cursor: pointer;
+}
+.btn-primary{
+    background-color: #281942;
+    border: none;
+    border-radius: 10px;
+    padding: 1%;
+    margin: 5px;
+}
+.btn-primary:hover {
+    background-color: #3b2563;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#user-info{
+    color: white;
 }
