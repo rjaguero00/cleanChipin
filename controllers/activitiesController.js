@@ -82,9 +82,6 @@ module.exports = {
                         console.log(err);
                     });
             });
-        });
-
-
     },
     hostActivities: function (req, res) {
         ;

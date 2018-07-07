@@ -19,7 +19,7 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
-        // this.setState({ currentPage: this.props.location.pathname });
+        this.setState({ currentPage: this.props.location.pathname });
             API.activeUser()
                 .then(res => {
                     if (res.data.success) {
@@ -27,7 +27,6 @@ class Dashboard extends Component {
                         this.setState({ userID: userid });
                         this.getHoursPoints(userid);
                         this.getPoints(userid);
-                        this.setState({ currentPage: this.props.location.pathname });
                     };
                 })
                 .catch(err => console.log(err));
