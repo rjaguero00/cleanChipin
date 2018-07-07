@@ -1,13 +1,14 @@
 import React from 'react';
 import Eventcard from '../Eventcard';
+import API from '../../utils/API';
 
 
-const EventList = ({ children }) =>
+const EventList = ({ results }) =>
     <div id="eventList" className="event-List">
         <h5 className="header text-center">Results</h5>
         <div className="card-body">
-            {children[0] ?
-                children.slice(0, 20).map(activity => {
+            {results[0] ?
+                results.slice(0, 20).map(activity => {
                     return (
                         <Eventcard
                             key={activity._id}

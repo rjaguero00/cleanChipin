@@ -5,21 +5,16 @@ import EventList from '../components/EventList';
 import SavedList from '../components/SavedList';
 // import Eventcard from '../components/Eventcard/Eventcard';
 import SButton from '../components/SButton/SButton';
-<<<<<<< HEAD
 // import Savedcard from '../components/Savedcard/Savedcard';
-import API from '../utils/API.js';
-
-=======
-import Savedcard from '../components/Savedcard/Savedcard';
 import HostEvents from "../components/HostEvents";
 import API from "../utils/API.js";
->>>>>>> da78541fff234200de5c777de4d0e651e7aa3179
 
 
 class Dashboard extends Component {
     state = {
         currentPage: "/Dashboard",
         results: [],
+        id: "",
         title: "",
         body: "",
         contact: "",
@@ -28,23 +23,44 @@ class Dashboard extends Component {
 
     componentDidMount() {
         this.setState({ currentPage: this.props.location.pathname });
-        // this.Attending();
-    }
-<<<<<<< HEAD
-=======
-    
-    handlePageChange = page => {
-        this.setState({ currentPage: page });
-    };
->>>>>>> da78541fff234200de5c777de4d0e651e7aa3179
+        // this.loadAttendingActivities();
 
-    // loadAttendingActivities = () => {
-    //     API.Attending()
-    //         .then(res => {
-    //             this.setState({ results: res.data, title: "", body: "", contact: "", location: "" })
-    //         })
-    //         .catch(err => console.log(err));
-    // };
+        // Get active user id using jwt token
+        API.activeUser()
+            .then(res => {
+                if (res.data.success) {
+                    let userid = res.data.user.id
+                    this.setState({ userID: userid });
+                    this.loadAttendingActivities();
+                };
+            })
+            .catch(err => console.log(err));
+    };
+
+
+    loadAttendingActivities = () => {
+        API.findAttendingActivities(this.state.userID)
+            .then(res => {
+
+                console.log(res.data);
+                let results = [];
+                res.data.forEach(activity => {
+                    API.getActivity(activity.ActivityId)
+                        .then(event => {
+                            results.push(event.data);
+                            this.setState({
+                                results: results,
+                                title: "",
+                                body: "",
+                                contact: "",
+                                location: ""
+                            })
+                        })
+                });
+                // this.setState({ results: res.data, title: "", body: "", contact: "", location: "" })
+            })
+            .catch(err => console.log(err));
+    };
 
 
     handlePageChange = page => {
@@ -63,7 +79,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <EventList>{this.state.results}</EventList>
+                        <EventList results={this.state.results}></EventList>
                     </div>
                 </Wrapper>
             );
@@ -94,8 +110,8 @@ class Dashboard extends Component {
                     <HostEvents />
                 </Wrapper>
             );
-        
-        } 
+
+        }
     }
 
 

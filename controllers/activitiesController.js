@@ -14,9 +14,9 @@ module.exports = {
         var title = req.body.title;
         var body = req.body.body;
         var contact = req.body.contact;
-        var address = req.body.address; 
+        var address = req.body.address;
         var hours = req.body.hours;
-        var points = req.body.points;       
+        var points = req.body.points;
         model.Activity.create({
             UserId: id,
             title: title,
@@ -27,19 +27,19 @@ module.exports = {
             points: points
         }).then(function (data) {
             console.log("I posted the activity to the Activity table!");
-            res.json(data); 
+            res.json(data);
             model.User_Event_Bridge.create({
                 ActivityId: data.id,
                 UserId: id,
                 creator: true,
                 volunteer: false,
-                 hours: data.hours,
-                 points: data.points          
+                hours: data.hours,
+                points: data.points
             }).then(function (data) {
-                console.log("I created a user_event bridge entry!");   
-            })  
+                console.log("I created a user_event bridge entry!");
+            })
         })
-        },
+    },
     // DELETES VOLUNTEER ACTIVITY FROM DATABASE - USED BY VOLUNTEER ACTIVITY CREATORS
     remove: function (req, res) {
         model.Activity.destroy({
@@ -54,6 +54,31 @@ module.exports = {
         var id = req.body.id;
 
     },
+    //Finds all attending Activities by a user
+    findAttendingActivities: function (req, res) {
+        var UserID = req.params.id
+        model.User_Event_Bridge.findAll({
+            where: {
+                UserId: UserID,
+                attending: true
+            }
+        })
+            .then((data) => {
+                res.json(data);
+            })
+    },
+    findActivity: function (req, res) {
+        var activityId = req.params.id;
+        model.Activity.findOne({
+            where: {
+                id: activityId
+            }
+        }
+        )
+            .then(data => {
+                res.json(data)
+            })
+    },
     // SAVES VOLUNTEER ACTIVITY IN THE USER'S ATTENDING LIST TABLE
     saveAttending: function (req, res) {
         // FINDS ONE ACTIVITY MATHCING THE REQ ID
@@ -61,33 +86,34 @@ module.exports = {
         var id = req.body.id;
         var UserID = req.body.UserId
         model.Activity.findOne({
-                where: {
-                    id: id
-                }
+            where: {
+                id: id
+            }
+        }).then(function (data) {
+            model.User_Event_Bridge.create({
+                ActivityId: data.id,
+                UserId: UserID,
+                hours: data.hours,
+                points: data.points,
+                volunteer: true,
+                attending: true,
+                saved: false
             }).then(function (data) {
-                model.User_Event_Bridge.create({
-                    ActivityId: data.id,
-                    UserId: UserID,
-                    hours: data.hours,
-                    points: data.points,
-                    volunteer: true,
-                    attending: true,
-                    saved: false
-                    }).then(function (data) {
-                        console.log("I added a user attending entry ")
-                    }).catch(function(err){
-                        console.log(err);
-                    });
+                console.log("I added a user attending entry ")
+            }).catch(function (err) {
+                console.log(err);
             });
+        });
 
     },
-    hostActivities: function (req, res) {;
+    hostActivities: function (req, res) {
+        ;
         var id = req.params.id;
         model.Activity.findAll({
             where: {
                 UserId: id,
             }
-        }).then(function(data){
+        }).then(function (data) {
             res.json(data);
         })
     },
@@ -95,9 +121,9 @@ module.exports = {
         console.log("im at the controller: " + req.params);
         var id = req.params.id;
         model.Activity.destroy({
-            where: { 
+            where: {
                 id: id,
-             }
+            }
         }).then(function (data) {
             console.log("Item has beend deleted");
             res.json(data);
@@ -109,9 +135,9 @@ module.exports = {
         console.log("I'm updating at the controllers");
         var id = req.params.id;
         model.User_Event_Bridge.upateAll(
-            {validated: true},
-            {where: {ActivityId: id}}
-        ).then(function(data){
+            { validated: true },
+            { where: { ActivityId: id } }
+        ).then(function (data) {
             console.log("Hours have been validated");
             res.json(data);
         })
