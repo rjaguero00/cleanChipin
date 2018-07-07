@@ -12,6 +12,11 @@ import API from "../utils/API.js";
 
 class Dashboard extends Component {
     state = {
+        results: [],
+        title: "",
+        body: "",
+        contact: "",
+        location: "",
         currentPage: "/Dashboard",
         userID: "",
         hours: "",
@@ -19,12 +24,14 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
+        this.loadAttendingActivities();
         this.setState({ currentPage: this.props.location.pathname });
             API.activeUser()
                 .then(res => {
                     if (res.data.success) {
                         let userid = res.data.user.id
                         this.setState({ userID: userid });
+                        this.loadAttendingActivities();
                         this.getHoursPoints(userid);
                         this.getPoints(userid);
                     };
