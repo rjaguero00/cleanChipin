@@ -11,11 +11,37 @@ import API from "../utils/API.js";
 class Dashboard extends Component {
     state = {
         currentPage: "/Dashboard",
+        userID: "",
+        hours: "",
+        points: ""
     };
 
     componentDidMount() {
-        this.setState({ currentPage: this.props.location.pathname });
-    }
+        // this.setState({ currentPage: this.props.location.pathname });
+            API.activeUser()
+                .then(res => {
+                    if (res.data.success) {
+                        let userid = res.data.user.id
+                        this.setState({ userID: userid });
+                        this.getHoursPoints(userid);
+                        this.getPoints(userid);
+                        this.setState({ currentPage: this.props.location.pathname });
+                    };
+                })
+                .catch(err => console.log(err));
+    };
+    getHoursPoints = (userID) => {
+        API.getHoursPoints(userID)
+            .then(res => this.setState({ hours: res.data}))
+            .catch(err => console.log(err))
+    };
+    getPoints = (userID) => {
+        console.log(userID);
+        API.getPoints(userID)
+            // .then(res => console.log(res.data))
+            .then(res => this.setState({ points: res.data }))
+            .catch(err => console.log(err))
+    };
     
     handlePageChange = page => {
         this.setState({ currentPage: page });
@@ -43,7 +69,9 @@ class Dashboard extends Component {
         if (this.state.currentPage === "/Dashboard") {
             return (
                 <Wrapper>
-                    <Sidebar />
+                    <Sidebar 
+                    hours={this.state.hours}
+                    points={this.state.points}/>
                     <div>
                         <SButton />
                     </div>
@@ -57,6 +85,8 @@ class Dashboard extends Component {
                 <Wrapper>
                     <Sidebar
                         currentPage={this.state.currentPage}
+                        hours={this.state.hours}
+                        points={this.state.points}
                     />
                     Saved
                     <div>
@@ -72,6 +102,8 @@ class Dashboard extends Component {
                 <Wrapper>
                     <Sidebar
                         currentPage={this.state.currentPage}
+                        hours={this.state.hours}
+                        points={this.state.points}
                     />
                     <div>
                         <SButton />
