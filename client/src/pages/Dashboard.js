@@ -12,6 +12,11 @@ import API from "../utils/API.js";
 
 class Dashboard extends Component {
     state = {
+        results: [],
+        title: "",
+        body: "",
+        contact: "",
+        location: "",
         currentPage: "/Dashboard",
         results: [],
         title: "",
