@@ -13,22 +13,14 @@ Geocode.enableDebug();
 class Eventcard extends Component {
     //Map lattitude and longitude State
     state = {
+        userID: "",
         lat: "",
         lng: ""
     };
 
     // Save a volunteer activity as one the user is attending
-    saveAttending = (event) => {
+    notAttending = (event) => {
         event.preventDefault();
-        const attendingData = {
-            title: this.props.title,
-            body: this.props.body,
-            contact: this.props.contact,
-            location: this.props.location,
-            hours: this.props.hours
-        }
-        console.log(attendingData);
-        API.saveAttending(attendingData);
     }
 
 
@@ -45,6 +37,18 @@ class Eventcard extends Component {
                 console.error(error);
             }
         );
+        // this.loadAttendingActivities();
+        // Get userID of logged-in user and set as state
+        API.activeUser()
+            .then(res => {
+                if (res.data.success) {
+                    let userid = res.data.user.id
+                    console.log(userid);
+                    this.setState({ userID: userid });
+                    console.log(this.state);
+                };
+            })
+            .catch(err => console.log(err));
 
     }
 
@@ -58,7 +62,7 @@ class Eventcard extends Component {
                     <p className="card-text">Contact: {this.props.contact}</p>
                     <p className="card-text">Location: {this.props.location}</p>
                     <p className="card-text">Hours: {this.props.hours}</p>
-                    <button onClick={this.saveAttending} className="btn btn-primary">Not Attending</button>
+                    <button onClick={this.notAttending} className="btn btn-primary">Not Attending</button>
                     <SearchModal
                         title={this.props.title}
                         body={this.props.body}

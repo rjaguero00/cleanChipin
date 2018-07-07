@@ -54,7 +54,31 @@ module.exports = {
         var id = req.body.id;
 
     },
-
+    //Finds all attending Activities by a user
+    findAttendingActivities: function (req, res) {
+        var UserID = req.params.id
+        model.User_Event_Bridge.findAll({
+            where: {
+                UserId: UserID,
+                attending: true
+            }
+        })
+            .then((data) => {
+                res.json(data);
+            })
+    },
+    findActivity: function (req, res) {
+        var activityId = req.params.id;
+        model.Activity.findOne({
+            where: {
+                id: activityId
+            }
+        }
+        )
+            .then(data => {
+                res.json(data)
+            })
+    },
     // SAVES VOLUNTEER ACTIVITY IN THE USER'S ATTENDING LIST TABLE
     saveAttending: function (req, res) {
         // FINDS ONE ACTIVITY MATHCING THE REQ ID
@@ -83,7 +107,6 @@ module.exports = {
                     });
             });
         });
-
 
     },
     hostActivities: function (req, res) {
