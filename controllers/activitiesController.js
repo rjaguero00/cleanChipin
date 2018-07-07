@@ -155,11 +155,7 @@ module.exports = {
     },
     updateAllHours: function (req, res) {
         var id = req.params.id;
-<<<<<<< HEAD
-        model.User_Event_Bridge.upateAll(
-=======
         model.User_Event_Bridge.updateAll(
->>>>>>> 17aec9f9ec64fc8d79af6910f435cc58d9685587
             { validated: true },
             { where: { ActivityId: id } }
         ).then(function (data) {
