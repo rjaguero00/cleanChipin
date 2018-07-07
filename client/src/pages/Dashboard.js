@@ -5,15 +5,9 @@ import EventList from '../components/EventList';
 import SavedList from '../components/SavedList';
 // import Eventcard from '../components/Eventcard/Eventcard';
 import SButton from '../components/SButton/SButton';
-<<<<<<< HEAD
-// import Savedcard from '../components/Savedcard/Savedcard';
-import API from '../utils/API.js';
-
-=======
 import Savedcard from '../components/Savedcard/Savedcard';
 import HostEvents from "../components/HostEvents";
 import API from "../utils/API.js";
->>>>>>> da78541fff234200de5c777de4d0e651e7aa3179
 
 
 class Dashboard extends Component {
@@ -30,13 +24,10 @@ class Dashboard extends Component {
         this.setState({ currentPage: this.props.location.pathname });
         // this.Attending();
     }
-<<<<<<< HEAD
-=======
-    
+
     handlePageChange = page => {
         this.setState({ currentPage: page });
     };
->>>>>>> da78541fff234200de5c777de4d0e651e7aa3179
 
     // loadAttendingActivities = () => {
     //     API.Attending()
@@ -94,8 +85,8 @@ class Dashboard extends Component {
                     <HostEvents />
                 </Wrapper>
             );
-        
-        } 
+
+        }
     }
 
 

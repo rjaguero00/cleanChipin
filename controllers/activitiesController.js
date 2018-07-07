@@ -75,22 +75,14 @@ module.exports = {
                 volunteer: true,
                 attending: true,
                 saved: false
+
             }).then(function (data) {
-                model.User_Event_Bridge.create({
-                    ActivityId: data.id,
-                    UserId: UserID,
-                    hours: data.hours,
-                    points: data.points,
-                    volunteer: true,
-                    attending: true,
-                    saved: false
-                }).then(function (data) {
-                    console.log("I added a user attending entry ")
-                }).catch(function (err) {
-                    console.log(err);
-                });
+                console.log("I added a user attending entry ")
+            }).catch(function (err) {
+                console.log(err);
             });
         });
+
 
     },
     hostActivities: function (req, res) {
