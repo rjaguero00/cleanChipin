@@ -10,21 +10,21 @@ class Form extends Component {
         body: "",
         address: "",
         hours: 4,
-        points: 4
+        points: ""
     };
 
     componentDidMount() {
         API.activeUser()
-        .then(res => {
-            if (res.data.success) {
+            .then(res => {
+                if (res.data.success) {
                     let userid = res.data.user.id
                     this.setState({ userID: userid });
                 };
             })
             .catch(err => console.log(err));
-            
+
     }
-    
+
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -35,7 +35,7 @@ class Form extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.contact && this.state.body && this.state.address) {
+        if (this.state.title && this.state.contact && this.state.body && this.state.address && this.state.points) {
             API.postEvent({
                 UserId: this.state.userID,
                 title: this.state.title,
@@ -78,8 +78,14 @@ class Form extends Component {
                         name="address"
                         placeholder="Event Address (required)"
                     />
+                    <Input
+                        value={this.state.points}
+                        onChange={this.handleInputChange}
+                        name="points"
+                        placeholder="Points (required)"
+                    />
                     <FormBtn
-                        disabled={!(this.state.title && this.state.contact && this.state.body && this.state.address)}
+                        disabled={!(this.state.title && this.state.contact && this.state.body && this.state.address && this.state.points)}
                         onClick={this.handleFormSubmit}
                     >
                         Submit Event
