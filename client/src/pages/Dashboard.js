@@ -1,41 +1,56 @@
 import React, { Component } from 'react';
 import Sidebar from "../components/Sidebar"
 import Wrapper from "../components/Wrapper"
-import Eventcard from '../components/Eventcard/Eventcard';
+import EventList from '../components/EventList';
+import SavedList from '../components/SavedList';
+// import Eventcard from '../components/Eventcard/Eventcard';
 import SButton from '../components/SButton/SButton';
+<<<<<<< HEAD
+// import Savedcard from '../components/Savedcard/Savedcard';
+import API from '../utils/API.js';
+
+=======
 import Savedcard from '../components/Savedcard/Savedcard';
 import HostEvents from "../components/HostEvents";
 import API from "../utils/API.js";
+>>>>>>> da78541fff234200de5c777de4d0e651e7aa3179
 
 
 class Dashboard extends Component {
     state = {
         currentPage: "/Dashboard",
+        results: [],
+        title: "",
+        body: "",
+        contact: "",
+        location: ""
     };
 
     componentDidMount() {
         this.setState({ currentPage: this.props.location.pathname });
+        // this.Attending();
     }
+<<<<<<< HEAD
+=======
     
     handlePageChange = page => {
         this.setState({ currentPage: page });
     };
+>>>>>>> da78541fff234200de5c777de4d0e651e7aa3179
+
+    // loadAttendingActivities = () => {
+    //     API.Attending()
+    //         .then(res => {
+    //             this.setState({ results: res.data, title: "", body: "", contact: "", location: "" })
+    //         })
+    //         .catch(err => console.log(err));
+    // };
 
 
-    //Remove an activity that a user no longer wishes to attend
-    notAttending = () => {
+    handlePageChange = page => {
+        this.setState({ currentPage: page });
+    };
 
-    }
-
-    //Remove an activity that a user is no longer interested in
-    removeSavedActivity = () => {
-
-    }
-
-    //Mark saved activity to attending
-    atteningActivity = () => {
-
-    }
 
 
 
@@ -48,7 +63,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <Eventcard />
+                        <EventList>{this.state.results}</EventList>
                     </div>
                 </Wrapper>
             );
@@ -63,7 +78,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <Savedcard />
+                        <SavedList>{this.state.results}</SavedList>
                     </div>
                 </Wrapper>
             );
