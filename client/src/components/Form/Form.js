@@ -10,6 +10,7 @@ class Form extends Component {
         body: "",
         address: "",
         hours: 4,
+        time: "",
         points: ""
     };
 
@@ -35,7 +36,7 @@ class Form extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.contact && this.state.body && this.state.address && this.state.points) {
+        if (this.state.title && this.state.contact && this.state.body && this.state.address && this.state.points && this.state.time) {
             API.postEvent({
                 UserId: this.state.userID,
                 title: this.state.title,
@@ -43,6 +44,7 @@ class Form extends Component {
                 contact: this.state.contact,
                 address: this.state.address,
                 hours: this.state.hours,
+                time: this.state.time,
                 points: this.state.points
             })
                 .then(this.props.onRequestClose)
@@ -83,6 +85,12 @@ class Form extends Component {
                         onChange={this.handleInputChange}
                         name="points"
                         placeholder="Points (required)"
+                    />
+                    <Input
+                        value={this.state.time}
+                        onChange={this.handleInputChange}
+                        name="time"
+                        placeholder="When is it? (required)"
                     />
                     <FormBtn
                         disabled={!(this.state.title && this.state.contact && this.state.body && this.state.address && this.state.points)}

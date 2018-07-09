@@ -16,6 +16,7 @@ module.exports = {
         var contact = req.body.contact;
         var address = req.body.address;
         var hours = req.body.hours;
+        var time = req.body.time;
         var points = req.body.points;
         model.Activity.create({
             UserId: id,
@@ -24,6 +25,7 @@ module.exports = {
             contact: contact,
             address: address,
             hours: hours,
+            time: time,
             points: points
         }).then(function (data) {
             console.log("I posted the activity to the Activity table!");
@@ -77,6 +79,7 @@ module.exports = {
         });
 
     },
+
     //Finds all attending Activities by a user
     findAttendingActivities: function (req, res) {
         var UserID = req.params.id
@@ -130,6 +133,7 @@ module.exports = {
             });
         });
     },
+
     hostActivities: function (req, res) {
         ;
         var id = req.params.id;

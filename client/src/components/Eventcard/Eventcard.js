@@ -61,7 +61,8 @@ class Eventcard extends Component {
                     <p className="card-text">Description: {this.props.body}</p>
                     <p className="card-text">Contact: {this.props.contact}</p>
                     <p className="card-text">Location: {this.props.location}</p>
-                    <p className="card-text">Hours: {this.props.hours}</p>
+                    <p className="card-text">Points: {this.props.points}</p>
+                    <p className="card-text">Date:{this.props.time}</p>
                     <button onClick={this.notAttending} className="btn btn-primary">Not Attending</button>
                     <SearchModal
                         title={this.props.title}

@@ -24,11 +24,7 @@ class SearchItem extends Component {
         API.saveActivity({
             id: this.props.id,
             UserId: this.state.userID
-<<<<<<< HEAD
-        });
-=======
         })
->>>>>>> 679e3ad82142774be051d6c129850e81d08bd302
 
     }
 
@@ -79,7 +75,7 @@ class SearchItem extends Component {
                     <p className="card-text">Description: {this.props.body}</p>
                     <p className="card-text">Contact: {this.props.contact}</p>
                     <p className="card-text">Location: {this.props.location}</p>
-                    <p className="card-text">Hours: {this.props.hours}</p>
+                    <p className="card-text">Points: {this.props.points}</p>
                     <button onClick={this.saveAttending} className="btn btn-primary">Attend</button>
                     <button onClick={this.saveActivity} className="btn btn-primary">Save</button>
 
@@ -89,7 +85,7 @@ class SearchItem extends Component {
                         body={this.props.body}
                         contact={this.props.contact}
                         location={this.props.location}
-                        hours={this.props.hours}
+                        points={this.props.points}
                         lat={this.state.lat}
                         lng={this.state.lng}></SearchModal>
 
