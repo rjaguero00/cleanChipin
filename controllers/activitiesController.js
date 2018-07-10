@@ -16,6 +16,7 @@ module.exports = {
         var contact = req.body.contact;
         var address = req.body.address;
         var hours = req.body.hours;
+        var time = req.body.time;
         var points = req.body.points;
         model.Activity.create({
             UserId: id,
@@ -24,6 +25,7 @@ module.exports = {
             contact: contact,
             address: address,
             hours: hours,
+            time: time,
             points: points
         }).then(function (data) {
             console.log("I posted the activity to the Activity table!");
@@ -60,9 +62,9 @@ module.exports = {
                 UserId: UserID,
                 ActivityId: id
             }
-        // If activity in bridge doesn't exist create an entry for it
-        }).then(function (results){
-            if(!results){
+            // If activity in bridge doesn't exist create an entry for it
+        }).then(function (results) {
+            if (!results) {
                 model.Activity.findOne({
                     where: {
                         id: id
@@ -84,24 +86,50 @@ module.exports = {
                         console.log(err);
                     });
                 });
-            // If entry exists then update data to saved
-            }else{
-            model.User_Event_Bridge.update(
-                {saved : true},
-                {where: {
-                    UserId: UserID,
-                    ActivityId: id
-                }}
-            ).then(function (data) {
-                console.log("I updated row to saved")
-            }).catch(function(err){
-                console.log(err);
-            })
+                // If entry exists then update data to saved
+            } else {
+                model.User_Event_Bridge.update(
+                    { saved: true },
+                    {
+                        where: {
+                            UserId: UserID,
+                            ActivityId: id
+                        }
+                    }
+                ).then(function (data) {
+                    console.log("I updated row to saved")
+                }).catch(function (err) {
+                    console.log(err);
+                })
 
-        }
+            }
         });
     },
 
+
+
+    // model.Activity.findOne({
+    //     where: {
+    //         id: id
+    //     }
+    // }).then(function (data) {
+    //     console.log(data);
+    //     model.User_Event_Bridge.create({
+    //         ActivityId: data.id,
+    //         UserId: UserID,
+    //         hours: data.hours,
+    //         points: data.points,
+    //         volunteer: true,
+    //         attending: false,
+    //         saved: true
+
+    //     }).then(function (data) {
+    //         console.log("I added a user attending entry ")
+    //     }).catch(function (err) {
+    //         console.log(err);
+    //     });
+    // });
+    // },
 
     //Finds all attending Activities by a user
     findAttendingActivities: function (req, res) {
@@ -116,7 +144,7 @@ module.exports = {
                 res.json(data);
             })
     },
-    // FINDS ALL SAVED ACTIVITIES BY USER
+    //Finds all saved Activities by a user
     findSavedActivities: function (req, res) {
         console.log("at controllerssssssssssssssssss");
         var UserID = req.params.id
@@ -130,8 +158,6 @@ module.exports = {
                 res.json(data);
             })
     },
-
-
     findActivity: function (req, res) {
         var activityId = req.params.id;
         model.Activity.findOne({
@@ -156,46 +182,50 @@ module.exports = {
                 UserId: UserID,
                 ActivityId: id
             }
-        // If activity in bridge doesn't exist create an entry for it
+            // If activity in bridge doesn't exist create an entry for it
         }).then(function (results) {
             if (!results) {
-                    model.Activity.findOne({
-                        where: {
-                            id: id
-                        }
+                model.Activity.findOne({
+                    where: {
+                        id: id
+                    }
+                }).then(function (data) {
+                    console.log(data)
+                    model.User_Event_Bridge.create({
+                        ActivityId: data.id,
+                        UserId: UserID,
+                        hours: data.hours,
+                        points: data.points,
+                        volunteer: true,
+                        attending: true,
+                        saved: false,
+                        validated: true
                     }).then(function (data) {
-                        console.log(data)
-                        model.User_Event_Bridge.create({
-                            ActivityId: data.id,
-                            UserId: UserID,
-                            hours: data.hours,
-                            points: data.points,
-                            volunteer: true,
-                            attending: true,
-                            saved: false
-                        }).then(function (data) {
-                            console.log("I added a user attending entry ")
-                        }).catch(function (err) {
-                            console.log(err);
-                        });
-                    });
-                    // If entry exists then update data to saved
-                } else {
-                    model.User_Event_Bridge.update(
-                        { attending: true },
-                        {where: {
-                                UserId: UserID,
-                                ActivityId: id
-                        }}
-                    ).then(function (data) {
-                        console.log("I updated row to saved")
+                        console.log("I added a user attending entry ")
                     }).catch(function (err) {
                         console.log(err);
-                    })
+                    });
+                });
+                // If entry exists then update data to saved
+            } else {
+                model.User_Event_Bridge.update(
+                    { attending: true },
+                    {
+                        where: {
+                            UserId: UserID,
+                            ActivityId: id
+                        }
+                    }
+                ).then(function (data) {
+                    console.log("I updated row to saved")
+                }).catch(function (err) {
+                    console.log(err);
+                })
 
-                }
-            });
+            }
+        });
     },
+
     hostActivities: function (req, res) {
 
         var id = req.params.id;
@@ -250,7 +280,7 @@ module.exports = {
         var location = req.params.location;
         model.Activity.findAll({
             where: {
-                title: {  
+                title: {
                     $like: '%' + keyword + '%'
                 },
                 address: {

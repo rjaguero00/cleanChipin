@@ -15,10 +15,10 @@ const HostList = ({ children }) =>
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
-                            hours={activity.hours} 
+                            points={activity.points}
                             userID={activity.userID}
                             loadActivities={this.loadActivities}
-                            />
+                        />
                     )
                 }) :
                 <h5>You have not posted any events.</h5>

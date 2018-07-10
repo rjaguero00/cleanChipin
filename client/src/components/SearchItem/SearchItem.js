@@ -74,14 +74,16 @@ class SearchItem extends Component {
                             body={this.props.body}
                             contact={this.props.contact}
                             location={this.props.location}
-                            hours={this.props.hours}
+                            time={this.props.time}
+                            points={this.props.points}
                             lat={this.state.lat}
                             lng={this.state.lng}></SearchModal>
                     </h5>
                     <p className="card-text cards">Description: {this.props.body}</p>
                     <p className="card-text cards">Contact: {this.props.contact}</p>
                     <p className="card-text cards">Location: {this.props.location}</p>
-                    <p className="card-text cards">Hours: {this.props.hours}</p>
+                    <p className="card-text cards">Date:{this.props.time}</p>
+                    <p className="card-text cards">Points: {this.props.points}</p>
                     <button onClick={this.saveAttending} className="attendBtn">Attend</button>
                     <button onClick={this.saveActivity} className="saveBtn">Save</button>
 
@@ -91,7 +93,7 @@ class SearchItem extends Component {
                         body={this.props.body}
                         contact={this.props.contact}
                         location={this.props.location}
-                        hours={this.props.hours}
+                        points={this.props.points}
                         lat={this.state.lat}
                         lng={this.state.lng}></SearchModal> */}
 

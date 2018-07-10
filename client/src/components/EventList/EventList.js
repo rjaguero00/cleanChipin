@@ -16,7 +16,7 @@ const EventList = ({ results }) =>
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
-                            hours={activity.hours} />
+                            points={activity.points} />
                     )
                 }) :
                 <h5>No Results</h5>

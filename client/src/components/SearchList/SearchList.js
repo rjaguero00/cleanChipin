@@ -17,7 +17,8 @@ const SearchList = ({ children }) =>
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
-                            hours={activity.hours} />
+                            time={activity.time}
+                            points={activity.points} />
                     )
                 }) :
                 <h5>No Results</h5>

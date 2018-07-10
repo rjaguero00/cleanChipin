@@ -13,12 +13,13 @@ class HostEvents extends Component {
         title: "",
         body: "",
         contact: "",
+        time: "",
         location: "",
         userID: ""
     };
 
     componentDidMount() {
-                // Get active user id using jwt token
+        // Get active user id using jwt token
         API.activeUser()
             .then(res => {
                 if (res.data.success) {
@@ -33,7 +34,7 @@ class HostEvents extends Component {
     loadActivities = () => {
         API.getHostActivities(this.state.userID)
             .then(res => {
-                this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "" })
+                this.setState({ results: res.data, id: "", title: "", body: "", contact: "", time: "", location: "" })
             })
             .catch(err => console.log(err));
     };
