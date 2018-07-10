@@ -70,6 +70,9 @@ export default {
   postOrg: function () {
     return axios.post("/api/organization");
   },
+  getUserStuff: function (userID) {
+    return axios.get("/api/activitiesRoutes/getUserStuff/" + userID);
+  },
   getHoursPoints: function (userID) {
     return axios.get("/api/activitiesRoutes/getHoursPoints/" + userID);
   },

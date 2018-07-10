@@ -258,6 +258,16 @@ module.exports = {
             res.json(data);
         })
     },
+    getUserStuff: function (req, res) {
+        var userid = req.params.userID;
+        model.User.findOne({
+            where:
+                { id: userid }
+        }).then(function (data) {
+
+            res.json(data);
+        })
+    },
     getHoursPoints: function (req, res) {
         var userid = req.params.userID;
         model.User_Event_Bridge.sum('hours', {
