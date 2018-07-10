@@ -25,7 +25,8 @@ class Savedcard extends Component {
             body: this.props.body,
             contact: this.props.contact,
             location: this.props.location,
-            hours: this.props.hours
+            time: this.props.time,
+            points: this.props.points
         }
         console.log(activityData);
         // Call axios api with activity data to store in database
@@ -41,7 +42,8 @@ class Savedcard extends Component {
             body: this.props.body,
             contact: this.props.contact,
             location: this.props.location,
-            hours: this.props.hours
+            time: this.props.time,
+            points: this.props.points
         }
         console.log(attendingData);
         API.saveAttending(attendingData);
@@ -73,7 +75,8 @@ class Savedcard extends Component {
                     <p className="card-text">Description: {this.props.body}</p>
                     <p className="card-text">Contact: {this.props.contact}</p>
                     <p className="card-text">Location: {this.props.location}</p>
-                    <p className="card-text">Hours: {this.props.hours}</p>
+                    <p className="card-text">Date:{this.props.time}</p>
+                    <p className="card-text">Points: {this.props.points}</p>
                     <button onClick={this.saveAttending} className="btn btn-primary">Attend</button>
                     <button onClick={this.removeActivity} className="btn btn-primary">Remove</button>
                     <SearchModal
@@ -81,7 +84,8 @@ class Savedcard extends Component {
                         body={this.props.body}
                         contact={this.props.contact}
                         location={this.props.location}
-                        hours={this.props.hours}
+                        time={this.props.time}
+                        points={this.props.points}
                         lat={this.state.lat}
                         lng={this.state.lng}></SearchModal>
                 </div>

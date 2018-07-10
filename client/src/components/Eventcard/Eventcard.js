@@ -69,7 +69,8 @@ class Eventcard extends Component {
                         body={this.props.body}
                         contact={this.props.contact}
                         location={this.props.location}
-                        hours={this.props.hours}
+                        time={this.props.time}
+                        points={this.props.points}
                         lat={this.state.lat}
                         lng={this.state.lng}></SearchModal>
                 </div>
