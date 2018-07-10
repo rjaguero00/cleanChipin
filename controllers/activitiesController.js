@@ -62,7 +62,7 @@ module.exports = {
             console.log(data);
             model.User_Event_Bridge.create({
                 ActivityId: data.id,
-                UserId: id,
+                UserId: UserID,
                 hours: data.hours,
                 points: data.points,
                 volunteer: true,
@@ -84,6 +84,19 @@ module.exports = {
             where: {
                 UserId: UserID,
                 attending: true
+            }
+        })
+            .then((data) => {
+                res.json(data);
+            })
+    },
+    //Finds all saved Activities by a user
+    findSavedActivities: function (req, res) {
+        var UserID = req.params.id
+        model.User_Event_Bridge.findAll({
+            where: {
+                UserId: UserID,
+                saved: true
             }
         })
             .then((data) => {

@@ -14,6 +14,7 @@ class Dashboard extends Component {
     state = {
         currentPage: "/Dashboard",
         results: [],
+        saved: [],
         title: "",
         body: "",
         contact: "",
@@ -34,6 +35,7 @@ class Dashboard extends Component {
                     this.getPoints(userid);
                     this.setState({ currentPage: this.props.location.pathname });
                     this.loadAttendingActivities();
+                    this.loadSavedActivities();
                 };
             })
             .catch(err => console.log(err));
@@ -60,7 +62,6 @@ class Dashboard extends Component {
     loadAttendingActivities = () => {
         API.findAttendingActivities(this.state.userID)
             .then(res => {
-
                 console.log(res.data);
                 let results = [];
                 res.data.forEach(activity => {
@@ -69,6 +70,29 @@ class Dashboard extends Component {
                             results.push(event.data);
                             this.setState({
                                 results: results,
+                                title: "",
+                                body: "",
+                                contact: "",
+                                location: ""
+                            })
+                        })
+                });
+                // this.setState({ results: res.data, title: "", body: "", contact: "", location: "" })
+            })
+            .catch(err => console.log(err));
+    };
+
+    loadSavedActivities = () => {
+        API.findSavedActivities(this.state.userID)
+            .then(res => {
+                console.log(res.data);
+                let saved = [];
+                res.data.forEach(activity => {
+                    API.getActivity(activity.ActivityId)
+                        .then(event => {
+                            saved.push(event.data);
+                            this.setState({
+                                saved: saved,
                                 title: "",
                                 body: "",
                                 contact: "",
@@ -117,7 +141,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <SavedList>{this.state.results}</SavedList>
+                        <SavedList saved={this.state.saved}></SavedList>
                     </div>
                 </Wrapper>
             );

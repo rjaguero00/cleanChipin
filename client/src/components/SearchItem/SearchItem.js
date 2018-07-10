@@ -20,16 +20,11 @@ class SearchItem extends Component {
     // Save/Favorite volunteer activity
     saveActivity = (event) => {
         event.preventDefault();
-        const activityData = {
-            title: this.props.title,
-            body: this.props.body,
-            contact: this.props.contact,
-            location: this.props.location,
-            hours: this.props.hours
-        }
-        console.log(activityData);
         // Call axios api with activity data to store in database
-        API.saveActivity(activityData);
+        API.saveActivity({
+            id: this.props.id,
+            UserId: this.state.userID
+        })
 
     }
 
