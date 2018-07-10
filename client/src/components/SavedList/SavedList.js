@@ -11,6 +11,7 @@ const SavedList = ({ saved }) =>
                     return (
                         <Savedcard
                             key={activity._id}
+                            id={activity.id}
                             title={activity.title}
                             body={activity.body}
                             contact={activity.contact}

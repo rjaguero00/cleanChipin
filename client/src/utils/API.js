@@ -12,7 +12,7 @@ export default {
     return axios.post("/api/activitiesRoutes/saveActivity", activityData);
   },
   // For saving(marking as attending) an activity
-  saveAttending: function (attendingData) {
+  saveAttending: function (attendingData, id) {
     console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
@@ -26,7 +26,6 @@ export default {
   // Gets all saved Activities
   findSavedActivities: function (id) {
     console.log(id);
-
     return axios.get("/api/activitiesRoutes/findSavedActivities/" + id);
   },
   // Gets the activity with the given id
@@ -46,6 +45,7 @@ export default {
     return axios.delete("/api/activitiesRoutes/deleteHostActivity/" + id);
   },
   updateAllHours: function (id) {
+    console.log("putting");
     return axios.put("/api/activitiesRoutes/updateAllHours/" + id);
   },
   // Login route
