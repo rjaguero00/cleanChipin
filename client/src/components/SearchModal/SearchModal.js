@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Maps from '../Map/Map.js';
+
 // import '../../pages/SearchEvents/SearchEvents.css';
 
 const customStyles = {
@@ -11,10 +12,12 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '500px',
+        width: '360px',
         height: '400px',
-        padding: '5px',
-        color: '#281942'
+        padding: '10px',
+        color: 'white',
+        backgroundColor: '#281942',
+        border: 'none',
     },
     overlay: {
         position: 'absolute',
@@ -23,7 +26,7 @@ const customStyles = {
         left: 0,
         right: 0,
         backgroundColor: 'rgba(0,0,0,0.5)'
-    }
+    },
 };
 
 
@@ -47,7 +50,7 @@ class SearchModal extends React.Component {
 
     afterOpenModal() {
         // references are now sync'd and can be accessed.
-        this.subtitle.style.color = '#281842';
+        this.subtitle.style.color = 'white';
         this.subtitle.style.fontSize = '24px';
         this.subtitle.style.fontWeight = 'bold';
     }
@@ -85,6 +88,7 @@ class SearchModal extends React.Component {
                     />
                     <button
                         className="btn btn-danger"
+                        style ={{marginTop: 5}}
                         onClick={this.closeModal}>Close
                     </button>
 
