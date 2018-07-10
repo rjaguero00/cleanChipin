@@ -82,6 +82,7 @@ class Form extends Component {
                     <FormBtn
                         disabled={!(this.state.email && this.state.password)}
                         onClick={this.handleFormSubmit}
+                        style={{ float: "right", marginBottom: 10 }}
                     >
                         Submit
                             </FormBtn>
