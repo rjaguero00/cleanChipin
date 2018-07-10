@@ -21,11 +21,13 @@ class Dashboard extends Component {
         location: "",
         userID: "",
         hours: "",
+        time: "",
         points: ""
     };
 
     componentDidMount() {
-        // this.setState({ currentPage: this.props.location.pathname });
+        this.loadAttendingActivities();
+        this.setState({ currentPage: this.props.location.pathname });
         API.activeUser()
             .then(res => {
                 if (res.data.success) {

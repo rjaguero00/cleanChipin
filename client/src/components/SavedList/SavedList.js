@@ -16,6 +16,7 @@ const SavedList = ({ saved }) =>
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
+                            time={activity.time}
                             hours={activity.hours} />
                     )
                 }) :
