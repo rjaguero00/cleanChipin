@@ -143,7 +143,7 @@ module.exports = {
                 res.json(data);
             })
     },
-    // FINDS ALL SAVED ACTIVITIES BY USER
+    //Finds all saved Activities by a user
     findSavedActivities: function (req, res) {
         var UserID = req.params.id
         model.User_Event_Bridge.findAll({
@@ -156,8 +156,6 @@ module.exports = {
                 res.json(data);
             })
     },
-
-
     findActivity: function (req, res) {
         var activityId = req.params.id;
         model.Activity.findOne({

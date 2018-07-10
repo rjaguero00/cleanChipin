@@ -13,6 +13,7 @@ Geocode.enableDebug();
 class Savedcard extends Component {
     //Map lattitude and longitude State
     state = {
+        userID: "",
         lat: "",
         lng: ""
     };
@@ -63,6 +64,18 @@ class Savedcard extends Component {
                 console.error(error);
             }
         );
+        // this.loadAttendingActivities();
+        // Get userID of logged-in user and set as state
+        API.activeUser()
+            .then(res => {
+                if (res.data.success) {
+                    let userid = res.data.user.id
+                    console.log(userid);
+                    this.setState({ userID: userid });
+                    console.log(this.state);
+                };
+            })
+            .catch(err => console.log(err));
 
     }
 

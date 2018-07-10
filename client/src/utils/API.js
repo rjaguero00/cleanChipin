@@ -1,12 +1,32 @@
 import axios from "axios";
 
 export default {
+
+  // Gets all activity
+  getActivities: function () {
+    return axios.get("/api/activitiesRoutes");
+  },
+
+  // For saving(favoriting) activiy
+  saveActivity: function (activityData) {
+    return axios.post("/api/activitiesRoutes/saveActivity", activityData);
+  },
+  // For saving(marking as attending) an activity
+  saveAttending: function (attendingData) {
+    console.log(attendingData);
+    return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
+  },
+
   // Gets all attending Activities
   findAttendingActivities: function (id) {
     console.log(id);
     return axios.get("/api/activitiesRoutes/findAttendingActivities/" + id);
   },
-  findSavedActivites: function (id) {
+
+  // Gets all saved Activities
+  findSavedActivities: function (id) {
+    console.log(id);
+
     return axios.get("/api/activitiesRoutes/findSavedActivities/" + id);
   },
   // Gets the activity with the given id
