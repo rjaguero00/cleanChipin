@@ -103,29 +103,6 @@ module.exports = {
     },
 
 
-        // model.Activity.findOne({
-        //     where: {
-        //         id: id
-        //     }
-        // }).then(function (data) {
-        //     console.log(data);
-        //     model.User_Event_Bridge.create({
-        //         ActivityId: data.id,
-        //         UserId: UserID,
-        //         hours: data.hours,
-        //         points: data.points,
-        //         volunteer: true,
-        //         attending: false,
-        //         saved: true
-
-        //     }).then(function (data) {
-        //         console.log("I added a user attending entry ")
-        //     }).catch(function (err) {
-        //         console.log(err);
-        //     });
-        // });
-    // },
-
     //Finds all attending Activities by a user
     findAttendingActivities: function (req, res) {
         var UserID = req.params.id
@@ -141,6 +118,7 @@ module.exports = {
     },
     // FINDS ALL SAVED ACTIVITIES BY USER
     findSavedActivities: function (req, res) {
+        console.log("at controllerssssssssssssssssss");
         var UserID = req.params.id
         model.User_Event_Bridge.findAll({
             where: {
@@ -194,8 +172,7 @@ module.exports = {
                             points: data.points,
                             volunteer: true,
                             attending: true,
-                            saved: false,
-                            validated: true
+                            saved: false
                         }).then(function (data) {
                             console.log("I added a user attending entry ")
                         }).catch(function (err) {
@@ -244,9 +221,9 @@ module.exports = {
     },
     updateAllHours: function (req, res) {
         var id = req.params.id;
-        model.User_Event_Bridge.updateAll(
-            { validated: true },
-            { where: { ActivityId: id } }
+        model.User_Event_Bridge.update(
+            { validated: true, attending: false },
+            { where: { ActivityId: id, attending: true } }
         ).then(function (data) {
             res.json(data);
         })

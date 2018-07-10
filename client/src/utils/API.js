@@ -7,6 +7,7 @@ export default {
     return axios.get("/api/activitiesRoutes/findAttendingActivities/" + id);
   },
   findSavedActivites: function(id) {
+    console.log("got to axios");
     return axios.get("/api/activitiesRoutes/findSavedActivities/" + id);
   },
   // Gets the activity with the given id
@@ -26,6 +27,7 @@ export default {
     return axios.delete("/api/activitiesRoutes/deleteHostActivity/" + id);
   },
   updateAllHours: function (id) {
+    console.log("putting");
     return axios.put("/api/activitiesRoutes/updateAllHours/" + id);
   },
   // Login route

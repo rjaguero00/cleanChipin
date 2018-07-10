@@ -7,6 +7,8 @@ import SavedList from '../components/SavedList';
 import SButton from '../components/SButton/SButton';
 import Savedcard from '../components/Savedcard/Savedcard';
 import HostEvents from "../components/HostEvents";
+import SavedEvents from "../components/SavedEvents";
+
 import API from "../utils/API.js";
 
 
@@ -111,13 +113,10 @@ class Dashboard extends Component {
                         hours={this.state.hours}
                         points={this.state.points}
                     />
-                    Saved
                     <div>
                         <SButton />
                     </div>
-                    <div className="mx-auto">
-                        <SavedList>{this.state.results}</SavedList>
-                    </div>
+                        <SavedEvents />
                 </Wrapper>
             );
         } else if (this.state.currentPage === "/Dashboard/Host") {

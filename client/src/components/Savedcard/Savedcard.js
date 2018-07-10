@@ -14,8 +14,33 @@ class Savedcard extends Component {
     //Map lattitude and longitude State
     state = {
         lat: "",
-        lng: ""
+        lng: "",
+        userID: ""
     };
+    componentDidMount() {
+        // Convert address from database into latitude and longitude with react-geocode package in order for google maps api to use
+        Geocode.fromAddress(this.props.location).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                // set the Map State with lat and lng results 
+                this.setState({ lat: lat })
+                this.setState({ lng: lng })
+            },
+            error => {
+                console.error(error);
+            }
+        );
+        API.activeUser()
+            .then(res => {
+                if (res.data.success) {
+                    let userid = res.data.user.id
+                    this.setState({ userID: userid });
+                    this.loadActivities();
+                };
+            })
+            .catch(err => console.log(err));
+
+    }
 
     // Save/Favorite volunteer activity
     removeActivity = (event) => {
@@ -35,34 +60,18 @@ class Savedcard extends Component {
 
     // Save a volunteer activity as one the user is attending
     saveAttending = (event) => {
+        console.log("id is: " + this.props.id);
+        console.log("userID is: " +this.state.userID);
+        console.log(this.state.userID);
         event.preventDefault();
-        const attendingData = {
-            title: this.props.title,
-            body: this.props.body,
-            contact: this.props.contact,
-            location: this.props.location,
-            hours: this.props.hours
-        }
-        console.log(attendingData);
-        API.saveAttending(attendingData);
+        API.saveAttending({
+            id: this.props.id,
+            UserId: this.state.userID
+            // hours: this.props.hours
+        })
     }
 
 
-    componentDidMount() {
-        // Convert address from database into latitude and longitude with react-geocode package in order for google maps api to use
-        Geocode.fromAddress(this.props.location).then(
-            response => {
-                const { lat, lng } = response.results[0].geometry.location;
-                // set the Map State with lat and lng results 
-                this.setState({ lat: lat })
-                this.setState({ lng: lng })
-            },
-            error => {
-                console.error(error);
-            }
-        );
-
-    }
 
     render() {
         return (

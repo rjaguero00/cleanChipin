@@ -11,11 +11,14 @@ const SavedList = ({ children }) =>
                     return (
                         <Savedcard
                             key={activity._id}
+                            id={activity.id}
                             title={activity.title}
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
-                            hours={activity.hours} />
+                            hours={activity.hours}
+                            userID={activity.userID}
+                            loadActivities={this.loadActivities} />
                     )
                 }) :
                 <h5>No Results</h5>
