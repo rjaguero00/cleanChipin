@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+
   // Gets all activity
   getActivities: function () {
     return axios.get("/api/activitiesRoutes");
@@ -15,14 +16,17 @@ export default {
     console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
+
   // Gets all attending Activities
   findAttendingActivities: function (id) {
     console.log(id);
     return axios.get("/api/activitiesRoutes/findAttendingActivities/" + id);
   },
+
   // Gets all saved Activities
   findSavedActivities: function (id) {
     console.log(id);
+
     return axios.get("/api/activitiesRoutes/findSavedActivities/" + id);
   },
   // Gets the activity with the given id
@@ -37,7 +41,6 @@ export default {
   getHostActivities: function (id) {
     return axios.get("/api/activitiesRoutes/hostActivities/" + id);
   },
-
   // Delete host activity from admin dashboard
   deleteHostActivity: function (id) {
     return axios.delete("/api/activitiesRoutes/deleteHostActivity/" + id);
@@ -49,7 +52,6 @@ export default {
   getUserLogin: function (loginData) {
     return axios.post("/auth/userlogin", loginData);
   },
-
   // Get active/logged-in user
   activeUser: function () {
     // console.log(localStorage.getItem('jwtToken'));
@@ -64,7 +66,6 @@ export default {
     }
     return axios.post("/api/activitiesRoutes", activityData);
   },
-
   // Post Organization
   postOrg: function () {
     return axios.post("/api/organization");
@@ -82,6 +83,34 @@ export default {
     }
     console.log("arrived at utils api")
     return axios.post("/auth/register", userData);
-  }
+  },
+
+//============== BROWSE PAGE ROUTERS ===================//
+  // Gets all activities
+  getActivities: function () {
+    return axios.get("/api/activitiesRoutes");
+  },
+  // For browse by keyword and location
+  getKeywordLocation: function (keyword, location) {
+    return axios.get("/api/activitiesRoutes/getKeywordLocation/" + keyword + "/" + location);
+  },
+  // For browse by keyword
+  getKeyword: function (keyword) {
+    return axios.get("/api/activitiesRoutes/getKeyword/" + keyword);
+  },
+  // For browse by location
+  getLocation: function (location) {
+    return axios.get("/api/activitiesRoutes/getLocation/" + location);
+  },
+  // For saving(favoriting) activiy
+  saveActivity: function (activityData) {
+    return axios.post("/api/activitiesRoutes/saveActivity", activityData);
+  },
+  // For saving(marking as attending) an activity
+  saveAttending: function (attendingData) {
+    console.log(attendingData);
+    return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
+  },
+
 
 };

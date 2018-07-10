@@ -45,6 +45,14 @@ router.route("/findAttendingActivities/:id")
 router.route("/findSavedActivities/:id")
     .get(activitiesController.findSavedActivities)
 
+router.route("/getKeywordLocation/:keyword/:location")
+    .get(activitiesController.getKeywordLocation)
+
+router.route("/getKeyword/:keyword")
+    .get(activitiesController.getKeyword)
+
+router.route("/getLocation/:location")
+    .get(activitiesController.getLocation)
 
 
 module.exports = router; 

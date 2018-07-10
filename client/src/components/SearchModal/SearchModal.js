@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Maps from '../Map/Map.js';
+// import '../../pages/SearchEvents/SearchEvents.css';
 
 const customStyles = {
     content: {
@@ -10,9 +11,10 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '350px',
+        width: '500px',
         height: '400px',
-        padding: '5px'
+        padding: '5px',
+        color: '#281942'
     },
     overlay: {
         position: 'absolute',
@@ -45,8 +47,9 @@ class SearchModal extends React.Component {
 
     afterOpenModal() {
         // references are now sync'd and can be accessed.
-        this.subtitle.style.color = '#f00';
-
+        this.subtitle.style.color = '#281842';
+        this.subtitle.style.fontSize = '24px';
+        this.subtitle.style.fontWeight = 'bold';
     }
 
     closeModal() {
@@ -56,11 +59,11 @@ class SearchModal extends React.Component {
     render() {
         return (
             <div>
-                <button
+                <a href="#" onClick={this.openModal}>{this.props.title}</a>
+                {/* <button
                     className="mapbutton"
-                    className="btn-primary"
                     onClick={this.openModal}>Map
-                </button>
+                </button> */}
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
