@@ -22,7 +22,9 @@ class Dashboard extends Component {
         userID: "",
         hours: "",
         time: "",
-        points: ""
+        points: "",
+        imageString: "",
+        name: ""
     };
 
     componentDidMount() {
@@ -38,9 +40,15 @@ class Dashboard extends Component {
                     this.setState({ currentPage: this.props.location.pathname });
                     this.loadAttendingActivities();
                     this.loadSavedActivities();
+                    this.getUserStuff(userid);
                 };
             })
             .catch(err => console.log(err));
+    };
+    getUserStuff = (userID) => {
+        API.getUserStuff(userID)
+            .then(res => this.setState({ name: res.data.name, imageString: res.data.imageString }))
+            .catch(err => console.log(err))
     };
     getHoursPoints = (userID) => {
         API.getHoursPoints(userID)
@@ -120,6 +128,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points} />
                     <div>
@@ -135,6 +144,7 @@ class Dashboard extends Component {
                 <Wrapper>
                     <Sidebar
                         currentPage={this.state.currentPage}
+                        imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points}
                     />
@@ -152,8 +162,10 @@ class Dashboard extends Component {
                 <Wrapper>
                     <Sidebar
                         currentPage={this.state.currentPage}
+                        imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points}
+
                     />
                     <div>
                         <SButton />

@@ -9,9 +9,9 @@ const Sidebar = props => (
     <nav id="sidebar">
 
         <ul className="list-unstyled components">
-            <p><span id="user-name"></span></p> <img src="https://www.alaskapacific.edu/wp-content/uploads/2015/11/placeholder_profile_photo-200x200.png" className="rounded mx-auto d-block" alt="..." />
+            <p><span id="user-name"></span></p> <img src={props.imageString} className="rounded mx-auto d-block" alt="..." />
 
-            
+
             <li>
                 <Link to="/Dashboard/Saved" className={
                     props.currentPage === "/Dashboard/Saved" ? "active" : ""
@@ -23,14 +23,14 @@ const Sidebar = props => (
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Hosting</a>
                 <ul className="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                    <Link to="/Dashboard/Host" className={
-                        props.currentPage === "/Dashboard/Host" ? "active" : ""
-                    }
-                    >
-                        My Events</Link>
+                        <Link to="/Dashboard/Host" className={
+                            props.currentPage === "/Dashboard/Host" ? "active" : ""
+                        }
+                        >
+                            My Events</Link>
                     </li>
                     <li className="modalButton" align="center">
-                    <CreateEventsModal />    
+                        <CreateEventsModal />
                     </li>
                 </ul>
             </li>
