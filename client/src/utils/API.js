@@ -1,13 +1,31 @@
 import axios from "axios";
 
 export default {
+
+  // Gets all activity
+  getActivities: function () {
+    return axios.get("/api/activitiesRoutes");
+  },
+
+  // For saving(favoriting) activiy
+  saveActivity: function (activityData) {
+    return axios.post("/api/activitiesRoutes/saveActivity", activityData);
+  },
+  // For saving(marking as attending) an activity
+  saveAttending: function (attendingData, id) {
+    console.log(attendingData);
+    return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
+  },
+
   // Gets all attending Activities
   findAttendingActivities: function (id) {
     console.log(id);
     return axios.get("/api/activitiesRoutes/findAttendingActivities/" + id);
   },
-  findSavedActivites: function(id) {
-    console.log("got to axios");
+
+  // Gets all saved Activities
+  findSavedActivities: function (id) {
+    console.log(id);
     return axios.get("/api/activitiesRoutes/findSavedActivities/" + id);
   },
   // Gets the activity with the given id
@@ -52,9 +70,12 @@ export default {
   postOrg: function () {
     return axios.post("/api/organization");
   },
-  getHoursPoints: function(userID) {
+  getUserStuff: function (userID) {
+    return axios.get("/api/activitiesRoutes/getUserStuff/" + userID);
+  },
+  getHoursPoints: function (userID) {
     return axios.get("/api/activitiesRoutes/getHoursPoints/" + userID);
-  }, 
+  },
   getPoints: function (userID) {
     return axios.get("/api/activitiesRoutes/getPoints/" + userID);
   },
@@ -67,7 +88,7 @@ export default {
     return axios.post("/auth/register", userData);
   },
 
-//============== BROWSE PAGE ROUTERS ===================//
+  //============== BROWSE PAGE ROUTERS ===================//
   // Gets all activities
   getActivities: function () {
     return axios.get("/api/activitiesRoutes");

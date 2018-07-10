@@ -30,12 +30,14 @@ router.route("/updateAllHours/:id")
 // Matches with "/api/activitiesRoutes/:id" 
 router.route("/:id")
     .delete(activitiesController.remove)
-
+// Matches with "/api/activitiesRoutes/getUserStuff/:userid"
+router.route("/getUserStuff/:userID")
+    .get(activitiesController.getUserStuff)
 // Matches with "/api/activitiesRoutes/getHoursPoints/:userid"
 router.route("/getHoursPoints/:userID")
     .get(activitiesController.getHoursPoints)
 
-    // Matches with "/api/activitiesRoutes/getPoints/:userid"
+// Matches with "/api/activitiesRoutes/getPoints/:userid"
 router.route("/getPoints/:userID")
     .get(activitiesController.getPoints)
 

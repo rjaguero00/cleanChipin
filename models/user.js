@@ -30,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         imageString: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: true
         },
         hours: {

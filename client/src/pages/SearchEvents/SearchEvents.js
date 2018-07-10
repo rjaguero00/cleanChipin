@@ -16,6 +16,7 @@ class SearchEvents extends Component {
         body: "",
         contact: "",
         location: "",
+        time: "",
         keyword: "",
         searchloc: ""
     };
@@ -26,7 +27,7 @@ class SearchEvents extends Component {
 
     loadActivities = () => {
         API.getActivities()
-            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "" })
+            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "", time: "" })
             )
             .catch(err => console.log(err));
     };
@@ -42,11 +43,11 @@ class SearchEvents extends Component {
         event.preventDefault();
         if (this.state.keyword && this.state.searchloc) {
             this.searchKeyLoc();
-        }else if (this.state.keyword && !this.state.searchloc){
+        } else if (this.state.keyword && !this.state.searchloc) {
             this.searchKey();
-        }else if (this.state.searchloc && !this.state.keyword) {
+        } else if (this.state.searchloc && !this.state.keyword) {
             this.searchLoc();
-        }else {
+        } else {
             this.loadActivities();
         }
     };
@@ -55,7 +56,7 @@ class SearchEvents extends Component {
         console.log("search for keword and location");
         API.getKeywordLocation(this.state.keyword, this.state.searchloc)
             // .then( res => console.log(res))
-            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "" })
+            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "", time: "" })
             )
             .catch(err => console.log(err));
     };
@@ -63,7 +64,7 @@ class SearchEvents extends Component {
     searchKey = () => {
         console.log("search keyword only");
         API.getKeyword(this.state.keyword)
-            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "" })
+            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "", time: "" })
             )
             .catch(err => console.log(err));
     };
@@ -71,7 +72,7 @@ class SearchEvents extends Component {
     searchLoc = () => {
         console.log("search location only");
         API.getLocation(this.state.searchloc)
-            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "" })
+            .then(res => this.setState({ results: res.data, id: "", title: "", body: "", contact: "", location: "", time: "" })
             )
             .catch(err => console.log(err));
     };
@@ -106,37 +107,37 @@ class SearchEvents extends Component {
                                     <div class="input-prepend icon-search">
                                         <span class="input-group-text" id="basic-addon1"><i className="fa fa-search"></i></span>
                                     </div>
-                                <Input 
-                                name="keyword" 
-                                value={this.state.keyword}
-                                onChange={this.handleInputChange} 
-                                className="searchInput" 
-                                type="search" 
-                                placeholder="Keyword" 
-                                aria-label="Search" />
-</div>
+                                    <Input
+                                        name="keyword"
+                                        value={this.state.keyword}
+                                        onChange={this.handleInputChange}
+                                        className="searchInput"
+                                        type="search"
+                                        placeholder="Keyword"
+                                        aria-label="Search" />
+                                </div>
                             </li>
                             <li>
                                 <div className="input-group">
                                     <div class="input-prepend icon-search">
                                         <span class="input-group-text" id="basic-addon1"><i className="fa fa-map-marker"></i></span>
                                     </div>
-                                <Input 
-                                name="searchloc" 
-                                value={this.state.searchloc}
-                                onChange={this.handleInputChange} 
-                                className="locationInput" 
-                                type="search" 
-                                placeholder="Location" 
-                                aria-label="Search" />
-                                </div>                           
+                                    <Input
+                                        name="searchloc"
+                                        value={this.state.searchloc}
+                                        onChange={this.handleInputChange}
+                                        className="locationInput"
+                                        type="search"
+                                        placeholder="Location"
+                                        aria-label="Search" />
+                                </div>
                             </li>
                             <li>
                                 <div className="input-group">
-                                <button 
-                                onClick={this.handleFormSubmit}
-                                className="searchBtn" 
-                                type="submit">Search</button>
+                                    <button
+                                        onClick={this.handleFormSubmit}
+                                        className="searchBtn"
+                                        type="submit">Search</button>
                                 </div>
                             </li>
                         </ul>
