@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, Container } from "../../components/Grid";
 import { form, Input, FormBtn } from "../../components/Form/Formitems";
 import SearchList from '../../components/SearchList';
+import Videos from '../../components/Videos';
 import API from '../../utils/API.js';
 import "./SearchEvents.css"
 
@@ -141,10 +142,16 @@ class SearchEvents extends Component {
                         </ul>
                     </div>
                 </nav>
-                <Row>
-                    <Col size="md-12 sm-12">
+                <Row className="searchPage">
+                    <Col size="md-9 sm-12">
                         <div className="mx-auto resultsList">
                             <SearchList>{this.state.results}</SearchList>
+                        </div>
+                    </Col>
+                    <Col size="md-3 sm-12">
+                        <div className="videosList">
+                            <h4>Volunteer News</h4>
+                            <Videos />
                         </div>
                     </Col>
                 </Row>

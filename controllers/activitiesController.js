@@ -118,7 +118,6 @@ module.exports = {
     },
     // FINDS ALL SAVED ACTIVITIES BY USER
     findSavedActivities: function (req, res) {
-        console.log("at controllerssssssssssssssssss");
         var UserID = req.params.id
         model.User_Event_Bridge.findAll({
             where: {
