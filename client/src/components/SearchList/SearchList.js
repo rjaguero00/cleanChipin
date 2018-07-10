@@ -5,7 +5,7 @@ import "./SearchList.css"
 
 const SearchList = ({ children }) =>
     <div id="searchList" className="searchList">
-        <h5 className="header">Results</h5>
+        <h5 className="header"></h5>
         <div className="card-body">
             {children[0] ?
                 children.slice(0, 20).map(activity => {
@@ -17,7 +17,8 @@ const SearchList = ({ children }) =>
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
-                            hours={activity.hours} />
+                            time={activity.time}
+                            points={activity.points} />
                     )
                 }) :
                 <h5>No Results</h5>
