@@ -2,12 +2,12 @@ import React from 'react';
 import Savedcard from '../Savedcard';
 
 
-const SavedList = ({ children }) =>
+const SavedList = ({ saved }) =>
     <div id="savedList" className="saved-List">
         <h5 className="header text-center">Results</h5>
         <div className="card-body">
-            {children[0] ?
-                children.slice(0, 20).map(activity => {
+            {saved[0] ?
+                saved.slice(0, 20).map(activity => {
                     return (
                         <Savedcard
                             key={activity._id}

@@ -35,7 +35,7 @@ router.route("/:id")
 router.route("/getHoursPoints/:userID")
     .get(activitiesController.getHoursPoints)
 
-    // Matches with "/api/activitiesRoutes/getPoints/:userid"
+// Matches with "/api/activitiesRoutes/getPoints/:userid"
 router.route("/getPoints/:userID")
     .get(activitiesController.getPoints)
 
