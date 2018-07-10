@@ -57,20 +57,28 @@ class Eventcard extends Component {
             <div className="card result-item">
                 <div className="card-body">
                     <h5 className="card-title ">
-                        <a href="">{this.props.title}</a></h5>
+                        <SearchModal id={this.props.id}
+                            title={this.props.title}
+                            body={this.props.body}
+                            contact={this.props.contact}
+                            location={this.props.location}
+                            hours={this.props.hours}
+                            lat={this.state.lat}
+                            lng={this.state.lng}></SearchModal>
+                    </h5>
                     <p className="card-text">Description: {this.props.body}</p>
                     <p className="card-text">Contact: {this.props.contact}</p>
                     <p className="card-text">Location: {this.props.location}</p>
                     <p className="card-text">Hours: {this.props.hours}</p>
                     <button onClick={this.notAttending} className="btn btn-primary">Not Attending</button>
-                    <SearchModal
+                    {/* <SearchModal
                         title={this.props.title}
                         body={this.props.body}
                         contact={this.props.contact}
                         location={this.props.location}
                         hours={this.props.hours}
                         lat={this.state.lat}
-                        lng={this.state.lng}></SearchModal>
+                        lng={this.state.lng}></SearchModal> */}
                 </div>
             </div>
         )

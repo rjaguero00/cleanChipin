@@ -12,7 +12,7 @@ export default {
     return axios.post("/api/activitiesRoutes/saveActivity", activityData);
   },
   // For saving(marking as attending) an activity
-  saveAttending: function (attendingData) {
+  saveAttending: function (attendingData, id) {
     console.log(attendingData);
     return axios.post("/api/activitiesRoutes/saveAttending", attendingData);
   },
@@ -85,7 +85,7 @@ export default {
     return axios.post("/auth/register", userData);
   },
 
-//============== BROWSE PAGE ROUTERS ===================//
+  //============== BROWSE PAGE ROUTERS ===================//
   // Gets all activities
   getActivities: function () {
     return axios.get("/api/activitiesRoutes");

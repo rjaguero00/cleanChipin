@@ -60,9 +60,9 @@ module.exports = {
                 UserId: UserID,
                 ActivityId: id
             }
-        // If activity in bridge doesn't exist create an entry for it
-        }).then(function (results){
-            if(!results){
+            // If activity in bridge doesn't exist create an entry for it
+        }).then(function (results) {
+            if (!results) {
                 model.Activity.findOne({
                     where: {
                         id: id
@@ -84,46 +84,48 @@ module.exports = {
                         console.log(err);
                     });
                 });
-            // If entry exists then update data to saved
-            }else{
-            model.User_Event_Bridge.update(
-                {saved : true},
-                {where: {
-                    UserId: UserID,
-                    ActivityId: id
-                }}
-            ).then(function (data) {
-                console.log("I updated row to saved")
-            }).catch(function(err){
-                console.log(err);
-            })
+                // If entry exists then update data to saved
+            } else {
+                model.User_Event_Bridge.update(
+                    { saved: true },
+                    {
+                        where: {
+                            UserId: UserID,
+                            ActivityId: id
+                        }
+                    }
+                ).then(function (data) {
+                    console.log("I updated row to saved")
+                }).catch(function (err) {
+                    console.log(err);
+                })
 
-        }
+            }
         });
     },
 
 
-        // model.Activity.findOne({
-        //     where: {
-        //         id: id
-        //     }
-        // }).then(function (data) {
-        //     console.log(data);
-        //     model.User_Event_Bridge.create({
-        //         ActivityId: data.id,
-        //         UserId: UserID,
-        //         hours: data.hours,
-        //         points: data.points,
-        //         volunteer: true,
-        //         attending: false,
-        //         saved: true
+    // model.Activity.findOne({
+    //     where: {
+    //         id: id
+    //     }
+    // }).then(function (data) {
+    //     console.log(data);
+    //     model.User_Event_Bridge.create({
+    //         ActivityId: data.id,
+    //         UserId: UserID,
+    //         hours: data.hours,
+    //         points: data.points,
+    //         volunteer: true,
+    //         attending: false,
+    //         saved: true
 
-        //     }).then(function (data) {
-        //         console.log("I added a user attending entry ")
-        //     }).catch(function (err) {
-        //         console.log(err);
-        //     });
-        // });
+    //     }).then(function (data) {
+    //         console.log("I added a user attending entry ")
+    //     }).catch(function (err) {
+    //         console.log(err);
+    //     });
+    // });
     // },
 
     //Finds all attending Activities by a user
@@ -176,46 +178,48 @@ module.exports = {
                 UserId: UserID,
                 ActivityId: id
             }
-        // If activity in bridge doesn't exist create an entry for it
+            // If activity in bridge doesn't exist create an entry for it
         }).then(function (results) {
             if (!results) {
-                    model.Activity.findOne({
-                        where: {
-                            id: id
-                        }
+                model.Activity.findOne({
+                    where: {
+                        id: id
+                    }
+                }).then(function (data) {
+                    console.log(data)
+                    model.User_Event_Bridge.create({
+                        ActivityId: data.id,
+                        UserId: UserID,
+                        hours: data.hours,
+                        points: data.points,
+                        volunteer: true,
+                        attending: true,
+                        saved: false,
+                        validated: true
                     }).then(function (data) {
-                        console.log(data)
-                        model.User_Event_Bridge.create({
-                            ActivityId: data.id,
-                            UserId: UserID,
-                            hours: data.hours,
-                            points: data.points,
-                            volunteer: true,
-                            attending: true,
-                            saved: false,
-                            validated: true
-                        }).then(function (data) {
-                            console.log("I added a user attending entry ")
-                        }).catch(function (err) {
-                            console.log(err);
-                        });
-                    });
-                    // If entry exists then update data to saved
-                } else {
-                    model.User_Event_Bridge.update(
-                        { attending: true },
-                        {where: {
-                                UserId: UserID,
-                                ActivityId: id
-                        }}
-                    ).then(function (data) {
-                        console.log("I updated row to saved")
+                        console.log("I added a user attending entry ")
                     }).catch(function (err) {
                         console.log(err);
-                    })
+                    });
+                });
+                // If entry exists then update data to saved
+            } else {
+                model.User_Event_Bridge.update(
+                    { attending: true },
+                    {
+                        where: {
+                            UserId: UserID,
+                            ActivityId: id
+                        }
+                    }
+                ).then(function (data) {
+                    console.log("I updated row to saved")
+                }).catch(function (err) {
+                    console.log(err);
+                })
 
-                }
-            });
+            }
+        });
     },
     hostActivities: function (req, res) {
 
@@ -271,7 +275,7 @@ module.exports = {
         var location = req.params.location;
         model.Activity.findAll({
             where: {
-                title: {  
+                title: {
                     $like: '%' + keyword + '%'
                 },
                 address: {
