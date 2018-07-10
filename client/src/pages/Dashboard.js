@@ -20,27 +20,28 @@ class Dashboard extends Component {
         currentPage: "/Dashboard",
         userID: "",
         hours: "",
+        time: "",
         points: ""
     };
 
     componentDidMount() {
         this.loadAttendingActivities();
         this.setState({ currentPage: this.props.location.pathname });
-            API.activeUser()
-                .then(res => {
-                    if (res.data.success) {
-                        let userid = res.data.user.id
-                        this.setState({ userID: userid });
-                        this.loadAttendingActivities();
-                        this.getHoursPoints(userid);
-                        this.getPoints(userid);
-                    };
-                })
-                .catch(err => console.log(err));
+        API.activeUser()
+            .then(res => {
+                if (res.data.success) {
+                    let userid = res.data.user.id
+                    this.setState({ userID: userid });
+                    this.loadAttendingActivities();
+                    this.getHoursPoints(userid);
+                    this.getPoints(userid);
+                };
+            })
+            .catch(err => console.log(err));
     };
     getHoursPoints = (userID) => {
         API.getHoursPoints(userID)
-            .then(res => this.setState({ hours: res.data}))
+            .then(res => this.setState({ hours: res.data }))
             .catch(err => console.log(err))
     };
     getPoints = (userID) => {
@@ -92,9 +93,9 @@ class Dashboard extends Component {
         if (this.state.currentPage === "/Dashboard") {
             return (
                 <Wrapper>
-                    <Sidebar 
-                    hours={this.state.hours}
-                    points={this.state.points}/>
+                    <Sidebar
+                        hours={this.state.hours}
+                        points={this.state.points} />
                     <div>
                         <SButton />
                     </div>

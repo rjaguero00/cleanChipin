@@ -73,7 +73,7 @@ class UserSignUp extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.openModal}>Sign ups</button>
+                <button onClick={this.openModal}>Sign up</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}

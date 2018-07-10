@@ -25,7 +25,6 @@ class SearchItem extends Component {
             id: this.props.id,
             UserId: this.state.userID
         })
-
     }
 
     // Save a volunteer activity as one the user is attending
@@ -37,7 +36,6 @@ class SearchItem extends Component {
             // hours: this.props.hours
         })
     }
-
 
     componentDidMount() {
         // Convert address from database into latitude and longitude with react-geocode package in order for google maps api to use
@@ -71,6 +69,7 @@ class SearchItem extends Component {
             <div className="card resultItem">
                 <div className="card-body">
                     <h5 className="card-title ">
+<<<<<<< HEAD
                         <a href="">{this.props.title}</a></h5>
                     <p className="card-text">Description: {this.props.body}</p>
                     <p className="card-text">Contact: {this.props.contact}</p>
@@ -78,8 +77,25 @@ class SearchItem extends Component {
                     <p className="card-text">Points: {this.props.points}</p>
                     <button onClick={this.saveAttending} className="btn btn-primary">Attend</button>
                     <button onClick={this.saveActivity} className="btn btn-primary">Save</button>
+=======
+                        <SearchModal id={this.props.id}
+                            title={this.props.title}
+                            body={this.props.body}
+                            contact={this.props.contact}
+                            location={this.props.location}
+                            hours={this.props.hours}
+                            lat={this.state.lat}
+                            lng={this.state.lng}></SearchModal>
+                    </h5>
+                    <p className="card-text cards">Description: {this.props.body}</p>
+                    <p className="card-text cards">Contact: {this.props.contact}</p>
+                    <p className="card-text cards">Location: {this.props.location}</p>
+                    <p className="card-text cards">Hours: {this.props.hours}</p>
+                    <button onClick={this.saveAttending} className="attendBtn">Attend</button>
+                    <button onClick={this.saveActivity} className="saveBtn">Save</button>
+>>>>>>> 9a6559007e6818a5ec604d6978e8707ac323136a
 
-                    <SearchModal
+                    {/* <SearchModal
                         id={this.props.id}
                         title={this.props.title}
                         body={this.props.body}
@@ -87,7 +103,7 @@ class SearchItem extends Component {
                         location={this.props.location}
                         points={this.props.points}
                         lat={this.state.lat}
-                        lng={this.state.lng}></SearchModal>
+                        lng={this.state.lng}></SearchModal> */}
 
                 </div>
             </div>
