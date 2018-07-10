@@ -107,6 +107,7 @@ module.exports = {
     },
 
 
+
     // model.Activity.findOne({
     //     where: {
     //         id: id
@@ -145,6 +146,7 @@ module.exports = {
     },
     //Finds all saved Activities by a user
     findSavedActivities: function (req, res) {
+        console.log("at controllerssssssssssssssssss");
         var UserID = req.params.id
         model.User_Event_Bridge.findAll({
             where: {
@@ -249,9 +251,9 @@ module.exports = {
     },
     updateAllHours: function (req, res) {
         var id = req.params.id;
-        model.User_Event_Bridge.updateAll(
-            { validated: true },
-            { where: { ActivityId: id } }
+        model.User_Event_Bridge.update(
+            { validated: true, attending: false },
+            { where: { ActivityId: id, attending: true } }
         ).then(function (data) {
             res.json(data);
         })
