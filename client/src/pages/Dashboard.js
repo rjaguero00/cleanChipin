@@ -64,7 +64,7 @@ class Dashboard extends Component {
             // .then(res => console.log(res.data))
             .then(res => {
                 this.setState({ points: res.data }),
-                this.setState({socialmsg: "I've reached " + res.data + " points on ChipIn!  Join me on ChipIn to start earning volunteer points."})
+                this.setState({socialmsg: "I've reached " + res.data + " points on ChipIn!  Join me on ChipIn and start earning volunteer points.  "})
             }
             )
             .catch(err => console.log(err))
