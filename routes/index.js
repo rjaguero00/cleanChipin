@@ -1,9 +1,11 @@
+const express = require("express");
 const path = require("path");
-const router = require("express").Router();
+const router = express.Router();
 const apiRoutes = require("./api");
 const auth = require("./auth.js");
 const apiAuth = require("./api-routes.js");
 
+router.use(express.static(path.join(__dirname, '../client/build')));
 // API Activity Routes
 router.use("/api", apiRoutes);
 
