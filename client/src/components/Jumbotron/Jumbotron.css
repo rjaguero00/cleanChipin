@@ -9,6 +9,8 @@
     color: white;
     font-weight: bold;
     filter: brightness(100%);
+    font-size: 45px;
+
 }
 #jumbo-image {
    filter: brightness(85%);

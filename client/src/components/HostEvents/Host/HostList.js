@@ -17,6 +17,7 @@ const HostList = ({ children }) =>
                             location={activity.address}
                             points={activity.points}
                             userID={activity.userID}
+                            deleted={activity.deleted}
                             loadActivities={this.loadActivities}
                         />
                     )

@@ -96,6 +96,7 @@ class OrgSignUp extends React.Component {
                             </div>
                             <button
                                 className="btn btn-success"
+                                style={{ float: "left", marginBottom: 10 }}
                                 onClick={this.submitOrgSignUp}>Submit
                             </button>
                         </form>

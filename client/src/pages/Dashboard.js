@@ -7,6 +7,8 @@ import SavedList from '../components/SavedList';
 import SButton from '../components/SButton/SButton';
 // import Savedcard from '../components/Savedcard/Savedcard';
 import HostEvents from "../components/HostEvents";
+import SavedEvents from "../components/SavedEvents";
+
 import API from "../utils/API.js";
 
 
@@ -22,7 +24,9 @@ class Dashboard extends Component {
         userID: "",
         hours: "",
         time: "",
-        points: ""
+        points: "",
+        imageString: "",
+        name: ""
     };
 
     componentDidMount() {
@@ -38,9 +42,15 @@ class Dashboard extends Component {
                     this.setState({ currentPage: this.props.location.pathname });
                     this.loadAttendingActivities();
                     this.loadSavedActivities();
+                    this.getUserStuff(userid);
                 };
             })
             .catch(err => console.log(err));
+    };
+    getUserStuff = (userID) => {
+        API.getUserStuff(userID)
+            .then(res => this.setState({ name: res.data.name, imageString: res.data.imageString }))
+            .catch(err => console.log(err))
     };
     getHoursPoints = (userID) => {
         API.getHoursPoints(userID)
@@ -138,6 +148,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points} />
                     <div>
@@ -153,12 +164,14 @@ class Dashboard extends Component {
                 <Wrapper>
                     <Sidebar
                         currentPage={this.state.currentPage}
+                        imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points}
                     />
                     <div>
                         <SButton />
                     </div>
+
                     <div className="mx-auto">
                         <SavedList saved={this.state.saved} recollectData={this.loadSavedActivities}></SavedList>
                     </div>
@@ -169,8 +182,10 @@ class Dashboard extends Component {
                 <Wrapper>
                     <Sidebar
                         currentPage={this.state.currentPage}
+                        imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points}
+
                     />
                     <div>
                         <SButton />

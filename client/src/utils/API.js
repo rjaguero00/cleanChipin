@@ -26,7 +26,6 @@ export default {
   // Gets all saved Activities
   findSavedActivities: function (id) {
     console.log(id);
-
     return axios.get("/api/activitiesRoutes/findSavedActivities/" + id);
   },
   //updates from saved to not saved and is removed from saved dashboard
@@ -54,6 +53,7 @@ export default {
     return axios.delete("/api/activitiesRoutes/deleteHostActivity/" + id);
   },
   updateAllHours: function (id) {
+    console.log("putting");
     return axios.put("/api/activitiesRoutes/updateAllHours/" + id);
   },
   // Login route
@@ -77,6 +77,9 @@ export default {
   // Post Organization
   postOrg: function () {
     return axios.post("/api/organization");
+  },
+  getUserStuff: function (userID) {
+    return axios.get("/api/activitiesRoutes/getUserStuff/" + userID);
   },
   getHoursPoints: function (userID) {
     return axios.get("/api/activitiesRoutes/getHoursPoints/" + userID);

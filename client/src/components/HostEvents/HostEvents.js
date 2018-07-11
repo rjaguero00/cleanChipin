@@ -15,7 +15,8 @@ class HostEvents extends Component {
         contact: "",
         time: "",
         location: "",
-        userID: ""
+        userID: "",
+        deleted:""
     };
 
     componentDidMount() {
@@ -30,6 +31,10 @@ class HostEvents extends Component {
             })
             .catch(err => console.log(err));
     };
+    componentDidUpdate(){
+        this.loadActivities()
+}
+
 
     loadActivities = () => {
         API.getHostActivities(this.state.userID)

@@ -6,7 +6,11 @@ import ReactDOM from 'react-dom';
 class Form extends Component {
     state = {
         email: "",
-        password: ""
+        password: "",
+        name: "",
+        imageString: ""
+
+
     };
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -20,29 +24,31 @@ class Form extends Component {
         if (this.state.email && this.state.password) {
             API.postUser({
                 email: this.state.email,
-                password: this.state.password
+                password: this.state.password,
+                name: this.state.name,
+                imageString: this.state.imageString
             })
                 .then(res => this.checkEmail(res))
                 .catch(err => console.log(err));
         }
     };
     checkEmail = (res) => {
-        if (res.data.success){
+        if (res.data.success) {
             console.log(res);
             console.log("Account created. You are logged in.");
             this.props.onRequestClose();
-        }else{
-        console.log(res);
-        console.log("Account with this email already exists.");
-        const title = React.createElement('h6', {}, 'Account with this email already exists.');
+        } else {
+            console.log(res);
+            console.log("Account with this email already exists.");
+            const title = React.createElement('h6', {}, 'Account with this email already exists.');
 
-        ReactDOM.render(
+            ReactDOM.render(
                 title,
                 document.getElementById('errormsg')
-        );
+            );
         }
     }
-    
+
     render() {
         return (
             <div className="Row">
@@ -61,15 +67,28 @@ class Form extends Component {
                         name="password"
                         placeholder="Whats the password?"
                     />
+                    <Input
+                        value={this.state.name}
+                        onChange={this.handleInputChange}
+                        name="name"
+                        placeholder="Username"
+                    />
+                    <Input
+                        value={this.state.imageString}
+                        onChange={this.handleInputChange}
+                        name="imageString"
+                        placeholder="Please link an Image"
+                    />
                     <FormBtn
                         disabled={!(this.state.email && this.state.password)}
                         onClick={this.handleFormSubmit}
+                        style={{ float: "right", marginBottom: 10 }}
                     >
                         Submit
                             </FormBtn>
 
                 </form>
-                
+
 
             </div>
 

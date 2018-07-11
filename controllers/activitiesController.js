@@ -107,6 +107,7 @@ module.exports = {
     },
 
 
+
     // model.Activity.findOne({
     //     where: {
     //         id: id
@@ -279,10 +280,21 @@ module.exports = {
     },
     updateAllHours: function (req, res) {
         var id = req.params.id;
-        model.User_Event_Bridge.updateAll(
-            { validated: true },
-            { where: { ActivityId: id } }
+        model.User_Event_Bridge.update(
+            { validated: true, attending: false },
+            { where: { ActivityId: id, attending: true } }
         ).then(function (data) {
+            res.json(data);
+        })
+    },
+    //for image display on the dashboard
+    getUserStuff: function (req, res) {
+        var userid = req.params.userID;
+        model.User.findOne({
+            where:
+                { id: userid }
+        }).then(function (data) {
+
             res.json(data);
         })
     },
