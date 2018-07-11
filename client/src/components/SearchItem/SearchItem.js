@@ -84,8 +84,8 @@ class SearchItem extends Component {
                     <p className="card-text cards">Location: {this.props.location}</p>
                     <p className="card-text cards">Date:{this.props.time}</p>
                     <p className="card-text cards">Points: {this.props.points}</p>
-                    <button onClick={this.saveAttending} className="attendBtn">Attend</button>
-                    <button onClick={this.saveActivity} className="saveBtn">Save</button>
+                    <button onClick={this.saveAttending} className="btn btn-info attendBtn">Attend</button>
+                    <button onClick={this.saveActivity} className="btn btn-info saveBtn">Save</button>
 
                     {/* <SearchModal
                         id={this.props.id}
