@@ -10,7 +10,7 @@ const Sidebar = props => (
 
         <ul className="list-unstyled components">
             <p><span id="user-name"></span></p> <img src={props.imageString} className="rounded mx-auto d-block" alt="..." height="200px" width="200px" />
-
+            <h2>{props.name}</h2>
 
             <li>
                 <Link to="/Dashboard/Saved" className={

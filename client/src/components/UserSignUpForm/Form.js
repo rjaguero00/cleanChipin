@@ -40,7 +40,7 @@ class Form extends Component {
         } else {
             console.log(res);
             console.log("Account with this email already exists.");
-            const title = React.createElement('h6', {}, 'Account with this email already exists.');
+            const title = React.createElement('h6', {style: {color: "white"}}, 'Account with this email already exists.');
 
             ReactDOM.render(
                 title,
@@ -65,6 +65,7 @@ class Form extends Component {
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         name="password"
+                        input type="password"
                         placeholder="Whats the password?"
                     />
                     <Input

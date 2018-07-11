@@ -40,6 +40,7 @@ class Form extends Component {
                     <Input
                         value={this.state.password}
                         onChange={this.handleInputChange}
+                        input type="password"
                         name="password"
                         placeholder="Whats the password?"
                     />

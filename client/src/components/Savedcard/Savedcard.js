@@ -117,8 +117,8 @@ class Savedcard extends Component {
                     <p className="card-text">Location: {this.props.location}</p>
                     <p className="card-text">Date:{this.props.time}</p>
                     <p className="card-text">Points: {this.props.points}</p>
-                    <button onClick={this.saveAttending} className="btn btn-primary">Attend</button>
-                    <button onClick={this.updateSavedActivity} className="btn btn-primary">Remove</button>
+                    <button onClick={this.saveAttending} className="btn btn-info">Attend</button>
+                    <button onClick={this.updateSavedActivity} className="btn btn-info">Remove</button>
                     {/* <SearchModal
                         title={this.props.title}
                         body={this.props.body}
