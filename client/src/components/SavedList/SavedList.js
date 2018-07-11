@@ -4,7 +4,7 @@ import Savedcard from '../Savedcard';
 
 const SavedList = ({ saved, ...props }) =>
     <div id="savedList" className="saved-List">
-        <h5 className="header text-center">Results</h5>
+        <h5 className="header text-center">Saved Events</h5>
         <div className="card-body">
             {saved[0] ?
                 saved.slice(0, 20).map(activity => {

@@ -10,8 +10,8 @@ const Sidebar = props => (
     <nav id="sidebar">
 
         <ul className="list-unstyled components">
-            <p><span id="user-name"></span></p> <img src={props.imageString} className="rounded mx-auto d-block" alt="..." height="200px" width="200px" />
-            <h2>{props.name}</h2>
+            <img src={props.imageString} className="rounded mx-auto d-block" alt="..." height="175px" width="175px" />
+            <h2 className="profileName" align="center">{props.name}</h2>
 
             <li>
                 <Link to="/Dashboard/Saved" className={
@@ -37,9 +37,10 @@ const Sidebar = props => (
             </li>
         </ul>
 
-        <ul>
-            Hours: <span id="hours">{props.hours}</span> || Points: <span id="points">{props.points}</span>
-        </ul>
+        <div align="center" className="hoursPoints">
+            {/* Hours: <span id="hours">{props.hours}</span> ||  */}
+            ChipIn Points:  <span id="points">{props.points}</span>
+        </div>
         <br></br>
         <div className="shareTitle" align="center">
             <h4>Share your points</h4>
@@ -47,27 +48,37 @@ const Sidebar = props => (
 
         <div className="socialcontainer" align="center">
             <div className="mediadiv">
-            <FacebookShareButton
-                className="socialBtn"
-                url='https://afternoon-wildwood-32656.herokuapp.com/'
-                quote={props.socialmsg}
-                hashtag='#Chipin'
-                className="fbsharebutton">
-                <FacebookIcon className="fbIcon"
-                    size={30} 
-                    round/>
-            </FacebookShareButton>
+                <FacebookShareButton
+                    className="socialBtn"
+                    url='https://afternoon-wildwood-32656.herokuapp.com/'
+                    quote={props.socialmsg}
+                    hashtag='#Chipin'>
+                    <FacebookIcon className="fbIcon"
+                        size={30} 
+                        round/>
+                </FacebookShareButton>
             </div>
             <div className="mediadiv">
-            <TwitterShareButton
-                className="socialBtn"
-                url="https://afternoon-wildwood-32656.herokuapp.com/"
-                title={props.socialmsg}
-                className="twtsharebutton">
-                <TwitterIcon
-                    size={30}
-                    round />
-            </TwitterShareButton>
+                <TwitterShareButton
+                    className="socialBtn"
+                    url="https://afternoon-wildwood-32656.herokuapp.com/"
+                    title={props.socialmsg}>
+                    <TwitterIcon
+                        size={30}
+                        round />
+                </TwitterShareButton>
+            </div>
+            <div className="mediadiv">
+                <LinkedinShareButton
+                    url="https://afternoon-wildwood-32656.herokuapp.com/"
+                    className="socialBtn"
+                    title={props.socialmsg}
+                    windowWidth={650}
+                    windowHeight={500}>
+                    <LinkedinIcon
+                        size={30}
+                        round />
+                </LinkedinShareButton>
             </div>
         </div>
     </nav>
