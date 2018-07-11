@@ -1,12 +1,13 @@
 import React from 'react';
 import HostItem from './HostItem'
 
-const HostList = ({ children }) =>
+const HostList = ({ children, ...props }) =>
     <div id="hostList" className="hostList">
         <h5 className="header">Events You Are Hosting</h5>
         <div className="card-body">
             {children[0] ?
                 children.slice(0, 20).map(activity => {
+                    console.log(activity);
                     return (
                         <HostItem
                             key={activity._id}
@@ -17,8 +18,8 @@ const HostList = ({ children }) =>
                             location={activity.address}
                             points={activity.points}
                             userID={activity.userID}
-                            deleted={activity.deleted}
-                            loadActivities={this.loadActivities}
+                            recollectData={props.recollectData}
+                        // loadActivities={this.loadActivities}
                         />
                     )
                 }) :
