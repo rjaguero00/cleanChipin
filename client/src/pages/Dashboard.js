@@ -130,6 +130,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        name={this.state.name}
                         imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points} />
@@ -145,6 +146,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        name={this.state.name}
                         currentPage={this.state.currentPage}
                         imageString={this.state.imageString}
                         hours={this.state.hours}
@@ -163,6 +165,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        name={this.state.name}
                         currentPage={this.state.currentPage}
                         imageString={this.state.imageString}
                         hours={this.state.hours}
