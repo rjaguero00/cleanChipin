@@ -15,8 +15,7 @@ class HostEvents extends Component {
         contact: "",
         time: "",
         location: "",
-        userID: "",
-        deleted:""
+        userID: ""
     };
 
     componentDidMount() {
@@ -31,10 +30,6 @@ class HostEvents extends Component {
             })
             .catch(err => console.log(err));
     };
-    componentDidUpdate(){
-        this.loadActivities()
-}
-
 
     loadActivities = () => {
         API.getHostActivities(this.state.userID)
@@ -51,7 +46,7 @@ class HostEvents extends Component {
                     <Col size="md-12 sm-12">
                         <div className="mx-auto hostResults">
                             <HostList
-                                loadActivities={this.loadActivities}>{this.state.results}</HostList>
+                                recollectData={this.loadActivities}>{this.state.results}</HostList>
                         </div>
                     </Col>
                 </Row>

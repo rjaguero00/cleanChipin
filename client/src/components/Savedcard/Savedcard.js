@@ -57,7 +57,7 @@ class Savedcard extends Component {
     // Save a volunteer activity as one the user is attending
     saveAttending = (event) => {
         console.log("id is: " + this.props.id);
-        console.log("userID is: " +this.state.userID);
+        console.log("userID is: " + this.state.userID);
         console.log(this.state.userID);
         event.preventDefault();
         API.saveAttending({
