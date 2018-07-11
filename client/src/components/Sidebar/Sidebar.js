@@ -40,12 +40,13 @@ const Sidebar = props => (
         <ul>
             Hours: <span id="hours">{props.hours}</span> || Points: <span id="points">{props.points}</span>
         </ul>
-
-        <div className="shareTitle">
+        <br></br>
+        <div className="shareTitle" align="center">
             <h4>Share your points</h4>
         </div>
 
-        <div className="socialbuttons">
+        <div className="socialcontainer" align="center">
+            <div className="mediadiv">
             <FacebookShareButton
                 className="socialBtn"
                 url='https://afternoon-wildwood-32656.herokuapp.com/'
@@ -56,6 +57,8 @@ const Sidebar = props => (
                     size={30} 
                     round/>
             </FacebookShareButton>
+            </div>
+            <div className="mediadiv">
             <TwitterShareButton
                 className="socialBtn"
                 url="https://afternoon-wildwood-32656.herokuapp.com/"
@@ -65,6 +68,7 @@ const Sidebar = props => (
                     size={30}
                     round />
             </TwitterShareButton>
+            </div>
         </div>
     </nav>
 );
