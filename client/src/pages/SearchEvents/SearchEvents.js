@@ -78,21 +78,6 @@ class SearchEvents extends Component {
     };
 
 
-
-    // submit search function for future filtered search of activities
-    // submitSearch = (searchData) => {
-    //     console.log(searchData);
-
-    //     API.searchActivites(searchData)
-    //         .then(res => {
-    //             this.setState({ results: res.data.response.docs });
-    //             console.log(this.state.results)
-    //         }
-    //         )
-    //         .catch(err => console.log(err));
-    // };
-
-
     render() {
         return (
             <div className="container search-container">
