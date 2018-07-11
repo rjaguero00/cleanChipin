@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FacebookIcon, FacebookShareButton, TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon,} from 'react-share';
 
 import "./Sidebar.css";
 import CreateEventsModal from "../CreateEventModal";
@@ -39,6 +40,31 @@ const Sidebar = props => (
         <ul>
             Hours: <span id="hours">{props.hours}</span> || Points: <span id="points">{props.points}</span>
         </ul>
+
+        <div className="shareTitle">
+            <h4>Share your points</h4>
+        </div>
+
+        <div className="socialbuttons">
+            <FacebookShareButton
+                className="socialBtn"
+                url='https://afternoon-wildwood-32656.herokuapp.com/'
+                quote={props.socialmsg}
+                hashtag='#Chipin'
+                className="fbsharebutton">
+                <FacebookIcon className="fbIcon"
+                    size={30} />
+            </FacebookShareButton>
+            <TwitterShareButton
+                className="socialBtn"
+                url="https://afternoon-wildwood-32656.herokuapp.com/"
+                title={props.socialmsg}
+                className="twtsharebutton">
+                <TwitterIcon
+                    size={30}
+                     />
+            </TwitterShareButton>
+        </div>
     </nav>
 );
 

@@ -26,7 +26,8 @@ class Dashboard extends Component {
         time: "",
         points: "",
         imageString: "",
-        name: ""
+        name: "",
+        socialmsg:""
     };
 
     componentDidMount() {
@@ -61,7 +62,11 @@ class Dashboard extends Component {
         console.log(userID);
         API.getPoints(userID)
             // .then(res => console.log(res.data))
-            .then(res => this.setState({ points: res.data }))
+            .then(res => {
+                this.setState({ points: res.data }),
+                this.setState({socialmsg: "I've reached " + res.data + " points on ChipIn!  Join me on ChipIn to start earning volunteer points."})
+            }
+            )
             .catch(err => console.log(err))
     };
 
@@ -108,7 +113,7 @@ class Dashboard extends Component {
                                 title: "",
                                 body: "",
                                 contact: "",
-                                location: ""
+                                location: "",
                             })
                         })
                 });
@@ -126,13 +131,15 @@ class Dashboard extends Component {
 
 
     renderPage = () => {
+        console.log(this.state.socialmsg);
         if (this.state.currentPage === "/Dashboard") {
             return (
                 <Wrapper>
                     <Sidebar
                         imageString={this.state.imageString}
                         hours={this.state.hours}
-                        points={this.state.points} />
+                        points={this.state.points}
+                        socialmsg={this.state.socialmsg} />
                     <div>
                         <SButton />
                     </div>
@@ -149,6 +156,7 @@ class Dashboard extends Component {
                         imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points}
+                        socialmsg={this.state.socialmsg}
                     />
                     <div>
                         <SButton />
@@ -167,7 +175,7 @@ class Dashboard extends Component {
                         imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points}
-
+                        socialmsg={this.state.socialmsg}
                     />
                     <div>
                         <SButton />
