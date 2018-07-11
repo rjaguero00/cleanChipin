@@ -57,31 +57,6 @@ Input.locationInput{
     width: 130px;
 }
 
-/* .searchBtn, .saveBtn, .attendBtn {
-    width: 90px;
-    height: 32px;;
-    padding: 0px;
-    margin-bottom: 5px;
-    background-color: transparent;
-    border: 2px #403466 ridge;
-    /* border-radius: 50px; */
-    /* color: #281942;
-    cursor: pointer;
-} */
-/* .saveBtn, .attendBtn {
-    float: right;
-    margin-left: 5px;
-    border-radius: 8px;
-} */
-/* .saveBtn:hover, .attendBtn:hover{
-    background-color: #281942;
-    color: #fff;
-} */
-/* .searchBtn:hover{
-    background: rgba(255,255,255,0.26);
-    border-color: #403466;
-    outline: none;
-} */ 
 .navbtn{
     border: none;
     margin-bottom: 3px;
@@ -99,6 +74,7 @@ a:link{
 }
 .card{
     background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
 }
 .card-body{
     padding-top: 3px;
