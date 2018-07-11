@@ -81,6 +81,15 @@ class Dashboard extends Component {
             .then(res => {
                 console.log(res.data);
                 let results = [];
+                if (res.data.length === 0) {
+                    this.setState({
+                        results: results,
+                        title: "",
+                        body: "",
+                        contact: "",
+                        location: ""
+                    })
+                }
                 res.data.forEach(activity => {
                     API.getActivity(activity.ActivityId)
                         .then(event => {
@@ -104,6 +113,15 @@ class Dashboard extends Component {
             .then(res => {
                 console.log(res.data);
                 let saved = [];
+                if (res.data.length === 0) {
+                    this.setState({
+                        saved: saved,
+                        title: "",
+                        body: "",
+                        contact: "",
+                        location: ""
+                    })
+                }
                 res.data.forEach(activity => {
                     API.getActivity(activity.ActivityId)
                         .then(event => {
@@ -136,6 +154,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        name={this.state.name}
                         imageString={this.state.imageString}
                         hours={this.state.hours}
                         points={this.state.points}
@@ -144,7 +163,7 @@ class Dashboard extends Component {
                         <SButton />
                     </div>
                     <div className="mx-auto">
-                        <EventList results={this.state.results}></EventList>
+                        <EventList results={this.state.results} recollectData={this.loadAttendingActivities}></EventList>
                     </div>
                 </Wrapper>
             );
@@ -152,6 +171,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        name={this.state.name}
                         currentPage={this.state.currentPage}
                         imageString={this.state.imageString}
                         hours={this.state.hours}
@@ -163,7 +183,7 @@ class Dashboard extends Component {
                     </div>
 
                     <div className="mx-auto">
-                        <SavedList saved={this.state.saved}></SavedList>
+                        <SavedList saved={this.state.saved} recollectData={this.loadSavedActivities}></SavedList>
                     </div>
                 </Wrapper>
             );
@@ -171,6 +191,7 @@ class Dashboard extends Component {
             return (
                 <Wrapper>
                     <Sidebar
+                        name={this.state.name}
                         currentPage={this.state.currentPage}
                         imageString={this.state.imageString}
                         hours={this.state.hours}
