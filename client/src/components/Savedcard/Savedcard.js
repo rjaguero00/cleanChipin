@@ -44,8 +44,14 @@ class Savedcard extends Component {
     }
 
     // Save/Favorite volunteer activity
-    removeActivity = (event) => {
-
+    updateSavedActivity = (event) => {
+        event.preventDefault();
+        API.updateSavedActivity({
+            id: this.props.id,
+            UserId: this.state.userID
+        }).then(() => {
+            this.props.recollectData();
+        })
     }
 
     // Save a volunteer activity as one the user is attending
@@ -112,7 +118,7 @@ class Savedcard extends Component {
                     <p className="card-text">Date:{this.props.time}</p>
                     <p className="card-text">Points: {this.props.points}</p>
                     <button onClick={this.saveAttending} className="btn btn-info">Attend</button>
-                    <button onClick={this.removeActivity} className="btn btn-info">Remove</button>
+                    <button onClick={this.updateSavedActivity} className="btn btn-info">Remove</button>
                     {/* <SearchModal
                         title={this.props.title}
                         body={this.props.body}

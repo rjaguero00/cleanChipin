@@ -2,7 +2,7 @@ import React from 'react';
 import Savedcard from '../Savedcard';
 
 
-const SavedList = ({ saved }) =>
+const SavedList = ({ saved, ...props }) =>
     <div id="savedList" className="saved-List">
         <h5 className="header text-center">Results</h5>
         <div className="card-body">
@@ -17,7 +17,8 @@ const SavedList = ({ saved }) =>
                             contact={activity.contact}
                             location={activity.address}
                             time={activity.time}
-                            hours={activity.hours} />
+                            hours={activity.hours}
+                            recollectData={props.recollectData} />
                     )
                 }) :
                 <h5>No Results</h5>

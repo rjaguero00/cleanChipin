@@ -18,9 +18,22 @@ class Eventcard extends Component {
         lng: ""
     };
 
-    // Save a volunteer activity as one the user is attending
+    // updates from attending to not attending and is removed from page
     notAttending = (event) => {
         event.preventDefault();
+        // this.setState({ results: this.state.results })
+        // const newResults = this.state.results.filer(results => {
+        //     return results;
+        // });
+        // this.setState({
+        //     results: [...newResults]
+        // })
+        API.notAttending({
+            id: this.props.id,
+            UserId: this.state.userID
+        }).then(() => {
+            this.props.recollectData();
+        })
     }
 
 
@@ -69,9 +82,9 @@ class Eventcard extends Component {
                     <p className="card-text">Description: {this.props.body}</p>
                     <p className="card-text">Contact: {this.props.contact}</p>
                     <p className="card-text">Location: {this.props.location}</p>
-                    <p className="card-text">Points: {this.props.points}</p>
                     <p className="card-text">Date:{this.props.time}</p>
-                    <button onClick={this.notAttending} className="btn btn-info">Not Attending</button>
+                    <p className="card-text">Points: {this.props.points}</p>
+                    <button onClick={this.notAttending} type="button" className="btn btn-info">Not Attending</button>
                     {/* <SearchModal
                         title={this.props.title}
                         body={this.props.body}
