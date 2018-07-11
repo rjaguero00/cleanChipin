@@ -53,7 +53,8 @@ const Sidebar = props => (
                 hashtag='#Chipin'
                 className="fbsharebutton">
                 <FacebookIcon className="fbIcon"
-                    size={30} />
+                    size={30} 
+                    round/>
             </FacebookShareButton>
             <TwitterShareButton
                 className="socialBtn"
@@ -62,7 +63,7 @@ const Sidebar = props => (
                 className="twtsharebutton">
                 <TwitterIcon
                     size={30}
-                     />
+                    round />
             </TwitterShareButton>
         </div>
     </nav>
