@@ -3,7 +3,7 @@ import Eventcard from '../Eventcard';
 import API from '../../utils/API';
 
 
-const EventList = ({ results }) =>
+const EventList = ({ results, ...props }) =>
     <div id="eventList" className="event-List">
         <h5 className="header text-center">Results</h5>
         <div className="card-body">
@@ -12,11 +12,13 @@ const EventList = ({ results }) =>
                     return (
                         <Eventcard
                             key={activity._id}
+                            id={activity.id}
                             title={activity.title}
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
-                            points={activity.points} />
+                            points={activity.points}
+                            recollectData={props.recollectData} />
                     )
                 }) :
                 <h5>No Results</h5>

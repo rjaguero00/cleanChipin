@@ -56,5 +56,11 @@ router.route("/getKeyword/:keyword")
 router.route("/getLocation/:location")
     .get(activitiesController.getLocation)
 
+router.route("/updateSavedActivity")
+    .put(activitiesController.updateSavedActivity)
+
+router.route("/notAttending")
+    .put(activitiesController.notAttending)
+
 
 module.exports = router; 
