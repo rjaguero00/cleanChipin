@@ -1,3 +1,6 @@
+.searchPage{
+    background-color:#e7e3e3;
+}
 .header{
     align-content: center;
     margin-top: 15px;
@@ -91,10 +94,32 @@ li{
 a:link{
     color: purple;
 }
+.card{
+    background-color: #fff;
+}
 .card-body{
+    padding-top: 3px;
     padding-bottom: 0px;
+    padding-right: 10px;
+
+}
+.resultItem{
+    margin-right: 0px;
+}
+.resultsList{
+ border-right: 1px solid rgb(230, 229, 229);
 }
 p {
     margin-bottom: 0px;
     font-size: 15px;
+}
+.videosList{
+    margin-top: 15px;
+    padding: 10px;
+    border-left: 1px solid rgb(230, 229, 229);
+}
+h10{
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: #555;
 }
