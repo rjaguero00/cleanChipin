@@ -223,6 +223,36 @@ module.exports = {
             }
         });
     },
+    updateSavedActivity: function (req, res) {
+        var id = req.body.id;
+        var UserID = req.body.UserId;
+        model.User_Event_Bridge.update(
+            { saved: false },
+            {
+                where: {
+                    UserId: UserID,
+                    ActivityId: id
+                }
+            }
+        ).then(function (data) {
+            res.json(data);
+        })
+    },
+    notAttending: function (req, res) {
+        var id = req.body.id;
+        var UserID = req.body.UserId;
+        model.User_Event_Bridge.update(
+            { attending: false },
+            {
+                where: {
+                    UserId: UserID,
+                    ActivityId: id
+                }
+            }
+        ).then(function (data) {
+            res.json(data);
+        })
+    },
 
     hostActivities: function (req, res) {
 

@@ -1,9 +1,11 @@
 {
     "development": {
         "username": "root",
-        "password": "temp",
+        "password": "root",
         "database": "chipindb",
-        "host": "127.0.0.1"
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "port": 8889
     },
     "test": {
         "username": "root",

@@ -29,6 +29,14 @@ export default {
 
     return axios.get("/api/activitiesRoutes/findSavedActivities/" + id);
   },
+  //updates from saved to not saved and is removed from saved dashboard
+  updateSavedActivity: function (activityData) {
+    return axios.put("/api/activitiesRoutes/updateSavedActivity", activityData)
+  },
+  //updates from attending to not attending and is removed from main dashboard
+  notAttending: function (attendingData) {
+    return axios.put("/api/activitiesRoutes/notAttending", attendingData)
+  },
   // Gets the activity with the given id
   getActivity: function (id) {
     return axios.get("/api/activitiesRoutes/activity/" + id);
