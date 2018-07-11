@@ -258,6 +258,7 @@ module.exports = {
             res.json(data);
         })
     },
+    //for image display on the dashboard
     getUserStuff: function (req, res) {
         var userid = req.params.userID;
         model.User.findOne({
