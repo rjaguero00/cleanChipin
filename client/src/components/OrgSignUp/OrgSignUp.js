@@ -88,7 +88,7 @@ class OrgSignUp extends React.Component {
                             <div className="form-group">
                                 <label for="exampleInputEmail1" style={{color: 'white'}}>Email address</label>
                                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" input />
-                                <small id="emailHelp" className="form-text text-muted" style={{color: 'white'}}>We'll never share your email with anyone else.</small>
+                                <small id="emailHelp" className="form-text" style={{color: 'white'}}>We'll never share your email with anyone else.</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" style={{color: 'white'}}>Password</label>
