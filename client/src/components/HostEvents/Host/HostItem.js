@@ -3,8 +3,12 @@ import API from '../../../utils/API.js';
 
 
 class HostItem extends Component {
+    state={
+        deleted: true
+    }
+
     handleLoad = () => (
-        this.props.loadActivities(this.props)
+        this.setState({deleted: true})
     );
     // Save a volunteer activity as one the user is attending
     deleteHostActivity = (event) => {
@@ -29,9 +33,8 @@ class HostItem extends Component {
                     <h5 className="card-title ">
                         <a href="">{this.props.title}</a></h5>
                     <p className="card-text">Location: {this.props.location}</p>
-                    <button onClick={this.updateAllHours} className="btn btn-primary">Verify All Hours</button>
-                    <button onClick={this.verify} className="btn btn-primary">Verify Hours</button>
-                    <button onClick={this.deleteHostActivity} className="btn btn-primary">Remove Post</button>
+                    <button onClick={this.updateAllHours} className="btn btn-info">Verify All Hours</button>
+                    <button onClick={this.deleteHostActivity} className="btn btn-info">{this.loadActivities}Remove Post</button>
 
                     {/* <Modal
                         id={this.props.id}

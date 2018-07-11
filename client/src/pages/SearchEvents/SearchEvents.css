@@ -1,3 +1,6 @@
+.searchPage{
+    background-color:#e7e3e3;
+}
 .header{
     align-content: center;
     margin-top: 15px;
@@ -50,8 +53,11 @@ Input.locationInput{
     height: 32px;
     border: none;
 }
+.btn-info{
+    width: 130px;
+}
 
-.searchBtn, .saveBtn, .attendBtn {
+/* .searchBtn, .saveBtn, .attendBtn {
     width: 90px;
     height: 32px;;
     padding: 0px;
@@ -59,23 +65,23 @@ Input.locationInput{
     background-color: transparent;
     border: 2px #403466 ridge;
     /* border-radius: 50px; */
-    color: #281942;
+    /* color: #281942;
     cursor: pointer;
-}
-.saveBtn, .attendBtn {
+} */
+/* .saveBtn, .attendBtn {
     float: right;
     margin-left: 5px;
     border-radius: 8px;
-}
-.saveBtn:hover, .attendBtn:hover{
+} */
+/* .saveBtn:hover, .attendBtn:hover{
     background-color: #281942;
     color: #fff;
-}
-.searchBtn:hover{
+} */
+/* .searchBtn:hover{
     background: rgba(255,255,255,0.26);
     border-color: #403466;
     outline: none;
-}
+} */ 
 .navbtn{
     border: none;
     margin-bottom: 3px;
@@ -91,10 +97,32 @@ li{
 a:link{
     color: purple;
 }
+.card{
+    background-color: #fff;
+}
 .card-body{
+    padding-top: 3px;
     padding-bottom: 0px;
+    padding-right: 10px;
+
+}
+.resultItem{
+    margin-right: 0px;
+}
+.resultsList{
+ border-right: 1px solid rgb(230, 229, 229);
 }
 p {
     margin-bottom: 0px;
     font-size: 15px;
+}
+.videosList{
+    margin-top: 15px;
+    padding: 10px;
+    border-left: 1px solid rgb(230, 229, 229);
+}
+h10{
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: #555;
 }

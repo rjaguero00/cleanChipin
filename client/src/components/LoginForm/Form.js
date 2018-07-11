@@ -48,7 +48,7 @@ class Form extends Component {
                         onClick={this.handleFormSubmit}
                     >
                         Submit
-                            </FormBtn>
+                    </FormBtn>
                 </form>
 
             </div>
