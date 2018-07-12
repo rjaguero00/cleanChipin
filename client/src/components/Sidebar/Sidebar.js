@@ -43,9 +43,10 @@ const Sidebar = props => (
             </li>
         </ul>
 
-        <ul>
-            Hours: <span id="hours">{props.hours}</span> || Points: <span id="points">{props.points}</span>
-        </ul>
+        <div align="center" className="hoursPoints">
+            {/* Hours: <span id="hours">{props.hours}</span> ||  */}
+            ChipIn Points:  <span id="points">{props.points}</span>
+        </div>
         <br></br>
         <div className="shareTitle" align="center">
             <h4>Share your points</h4>
@@ -57,23 +58,33 @@ const Sidebar = props => (
                     className="socialBtn"
                     url='https://afternoon-wildwood-32656.herokuapp.com/'
                     quote={props.socialmsg}
-                    hashtag='#Chipin'
-                    className="fbsharebutton">
+                    hashtag='#Chipin'>
                     <FacebookIcon className="fbIcon"
-                        size={30}
-                        round />
+                        size={30} 
+                        round/>
                 </FacebookShareButton>
             </div>
             <div className="mediadiv">
                 <TwitterShareButton
                     className="socialBtn"
                     url="https://afternoon-wildwood-32656.herokuapp.com/"
-                    title={props.socialmsg}
-                    className="twtsharebutton">
+                    title={props.socialmsg}>
                     <TwitterIcon
                         size={30}
                         round />
                 </TwitterShareButton>
+            </div>
+            <div className="mediadiv">
+                <LinkedinShareButton
+                    url="https://afternoon-wildwood-32656.herokuapp.com/"
+                    className="socialBtn"
+                    title={props.socialmsg}
+                    windowWidth={650}
+                    windowHeight={500}>
+                    <LinkedinIcon
+                        size={30}
+                        round />
+                </LinkedinShareButton>
             </div>
         </div>
     </nav>

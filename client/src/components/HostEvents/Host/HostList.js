@@ -19,7 +19,6 @@ const HostList = ({ children, ...props }) =>
                             points={activity.points}
                             userID={activity.userID}
                             recollectData={props.recollectData}
-                        // loadActivities={this.loadActivities}
                         />
                     )
                 }) :
