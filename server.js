@@ -25,7 +25,6 @@ app.use(routes);
 
 
 //static directory
-app.use(express.static(path.join(__dirname, 'build')));
 //catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
@@ -48,9 +47,9 @@ module.exports = app;
 
 //Syncing sequelize models then starting our app.
 
-db.sequelize.sync({ /*force: true*/ }).then(function () {
+// db.sequelize.sync({ /*force: true*/ }).then(function () {
 
-    app.listen(PORT, function () {
-        console.log("App listening on PORT " + PORT);
-    });
-});
+//     app.listen(PORT, function () {
+//         console.log("App listening on PORT " + PORT);
+//     });
+// });

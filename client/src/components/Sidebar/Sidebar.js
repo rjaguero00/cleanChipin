@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FacebookIcon, FacebookShareButton, TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon,} from 'react-share';
+import { FacebookIcon, FacebookShareButton, TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon, } from 'react-share';
 
 import "./Sidebar.css";
 import CreateEventsModal from "../CreateEventModal";
@@ -10,9 +10,15 @@ const Sidebar = props => (
     <nav id="sidebar">
 
         <ul className="list-unstyled components">
-            <img src={props.imageString} className="rounded mx-auto d-block" alt="..." height="175px" width="175px" />
-            <h2 className="profileName" align="center">{props.name}</h2>
-
+            <p><span id="user-name"></span></p> <img src={props.imageString} className="rounded mx-auto d-block" alt="..." height="200px" width="200px" />
+            <h2>{props.name}</h2>
+            <li>
+                <Link to="/Dashboard" className={
+                    props.currentPage === "/Dashboard" ? "active" : ""
+                }
+                >
+                    Attending Events</Link>
+            </li>
             <li>
                 <Link to="/Dashboard/Saved" className={
                     props.currentPage === "/Dashboard/Saved" ? "active" : ""
