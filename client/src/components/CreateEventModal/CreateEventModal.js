@@ -22,7 +22,7 @@ const customStyles = {
         height: '500px',
         backgroundColor: '#281942',
         border: 'none',
-        marginTop: '8px'
+        marginTop: '15px'
     },
     overlay: {
         position: 'absolute',
