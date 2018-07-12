@@ -93,9 +93,23 @@ a.article, a.article:hover {
     color: #fff !important;
 }
 .modalButton{
-    
     margin-top: 10px;
     padding: 0px;
+}
+.socialbuttons{
+    width: 100%;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 5px;
+}
+.SocialMediaShareButton{
+    cursor: pointer;
+}
+.mediadiv{
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {

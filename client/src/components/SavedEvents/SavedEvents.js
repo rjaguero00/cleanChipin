@@ -13,12 +13,13 @@ class SavedEvents extends Component {
         title: "",
         body: "",
         contact: "",
+        time: "",
         location: "",
         userID: ""
     };
 
     componentDidMount() {
-                // Get active user id using jwt token
+        // Get active user id using jwt token
         API.activeUser()
             .then(res => {
                 if (res.data.success) {
@@ -44,6 +45,7 @@ class SavedEvents extends Component {
                                 title: "",
                                 body: "",
                                 contact: "",
+                                time: "",
                                 location: ""
                             })
                         })
