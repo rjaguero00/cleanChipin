@@ -12,11 +12,11 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '360px',
-        height: '400px',
+        width: '500px',
+        height: '420px',
         padding: '10px',
-        color: 'white',
-        backgroundColor: '#281942',
+        color: '#281942',
+        backgroundColor: 'white',
         border: 'none',
     },
     overlay: {
@@ -50,7 +50,7 @@ class SearchModal extends React.Component {
 
     afterOpenModal() {
         // references are now sync'd and can be accessed.
-        this.subtitle.style.color = 'white';
+        this.subtitle.style.color = '#281942';
         this.subtitle.style.fontSize = '24px';
         this.subtitle.style.fontWeight = 'bold';
     }

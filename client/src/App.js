@@ -22,4 +22,5 @@ const App = () => (
   </Router>
 );
 
+// profile photos from https://randomuser.me
 export default App;
