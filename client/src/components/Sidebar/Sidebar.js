@@ -56,7 +56,7 @@ const Sidebar = props => (
             <div className="mediadiv">
                 <FacebookShareButton
                     className="socialBtn"
-                    url='https://young-everglades-97738.herokuapp.com/'
+                    url='https://chipin-project.herokuapp.com/'
                     quote={props.socialmsg}
                     hashtag='#Chipin'>
                     <FacebookIcon className="fbIcon"
@@ -67,7 +67,7 @@ const Sidebar = props => (
             <div className="mediadiv">
                 <TwitterShareButton
                     className="socialBtn"
-                    url="https://young-everglades-97738.herokuapp.com/"
+                    url="https://chipin-project.herokuapp.com/"
                     title={props.socialmsg}>
                     <TwitterIcon
                         size={30}
@@ -76,7 +76,7 @@ const Sidebar = props => (
             </div>
             <div className="mediadiv">
                 <LinkedinShareButton
-                    url="https://young-everglades-97738.herokuapp.com/"
+                    url="https://chipin-project.herokuapp.com/"
                     className="socialBtn"
                     title={props.socialmsg}
                     windowWidth={650}
