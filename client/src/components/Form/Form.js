@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { Input, TextArea, FormBtn } from "./Formitems";
+import "./Form.css";
 
 class Form extends Component {
     state = {

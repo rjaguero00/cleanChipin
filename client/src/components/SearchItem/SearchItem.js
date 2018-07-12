@@ -83,7 +83,7 @@ class SearchItem extends Component {
                     <p className="card-text cards">Description: {this.props.body}</p>
                     <p className="card-text cards">Contact: {this.props.contact}</p>
                     <p className="card-text cards">Location: {this.props.location}</p>
-                    <p className="card-text cards">Date:{this.props.time}</p>
+                    <p className="card-text cards">Date:  {this.props.time}</p>
                     <p className="card-text cards">Points: {this.props.points}</p>
                     <button onClick={this.saveAttending} className="btn btn-info attendBtn">Attend</button>
                     <button onClick={this.saveActivity} className="btn btn-info saveBtn">Save</button>

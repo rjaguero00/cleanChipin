@@ -55,6 +55,7 @@ Input.locationInput{
 }
 .searchBtn{
     height: 32px !important;
+    cursor: pointer;
 }
 .btn-info{
     width: 130px;
@@ -93,7 +94,7 @@ a:link{
  border-right: 1px solid rgb(230, 229, 229);
 }
 p {
-    margin-bottom: 0px;
+    margin-bottom: 3px;
     font-size: 15px;
 }
 .videosList{

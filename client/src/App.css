@@ -30,6 +30,9 @@
   margin-right:0px;
 
 }
+.jumbotron{
+  margin-top: 15px;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
