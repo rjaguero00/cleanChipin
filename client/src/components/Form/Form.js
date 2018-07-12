@@ -9,7 +9,7 @@ class Form extends Component {
         contact: "",
         body: "",
         address: "",
-        hours: 4,
+        hours: "",
         time: "",
         points: ""
     };
@@ -43,7 +43,7 @@ class Form extends Component {
                 body: this.state.body,
                 contact: this.state.contact,
                 address: this.state.address,
-                hours: this.state.hours,
+                // hours: this.state.hours,
                 time: this.state.time,
                 points: this.state.points
             })
