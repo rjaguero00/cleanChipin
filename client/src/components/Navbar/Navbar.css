@@ -15,3 +15,34 @@
   padding: 0px;
   filter: brightness(150%);
 }
+.loginBtn {
+background: transparent;
+color: rgba(255,255,255,.5);
+border: none;
+padding: 8px;
+}
+.loginBtn:hover, .signupBtn:hover{
+  color: rgba(255,255,255,.75);
+  cursor: pointer;
+}
+.loginBtn:focus, .signupBtn:focus{
+  outline: none;
+}
+.signupBtn{
+background: transparent;
+color: rgba(255,255,255,.5);
+border: none;
+padding: 8px;
+margin-right: 5px;
+}
+.about{
+  margin-left: 5px;
+}
+/* .loginDiv{
+padding: 8px 8px 8px 30px;
+}
+.signupDiv{
+padding: 8px 8px 8px 30px;
+} */
+
+

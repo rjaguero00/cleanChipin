@@ -18,7 +18,9 @@ class SearchEvents extends Component {
         location: "",
         time: "",
         keyword: "",
-        searchloc: ""
+        searchloc: "",
+        currentPage: 1,
+        resultsPerPage: 3
     };
 
     componentDidMount() {
@@ -141,6 +143,27 @@ class SearchEvents extends Component {
                         </div>
                     </Col>
                 </Row>
+
+
+
+                <nav aria-label="pagination example">
+                    <ul class="pagination justify-content-center">
+
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+
+
+                        <li class="page-item"><a class="page-link" id="1" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" id="2" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" id="3" href="#">3</a></li>
+
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
 
 
 
