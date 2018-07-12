@@ -5,7 +5,7 @@ import API from '../../utils/API';
 
 const EventList = ({ results, ...props }) =>
     <div id="eventList" className="event-List">
-        <h5 className="header text-center">Results</h5>
+        <h5 className="header text-center">Attending Events</h5>
         <div className="card-body">
             {results[0] ?
                 results.slice(0, 20).map(activity => {
