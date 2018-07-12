@@ -24,6 +24,9 @@ const SearchList = ({ children }) =>
                 <h5>No Results</h5>
             }
         </div>
+
+
+
     </div>;
 
 export default SearchList;

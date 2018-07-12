@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./Eventcard.css";
 import API from '../../utils/API.js';
+
 import Geocode from "react-geocode";
 import SearchModal from '../SearchModal/SearchModal.js';
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FacebookIcon, FacebookShareButton, TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon,} from 'react-share';
+import { FacebookIcon, FacebookShareButton, TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon, } from 'react-share';
 
 import "./Sidebar.css";
 import CreateEventsModal from "../CreateEventModal";
@@ -10,9 +10,15 @@ const Sidebar = props => (
     <nav id="sidebar">
 
         <ul className="list-unstyled components">
-            <p><span id="user-name"></span></p> <img src={props.imageString} className="rounded mx-auto d-block" alt="..." height="200px" width="200px" />
-            <h2>{props.name}</h2>
-
+            <img src={props.imageString} className="rounded mx-auto d-block" alt="..." height="175px" width="175px" />
+            <h2 align="center">{props.name}</h2>
+            <li>
+                <Link to="/Dashboard" className={
+                    props.currentPage === "/Dashboard" ? "active" : ""
+                }
+                >
+                    Attending Events</Link>
+            </li>
             <li>
                 <Link to="/Dashboard/Saved" className={
                     props.currentPage === "/Dashboard/Saved" ? "active" : ""
@@ -37,33 +43,49 @@ const Sidebar = props => (
             </li>
         </ul>
 
-        <ul>
-            Hours: <span id="hours">{props.hours}</span> || Points: <span id="points">{props.points}</span>
-        </ul>
-
-        <div className="shareTitle">
+        <div align="center" className="hoursPoints">
+            {/* Hours: <span id="hours">{props.hours}</span> ||  */}
+            ChipIn Points:  <span id="points">{props.points}</span>
+        </div>
+        <br></br>
+        <div className="shareTitle" align="center">
             <h4>Share your points</h4>
         </div>
 
-        <div className="socialbuttons">
-            <FacebookShareButton
-                className="socialBtn"
-                url='https://afternoon-wildwood-32656.herokuapp.com/'
-                quote={props.socialmsg}
-                hashtag='#Chipin'
-                className="fbsharebutton">
-                <FacebookIcon className="fbIcon"
-                    size={30} />
-            </FacebookShareButton>
-            <TwitterShareButton
-                className="socialBtn"
-                url="https://afternoon-wildwood-32656.herokuapp.com/"
-                title={props.socialmsg}
-                className="twtsharebutton">
-                <TwitterIcon
-                    size={30}
-                     />
-            </TwitterShareButton>
+        <div className="socialcontainer" align="center">
+            <div className="mediadiv">
+                <FacebookShareButton
+                    className="socialBtn"
+                    url='https://afternoon-wildwood-32656.herokuapp.com/'
+                    quote={props.socialmsg}
+                    hashtag='#Chipin'>
+                    <FacebookIcon className="fbIcon"
+                        size={30} 
+                        round/>
+                </FacebookShareButton>
+            </div>
+            <div className="mediadiv">
+                <TwitterShareButton
+                    className="socialBtn"
+                    url="https://afternoon-wildwood-32656.herokuapp.com/"
+                    title={props.socialmsg}>
+                    <TwitterIcon
+                        size={30}
+                        round />
+                </TwitterShareButton>
+            </div>
+            <div className="mediadiv">
+                <LinkedinShareButton
+                    url="https://afternoon-wildwood-32656.herokuapp.com/"
+                    className="socialBtn"
+                    title={props.socialmsg}
+                    windowWidth={650}
+                    windowHeight={500}>
+                    <LinkedinIcon
+                        size={30}
+                        round />
+                </LinkedinShareButton>
+            </div>
         </div>
     </nav>
 );
