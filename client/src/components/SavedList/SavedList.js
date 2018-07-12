@@ -17,6 +17,7 @@ const SavedList = ({ saved, ...props }) =>
                             contact={activity.contact}
                             location={activity.address}
                             time={activity.time}
+                            points={activity.points}
                             hours={activity.hours}
                             recollectData={props.recollectData} />
                     )

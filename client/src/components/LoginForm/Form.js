@@ -30,6 +30,7 @@ class Form extends Component {
     render() {
         return (
             <div className="Row">
+                <br></br>
                 <form>
                     <Input
                         value={this.state.email}
