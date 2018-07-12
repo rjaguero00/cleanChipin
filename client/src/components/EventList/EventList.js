@@ -17,6 +17,7 @@ const EventList = ({ results, ...props }) =>
                             body={activity.body}
                             contact={activity.contact}
                             location={activity.address}
+                            time={activity.time}
                             points={activity.points}
                             recollectData={props.recollectData} />
                     )
