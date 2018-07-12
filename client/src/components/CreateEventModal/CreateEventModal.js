@@ -60,22 +60,12 @@ class CreateEventsModal extends React.Component {
     closeModal() {
         this.setState({ modalIsOpen: false });
     }
-    // submitEvent = event => {
-    //     event.preventDefault();
-    //     API.postEvent(this.state.search)
-    //         .then(res => {
-    //             if (res.data.status === "error") {
-    //                 throw new Error(res.data.message);
-    //             }
-    //             this.setState({ results: res.data.message, error: " " });
-    //         })
-    //         .catch(err => this.setState({ error: err.message }));}
-    
+     
 
     render() {
         return (
             <div>
-                <button className="modalBtn" className="btn-primary" onClick={this.openModal}>Create Event</button>
+                <button className="modalBtn" className="btn-info" onClick={this.openModal}>Create Event</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}

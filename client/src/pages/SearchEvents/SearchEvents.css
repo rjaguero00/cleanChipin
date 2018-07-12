@@ -21,7 +21,7 @@ height: 30px;
 
 .searchBarRow{
     background-color: rgba(230, 133, 43, .8);
-    padding: 10px 0px 0px 0px;
+    padding: 18px 0px 0px 0px;
 }
 .searchBarCol{
     justify-content: left;
@@ -52,6 +52,9 @@ Input.locationInput{
     width: 220px;
     height: 32px;
     border: none;
+}
+.searchBtn{
+    height: 32px !important;
 }
 .btn-info{
     width: 130px;
@@ -102,3 +105,10 @@ h10{
     /* font-weight: bold; */
     color: #555;
 }
+a{
+    color: purple;
+}
+a:link{
+    color: purple;
+}
+
