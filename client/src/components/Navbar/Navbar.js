@@ -18,9 +18,12 @@ const Navbar = props => (
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul className="navbar-nav">
-                <OrgSignUp />
-                <LoginModal />
-                <UserSignUp />
+                <li>
+                    <LoginModal />
+                </li>
+                <li>
+                    <UserSignUp />
+                </li>
                 <li
                     className={
                         window.location.pathname === "/" ||
@@ -28,7 +31,7 @@ const Navbar = props => (
                             ? "nav-item active"
                             : "nav-item"
                     }>
-                    <Link to="/" className="nav-link">
+                    <Link to="/" className="nav-link about">
                         About
                     </Link>
                 </li>
